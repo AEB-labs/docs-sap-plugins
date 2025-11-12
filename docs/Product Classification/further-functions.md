@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-# Public Class /AEB/CL_TA_PB_MATERIAL_BF
+# Public Class /AEB/CL\_TA\_PB\_MATERIAL\_BF
 
-You can use the method REQUEST_CLASSIFICATION of this class for reading classifications directly from Product Classification or, depending on the settings there,  force the creation of classification values. 
+You can use the method REQUEST\_CLASSIFICATION of this class for reading classifications directly from Product Classification or, depending on the settings there,  force the creation of classification values. 
 
 This method can also be used to set the priority and reference of classifications in the engine (if the according classification is not yet approved completely). For details, see [Request Classification](https://customsmanagement.docs.developers.aeb.com/docs/request-the-classification-data-for-a-profile)
 
