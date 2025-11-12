@@ -16,24 +16,24 @@ next:
 ---
 To handle the result of a compliance check in your own implementations, you can use the following function modules to read entries from the Compliance Monitor:
 
-| Business object          | Read whole entry               | Check if status is open  |
-| :----------------------- | :----------------------------- | :----------------------- |
-| Accounting document      | /AEB/CMP_PB_GET_AD_MON_ENTRY   |                          |
-| Applicant                | /AEB/CMP_PB_GET_AP_MON_ENTRY   | /AEB/CMP_PB_IS_AP_OPEN   |
-| Bank                     | /AEB/CMP_PB_GET_BNK_MON_ENTRY  | /AEB/CMP_PB_IS_BNK_OPEN  |
-| Business partner         | /AEB/CMP_PB_GET_BP_MON_ENTRY   | /AEB/CMP_PB_IS_BP_OPEN   |
-| Customer                 | /AEB/CMP_PB_GET_CUS_MON_ENTRY  | /AEB/CMP_PB_IS_CUS_OPEN  |
-| Delivery                 | /AEB/CMP_PB_GET_DLV_MON_ENTRY  | /AEB/CMP_PB_IS_DLV_OPEN  |
-| Employee                 | /AEB/CMP_PB_GET_EM_MON_ENTRY   | /AEB/CMP_PB_IS_EM_OPEN   |
-| Material document        | /AEB/CMP_PB_GET_MD_MON_ENTRY   | /AEB/CMP_PB_IS_MD_OPEN   |
-| Purchase document        | /AEB/CMP_PB_GET_PD_MON_ENTRY   | /AEB/CMP_PB_IS_PD_OPEN   |
-| Payment                  | /AEB/CMP_PB_GET_PIP_MON_ENTRY  |                          |
-| Sales document           | /AEB/CMP_PB_GET_SDOC_MON_ENTRY | /AEB/CMP_PB_IS_SDOC_OPEN |
-| Service notification     | /AEB/CMP_PB_GET_SN_MON_ENTRY   | /AEB/CMP_PB_IS_SN_OPEN   |
-| Service order            | /AEB/CMP_PB_GET_SO_MON_ENTRY   | /AEB/CMP_PB_IS_SO_OPEN   |
-| Vendor                   | /AEB/CMP_PB_GET_VDR_MON_ENTRY  | /AEB/CMP_PB_IS_VDR_OPEN  |
-| CRM business transaction | /AEB/CMP_PB_GET_CBT_MON_ENTRY  |                          |
-| CRM business partner     | /AEB/CMP_PB_GET_CBP_MON_ENTRY  |                          |
+| Business object          | Read whole entry                    | Check if status is open      |
+| :----------------------- | :---------------------------------- | :--------------------------- |
+| Accounting document      | /AEB/CMP\_PB\_GET\_AD\_MON\_ENTRY   |                              |
+| Applicant                | /AEB/CMP\_PB\_GET\_AP\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_AP\_OPEN   |
+| Bank                     | /AEB/CMP\_PB\_GET\_BNK\_MON\_ENTRY  | /AEB/CMP\_PB\_IS\_BNK\_OPEN  |
+| Business partner         | /AEB/CMP\_PB\_GET\_BP\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_BP\_OPEN   |
+| Customer                 | /AEB/CMP\_PB\_GET\_CUS\_MON\_ENTRY  | /AEB/CMP\_PB\_IS\_CUS\_OPEN  |
+| Delivery                 | /AEB/CMP\_PB\_GET\_DLV\_MON\_ENTRY  | /AEB/CMP\_PB\_IS\_DLV\_OPEN  |
+| Employee                 | /AEB/CMP\_PB\_GET\_EM\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_EM\_OPEN   |
+| Material document        | /AEB/CMP\_PB\_GET\_MD\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_MD\_OPEN   |
+| Purchase document        | /AEB/CMP\_PB\_GET\_PD\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_PD\_OPEN   |
+| Payment                  | /AEB/CMP\_PB\_GET\_PIP\_MON\_ENTRY  |                              |
+| Sales document           | /AEB/CMP\_PB\_GET\_SDOC\_MON\_ENTRY | /AEB/CMP\_PB\_IS\_SDOC\_OPEN |
+| Service notification     | /AEB/CMP\_PB\_GET\_SN\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_SN\_OPEN   |
+| Service order            | /AEB/CMP\_PB\_GET\_SO\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_SO\_OPEN   |
+| Vendor                   | /AEB/CMP\_PB\_GET\_VDR\_MON\_ENTRY  | /AEB/CMP\_PB\_IS\_VDR\_OPEN  |
+| CRM business transaction | /AEB/CMP\_PB\_GET\_CBT\_MON\_ENTRY  |                              |
+| CRM business partner     | /AEB/CMP\_PB\_GET\_CBP\_MON\_ENTRY  |                              |
 
 Based on the found entries, you can decide on furher actions. Keep in mind that you can have mutliple entries per document because of different organization units, e.g. when the org unit is determined per plant and the plants are different for the document items.       
 
@@ -41,12 +41,12 @@ Based on the found entries, you can decide on furher actions. Keep in mind that 
 
 When using one of the functions above, the business object might be not relevant for the Compliance checks due to the configuration. This can be recognized as follows:
 
-- the export parameter EX_MONITOR_ENTRIES is initial
-- the exception NO_ORG_UNIT_RULE_FOUND or NO_ORG_UNIT_FOUND occurs
+* the export parameter EX\_MONITOR\_ENTRIES is initial
+* the exception NO\_ORG\_UNIT\_RULE\_FOUND or NO\_ORG\_UNIT\_FOUND occurs
 
 ## Calling the functions when saving a sales order or delivery
 
-For  sales orders and deliveries you can call  the according functions during the save in the user exit. If you execute the call in the prepare_document-section of the user exit, the result is based on the monitor entry that was created before the current check (the check that is just executed in the save process). If  you call the function in the "Save_Document"-section of the user exit, and after the /AEB/  include, the result is based on the current check.
+For  sales orders and deliveries you can call  the according functions during the save in the user exit. If you execute the call in the prepare\_document-section of the user exit, the result is based on the monitor entry that was created before the current check (the check that is just executed in the save process). If  you call the function in the "Save\_Document"-section of the user exit, and after the /AEB/  include, the result is based on the current check.
 
 ## React to the check result of purchase documents
 
@@ -56,14 +56,14 @@ Purchase documents don't have any blocks. Therefore you might want to establish 
 
 ### Output messages
 
-In case of a critical result, you might want to prevent the triggering of output messages, e.g. an order confirmation to the vendor. Assuming the dispatch time of the output is not set to “Send immediately (when saving the application)” one can define conditions in the procedure for application "EF".    There you could amend or define a routine for the field "Requirement" and use the function /AEB/CMP_PB_GET_PD_MON_ENTRY to read the Compliance Monitor entry for the purchase order. The routine could check if one of found monitor entries  contains an “X” in the fields "HAS_SCR_HIT", "HAS_SCR_ERR", "HAS_EC_HIT" or "HAS_EC_ERR".   Or if the field "STATUS_ID" is equal to "J" (Prohibited). Define a negative result in the requirement routine so it prevents the output message from being triggered.  
-Once a formerly critical purchase order gets released in the Compliance Monitor, you can automatically trigger actions.   Implement the BAdI /AEB/CMP_MONITOR_11 , method PURCHASE_DOCUMENT_DEBLOCKED to react to the release in the monitor.
+In case of a critical result, you might want to prevent the triggering of output messages, e.g. an order confirmation to the vendor. Assuming the dispatch time of the output is not set to “Send immediately (when saving the application)” one can define conditions in the procedure for application "EF".    There you could amend or define a routine for the field "Requirement" and use the function /AEB/CMP\_PB\_GET\_PD\_MON\_ENTRY to read the Compliance Monitor entry for the purchase order. The routine could check if one of found monitor entries  contains an “X” in the fields "HAS\_SCR\_HIT", "HAS\_SCR\_ERR", "HAS\_EC\_HIT" or "HAS\_EC\_ERR".   Or if the field "STATUS\_ID" is equal to "J" (Prohibited). Define a negative result in the requirement routine so it prevents the output message from being triggered.\
+Once a formerly critical purchase order gets released in the Compliance Monitor, you can automatically trigger actions.   Implement the BAdI /AEB/CMP\_MONITOR\_11 , method PURCHASE\_DOCUMENT\_DEBLOCKED to react to the release in the monitor.
 
 ### Release of a purchase order using ME29N
 
-SAP provides the standard functionality to put new purchase orders in a release process.  One could implement the BAdI ME_PROCESS_PO_CUST => method CHECK to trigger the AEB Compliance check at the transaction for releasing these purchase orders (transaction code ME29N). 
+SAP provides the standard functionality to put new purchase orders in a release process.  One could implement the BAdI ME\_PROCESS\_PO\_CUST => method CHECK to trigger the AEB Compliance check at the transaction for releasing these purchase orders (transaction code ME29N). 
 
-> 🚧 SAP does not recommend to execute a COMMIT_WORK in this BAdI. Calling an AEB function that triggers  a Compliance check will do so. This code example is just reading the result and not triggering a check. However,  make sure you're checking the potential technical risks.
+> 🚧 SAP does not recommend to execute a COMMIT\_WORK in this BAdI. Calling an AEB function that triggers  a Compliance check will do so. This code example is just reading the result and not triggering a check. However,  make sure you're checking the potential technical risks.
 
 ```text Prevent release in ME29N
 DATA:
