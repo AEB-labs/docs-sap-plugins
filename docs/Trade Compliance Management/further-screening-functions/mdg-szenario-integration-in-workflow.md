@@ -12,11 +12,11 @@ next:
 ---
 For the integration in a SAP MDG System we provide some functions to implement a compliance check for business partners from the workflow. 
 
-Let us start with the check out of an workflow. For this case we provide the class /AEB/CL_CMP_PB_SYNC_CHK_BC. 
+Let us start with the check out of an workflow. For this case we provide the class /AEB/CL\_CMP\_PB\_SYNC\_CHK\_BC. 
 
 The first step is to ensure that in the workflow the 2 final steps of the workflow saving the change request as a business partner and replicating it to the target systems are separated into two steps.  
 
-Then, between saving and replicating, the business partner check can be called via this class. It is  
+Then, between saving and replicating, the business partner check can be called via this class. It is\
 important that at that time the business partner has already been saved. The check use the data from the business partner tables. Not from the workflow/the change request. 
 
 In case the result of the check is critical workflow has to wait until the Compliance result handling is completed (Until resulthandling BADI is called). In case an error occurs IT has to check for the reason of the error and user has to manually restart the current workflow (Check business partner has to be called again).
@@ -72,13 +72,13 @@ ENDTRY.
 
 In every case of an check we call a BADI to handle the result. In case of the check out of the workflow there should not be a todo. But the next step, after a workflow is stopped because of a critical result, the business partner would be released from the Compliance Monitor and this result can be handled via the following BADIs. 
 
-- /AEB/CMP_BUS_PRT_02 (Suspicious found)
-- /AEB/CMP_BUS_PRT_03 (Nothing suspicious)
-- /AEB/CMP_BUS_PRT_07 (Suspicious became good)  
+* /AEB/CMP\_BUS\_PRT\_02 (Suspicious found)
+* /AEB/CMP\_BUS\_PRT\_03 (Nothing suspicious)
+* /AEB/CMP\_BUS\_PRT\_07 (Suspicious became good)\
   All BADIs have 3 parameters:
-- im_entry_mo, which could be used to change the mdg_chg_req_no
-- im_check_context, which could be used to indentify where you called from (Monitor, SyncCheck ....)
-- im_ous_chk_res_do, the check results of all org units, which could be used to compare different results
+* im\_entry\_mo, which could be used to change the mdg\_chg\_req\_no
+* im\_check\_context, which could be used to indentify where you called from (Monitor, SyncCheck ....)
+* im\_ous\_chk\_res\_do, the check results of all org units, which could be used to compare different results
 
 ```text Implementation of /AEB/CMP_BUS_PRT_07 & /AEB/CMP_BUS_PRT_03
 IF im_check_context->get_check_context( ) <> im_check_context->c_chk_context_sync "Sync context is set if called from workflow
