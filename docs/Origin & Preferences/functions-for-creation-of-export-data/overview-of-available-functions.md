@@ -14,57 +14,57 @@ next:
       slug: further-badi-implementations
       title: Further BAdI definitions
 ---
-All functions are located in the function group /AEB/WU_PB_CREATE_EXP_DATA.
+All functions are located in the function group /AEB/WU\_PB\_CREATE\_EXP\_DATA.
 
-- /AEB/WU_PB_CR_GOODS_RECEIPT
-- /AEB/WU_PB_CR_MATERIAL
-- /AEB/WU_PB_CR_PARTS_LIST
-- /AEB/WU_PB_CR_SALES_ORDER
+* /AEB/WU\_PB\_CR\_GOODS\_RECEIPT
+* /AEB/WU\_PB\_CR\_MATERIAL
+* /AEB/WU\_PB\_CR\_PARTS\_LIST
+* /AEB/WU\_PB\_CR\_SALES\_ORDER
 
-# /AEB/WU_PB_CR_GOODS_RECEIPT
+# /AEB/WU\_PB\_CR\_GOODS\_RECEIPT
 
 This function module offers the function of creating and transferring goods receipt data.
 
 Import parameters:
 
-> IM_GOODS_RECEIPT_DO (goods receipt data)
+> IM\_GOODS\_RECEIPT\_DO (goods receipt data)
 
 Exceptions:
 
-> /AEB/CX_WU_PB_EXPORT_SC (Exception during data transfer)
+> /AEB/CX\_WU\_PB\_EXPORT\_SC (Exception during data transfer)
 
-# /AEB/WU_PB_CR_MATERIAL
+# /AEB/WU\_PB\_CR\_MATERIAL
 
 This function module offers the function of creating and transferring material data.
 
 Import parameters:
 
-> IM_MATERIAL_DO (material data)
+> IM\_MATERIAL\_DO (material data)
 
 Exceptions:
 
-> /AEB/CX_WU_PB_EXPORT_SC (Exception during data transfer)
+> /AEB/CX\_WU\_PB\_EXPORT\_SC (Exception during data transfer)
 
-# /AEB/WU_PB_CR_PARTS_LIST
+# /AEB/WU\_PB\_CR\_PARTS\_LIST
 
 This function module offers the function of creating and transferring bills of material.
 
 Import parameters:
 
-> IM_PARTS_LIST_DO (BOM header)
+> IM\_PARTS\_LIST\_DO (BOM header)
 
 Exceptions:
 
-> /AEB/CX_WU_PB_EXPORT_SC (Exception during data transfer)
+> /AEB/CX\_WU\_PB\_EXPORT\_SC (Exception during data transfer)
 
-# /AEB/WU_PB_CR_SALES_ORDER
+# /AEB/WU\_PB\_CR\_SALES\_ORDER
 
 This function module offers the function of creating und transferring order data.
 
 Import parameters:
 
-> IM_SALES_ORDER_DO (order data)
+> IM\_SALES\_ORDER\_DO (order data)
 
 Exceptions:
 
-> /AEB/CX_WU_PB_EXPORT_SC (Exception during data transfer)
+> /AEB/CX\_WU\_PB\_EXPORT\_SC (Exception during data transfer)
