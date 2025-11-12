@@ -12,13 +12,13 @@ next:
 ---
 If you use the Risk Assessment module in Trade Compliance Management and want to know how many questionnaires already exist you can use an according function in a BAdI implementation. Available BAdIs are listed as follows:
 
-| SAP business object            | BAdI                 |
-| :----------------------------- | :------------------- |
-| Sales document                 | /AEB/CMP_EC_ORDER_06 |
-| Delivery                       | /AEB/CMP_EC_DLV_03   |
-| Purchase document              | /AEB/CMP_EC_PD_03    |
-| Service orders (ERP ECC)       | /AEB/CMP_EC_SO_03    |
-| Service transactions (S/4HANA) | /AE1/CMP_EC_ST_02    |
+| SAP business object            | BAdI                    |
+| :----------------------------- | :---------------------- |
+| Sales document                 | /AEB/CMP\_EC\_ORDER\_06 |
+| Delivery                       | /AEB/CMP\_EC\_DLV\_03   |
+| Purchase document              | /AEB/CMP\_EC\_PD\_03    |
+| Service orders (ERP ECC)       | /AEB/CMP\_EC\_SO\_03    |
+| Service transactions (S/4HANA) | /AE1/CMP\_EC\_ST\_02    |
 
 ## Get count of questionnaires
 
