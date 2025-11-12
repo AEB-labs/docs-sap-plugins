@@ -12,19 +12,19 @@ next:
 ---
 This section lists the functions that can be used in a context of a concrete document. Choose the according object class for instantiation based on the document type:
 
-| Document type     | Class to use               |
-| :---------------- | :------------------------- |
-| Billing document  | /AEB/CL_AES_PB_INV_DECL_BC |
-| Purchase document | /AEB/CL_AES_PB_PD_DECL_BC  |
-| Delivery document | /AEB/CL_AES_PB_SDV_DECL_BC |
-| Shipment document | /AEB/CL_AES_PB_SHP_DECL_BC |
-| Incoming invoice  | /AEB/CL_AES_PB_II_DECL_BC  |
-| Freight order     | /AE1/CL_AES_PB_FRO_DECL_BC |
-| Material document | /AEB/CL_AES_PB_MD_DECL_BC  |
+| Document type     | Class to use                    |
+| :---------------- | :------------------------------ |
+| Billing document  | /AEB/CL\_AES\_PB\_INV\_DECL\_BC |
+| Purchase document | /AEB/CL\_AES\_PB\_PD\_DECL\_BC  |
+| Delivery document | /AEB/CL\_AES\_PB\_SDV\_DECL\_BC |
+| Shipment document | /AEB/CL\_AES\_PB\_SHP\_DECL\_BC |
+| Incoming invoice  | /AEB/CL\_AES\_PB\_II\_DECL\_BC  |
+| Freight order     | /AE1/CL\_AES\_PB\_FRO\_DECL\_BC |
+| Material document | /AEB/CL\_AES\_PB\_MD\_DECL\_BC  |
 
 ## Querying customs declarations data
 
-You can use the method  _get_declarations_ to query all associated customs declarations for a document that have already been synchronized.
+You can use the method  *get\_declarations* to query all associated customs declarations for a document that have already been synchronized.
 
 ```text Example coding to query ICI customs declarations for a invoice document and read their MRN
 DATA:
@@ -57,4 +57,4 @@ ENDTRY.
 
 ## Marking documents as printed
 
-When handling customs documents, it can be rqeuired that you want to print them in an individual way which the standard solution doesn't support. In this case you want to tell the standard application that you have printed the document yourself or rather mark the document as printed. To do this, use the class /AEB/CL_AES_PB_DOC_STA_BC with the method MARK_DOCUMENT_AS_PRINTED.
+When handling customs documents, it can be rqeuired that you want to print them in an individual way which the standard solution doesn't support. In this case you want to tell the standard application that you have printed the document yourself or rather mark the document as printed. To do this, use the class /AEB/CL\_AES\_PB\_DOC\_STA\_BC with the method MARK\_DOCUMENT\_AS\_PRINTED.
