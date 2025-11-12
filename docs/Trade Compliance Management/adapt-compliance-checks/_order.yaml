@@ -3,3 +3,4 @@
 - read-results-of-overall-check-copy
 - add-data-to-compliance-monitor
 - suppress-gui-interaction
+- restrict-background-task-usage
