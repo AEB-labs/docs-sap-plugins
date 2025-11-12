@@ -28,4 +28,4 @@ next:
 ---
 Export Controls checks can be adapted in several ways. Check the following sub pages.  
 
-General information:  The add-on for SAP calls the method _doExportControlChecks_ of the business facade  _IExportControl40BF_ in Trade Compliance Management. Check the according API documentation for further details.
+General information:  The add-on for SAP calls the method *doExportControlChecks* of the business facade  *IExportControl40BF* in Trade Compliance Management. Check the according API documentation for further details.
