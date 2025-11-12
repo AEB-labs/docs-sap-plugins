@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Use the method PROCESS_SHIPMENT of class /AEB/CL_PA_PB_CARRIER_BF for updates of a shipping order, e.g. adding packages to it. Example program:   
+Use the method PROCESS\_SHIPMENT of class /AEB/CL\_PA\_PB\_CARRIER\_BF for updates of a shipping order, e.g. adding packages to it. Example program:   
 
 ```text Process shipment
 REPORT zaeb_process_shipment.
