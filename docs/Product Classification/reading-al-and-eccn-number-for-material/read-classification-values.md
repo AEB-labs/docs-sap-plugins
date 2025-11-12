@@ -16,8 +16,8 @@ next:
 ---
 You have two options to read classifications:
 
-- get a value by type name
-- get a value by profile
+* get a value by type name
+* get a value by profile
 
 The following example shows how to use the option to get the value by type name. In addition to the type name you have to provide the decisive date for which the classification is valid. 
 
