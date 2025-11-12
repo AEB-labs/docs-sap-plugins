@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-You can send your own custom events from SAP to Monitoring & Alerting using the function module '/AEB/MA_PB_TF_TE_CUS'.  Make sure the shipment has been created in Monitoring & Alerting already, otherwise the event cannot be matched there.
+You can send your own custom events from SAP to Monitoring & Alerting using the function module '/AEB/MA\_PB\_TF\_TE\_CUS'.  Make sure the shipment has been created in Monitoring & Alerting already, otherwise the event cannot be matched there.
 
-The example below is sending an event with the event code "/AEB/SAP_GOODS_ISSUE".  It's using the shipment number in Monitoring & Alerting as a reference to the shipment object. Any other data of the event can be custom, just fill 'te_do' with relevant information you want to transfer.
+The example below is sending an event with the event code "/AEB/SAP\_GOODS\_ISSUE".  It's using the shipment number in Monitoring & Alerting as a reference to the shipment object. Any other data of the event can be custom, just fill 'te\_do' with relevant information you want to transfer.
 
 ```Text /AEB/MA_PB_TF_TE_CUS example coding
 DATA:
@@ -62,4 +62,4 @@ Example process:
 
 Outbound delivery #80000111 is sent from SAP to  Monitoring & Alerting, creating a new shipment with number  80000111 there.
 
-Afterwards, you're sending the event "PACKED" using the value 80000111 as reference value for reference type "CONS_NO"  (shipment number).
+Afterwards, you're sending the event "PACKED" using the value 80000111 as reference value for reference type "CONS\_NO"  (shipment number).
