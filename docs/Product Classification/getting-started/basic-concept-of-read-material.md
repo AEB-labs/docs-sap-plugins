@@ -19,5 +19,5 @@ next:
       slug: examples-for-badi-implementations
       title: Adapt the transfer of materials
 ---
-In order to read material data in SAP that was orginally maintained in Product Classifciation, it needs to be synchronized first.
+In order to read material data in SAP that was orginally maintained in Product Classifciation, it needs to be synchronized first.\
 What you need to consider -  not the whole material data is synchronized. You have to activate it for classification values and for certificates.
