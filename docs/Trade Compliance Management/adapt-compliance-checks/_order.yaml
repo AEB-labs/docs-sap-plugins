@@ -5,3 +5,4 @@
 - suppress-gui-interaction
 - restrict-background-task-usage
 - write-compliance-log-entries
+- trigger-asynchronous-checks
