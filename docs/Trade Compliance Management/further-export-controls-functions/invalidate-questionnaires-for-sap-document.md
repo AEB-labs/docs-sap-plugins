@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To invalidate the questionnaires for a SAP document, you can use the method INVALIDATE_QUESTIONNAIRES from the public class /AEB/CL_CMP_PB_QUEST_BC. The template ID is optional and can be left empty, when all questionnaires of one SAP document should be invalidated. 
+To invalidate the questionnaires for a SAP document, you can use the method INVALIDATE\_QUESTIONNAIRES from the public class /AEB/CL\_CMP\_PB\_QUEST\_BC. The template ID is optional and can be left empty, when all questionnaires of one SAP document should be invalidated. 
 
 ```Text Invalidate Questionnaires
 DATA:
