@@ -12,15 +12,15 @@ next:
 ---
 Traceability and transparency is an important factor for customer developments. For this reason we provide public classes to create log entries into the AEB log application, so they can be seen with one look together with the standard logs by AEB. This also includes all the standard features of the AEB log applications like mail distribution and the authorization concept. 
 
-| Product                     | Class                    |
-| :-------------------------- | :----------------------- |
-| Customs Management          | /AEB/CL_AES_PB_LOGGER_BC |
-| Trade Compliance Management | /AEB/CL_CMP_PB_LOGGER_BC |
-| AEB Connector               | /AEB/CL_CT_PB_LOGGER_BC  |
-| Carrier Connect             | /AEB/CL_PA_PB_LOGGER_BC  |
-| Product Classification      | /AEB/CL_TA_PB_LOGGER_BC  |
-| Origin & Preferences        | /AEB/CL_WU_PB_LOGGER_BC  |
-| Monitoring & Alerting       | /AEB/CL_MA_PB_LOGGER_BC  |
+| Product                     | Class                        |
+| :-------------------------- | :--------------------------- |
+| Customs Management          | /AEB/CL\_AES\_PB\_LOGGER\_BC |
+| Trade Compliance Management | /AEB/CL\_CMP\_PB\_LOGGER\_BC |
+| AEB Connector               | /AEB/CL\_CT\_PB\_LOGGER\_BC  |
+| Carrier Connect             | /AEB/CL\_PA\_PB\_LOGGER\_BC  |
+| Product Classification      | /AEB/CL\_TA\_PB\_LOGGER\_BC  |
+| Origin & Preferences        | /AEB/CL\_WU\_PB\_LOGGER\_BC  |
+| Monitoring & Alerting       | /AEB/CL\_MA\_PB\_LOGGER\_BC  |
 
 ```text Example call to write a log
 DATA:
