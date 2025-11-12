@@ -14,19 +14,19 @@ next:
 
 To delete entries from the Compliance Monitor, use one of the following function modules: 
 
-| Business object      | Function module               |
-| :------------------- | :---------------------------- |
-| Account document     | /AEB/CMP_PB_DELETE_AD_ENTRY   |
-| Applicant            | /AEB/CMP_PB_DELETE_AP_ENTRY   |
-| Bank                 | /AEB/CMP_PB_DELETE_BNK_ENTRY  |
-| Business object      | /AEB/CMP_PB_DELETE_BP_ENTRY   |
-| Customer             | /AEB/CMP_PB_DELETE_CUS_ENTRY  |
-| Delivery             | /AEB/CMP_PB_DELETE_DLV_ENTRY  |
-| Employee             | /AEB/CMP_PB_DELETE_EM_ENTRY   |
-| Material documents   | /AEB/CMP_PB_DELETE_MD_ENTRY   |
-| Purchase document    | /AEB/CMP_PB_DELETE_PD_ENTRY   |
-| Payment              | /AEB/CMP_PB_DELETE_PIP_ENTRY  |
-| Sales document       | /AEB/CMP_PB_DELETE_SDOC_ENTRY |
-| Service notification | /AEB/CMP_PB_DELETE_SN_ENTRY   |
-| Service order        | /AEB/CMP_PB_DELETE_SO_ENTRY   |
-| Vendor               | /AEB/CMP_PB_DELETE_VDR_ENTRY  |
+| Business object      | Function module                   |
+| :------------------- | :-------------------------------- |
+| Account document     | /AEB/CMP\_PB\_DELETE\_AD\_ENTRY   |
+| Applicant            | /AEB/CMP\_PB\_DELETE\_AP\_ENTRY   |
+| Bank                 | /AEB/CMP\_PB\_DELETE\_BNK\_ENTRY  |
+| Business object      | /AEB/CMP\_PB\_DELETE\_BP\_ENTRY   |
+| Customer             | /AEB/CMP\_PB\_DELETE\_CUS\_ENTRY  |
+| Delivery             | /AEB/CMP\_PB\_DELETE\_DLV\_ENTRY  |
+| Employee             | /AEB/CMP\_PB\_DELETE\_EM\_ENTRY   |
+| Material documents   | /AEB/CMP\_PB\_DELETE\_MD\_ENTRY   |
+| Purchase document    | /AEB/CMP\_PB\_DELETE\_PD\_ENTRY   |
+| Payment              | /AEB/CMP\_PB\_DELETE\_PIP\_ENTRY  |
+| Sales document       | /AEB/CMP\_PB\_DELETE\_SDOC\_ENTRY |
+| Service notification | /AEB/CMP\_PB\_DELETE\_SN\_ENTRY   |
+| Service order        | /AEB/CMP\_PB\_DELETE\_SO\_ENTRY   |
+| Vendor               | /AEB/CMP\_PB\_DELETE\_VDR\_ENTRY  |
