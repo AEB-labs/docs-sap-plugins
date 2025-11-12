@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The communication from SAP to Carrier Cloud is synchronous, so you'll receive data in the response of the call ( result parameter), which you can use for further processing. But you can also trigger another call to Carrier Cloud to read the data of a shipping order, using method GET_SHIPMENTS of class /AEB/CL_PA_PB_CARRIER_BF.
+The communication from SAP to Carrier Cloud is synchronous, so you'll receive data in the response of the call ( result parameter), which you can use for further processing. But you can also trigger another call to Carrier Cloud to read the data of a shipping order, using method GET\_SHIPMENTS of class /AEB/CL\_PA\_PB\_CARRIER\_BF.
 
 This program first determines the values required for the call (org unit, connection parameters, reference) and then gets the data from the according shipping orders: 
 
