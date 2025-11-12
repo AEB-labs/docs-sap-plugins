@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To open the questionnaire for a delivery or sales document, you can use the following methods from the public class /AEB/CL_CMP_PB_OPEN_QUEST_AC.
+To open the questionnaire for a delivery or sales document, you can use the following methods from the public class /AEB/CL\_CMP\_PB\_OPEN\_QUEST\_AC.
 
 ## Open questionnaire for Delivery
 
