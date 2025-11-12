@@ -10,13 +10,11 @@ metadata:
 next:
   description: ''
 ---
-Once you're shipping to non domestic destinations, the carrier might require customs related data to handle clearance. You can use the method UPDATE_CUSTOMS_DATA of class /AEB/CL_PA_PB_CARRIER_BF to update customs data for an existing shipping order. Updates can be done on header and item level.  
+Once you're shipping to non domestic destinations, the carrier might require customs related data to handle clearance. You can use the method UPDATE\_CUSTOMS\_DATA of class /AEB/CL\_PA\_PB\_CARRIER\_BF to update customs data for an existing shipping order. Updates can be done on header and item level.  
 
 Required data could reference numbers (MRN), item values, etc. See [API - Update customs data ](https://transport-freight-management.docs.developers.aeb.com/reference/updatecustomsdata) for a documentation of the available fields for an update. 
 
 "Paperless trade" usually means the upload of certain documents provided by customs, e.g. an export accompaning document (EAD). See [Attach documents](https://dash.readme.com/project/sap-plugin/v1.0/docs/attach-documents-to-a-shipping-order) for more infomation.
-
-
 
 ```text Update customs data
 "========================================================================================================================
