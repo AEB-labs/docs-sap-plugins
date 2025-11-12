@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-The BAdI /AEB/TA_CLS_SYNC_01 is called every time a classification value is received from the Product Classification Engine, which is every time the classification value was changed. The BAdI /AEB/TA_CER_SYNC_01 is the same for the certificates. 
+The BAdI /AEB/TA\_CLS\_SYNC\_01 is called every time a classification value is received from the Product Classification Engine, which is every time the classification value was changed. The BAdI /AEB/TA\_CER\_SYNC\_01 is the same for the certificates. 
 
 In both BAdIs you have a method that says that the data is updated (Inserted or updated) and one method if the data is deleted. 
 
-Both BAdI supports the raising of the exception /aeb/cx_ta_pb_mat_sync_sc as it is described under <https://sap-plugins.docs.developers.aeb.com/docs/exceptions>. When the exception is raised, then the complete handling (also the standard handling) of the material is considered as failed, which means there will be an entry created in the function call monitor which can be automatically repeated with the report /AEB/01_FCC_RETRY if the customizing is done. When this repeat happens (either automatically by the report or manually by a user in the function call monitor) then the whole material is transferred from the Product Classification engine and processed and also this BAdI will be called again.
+Both BAdI supports the raising of the exception /aeb/cx\_ta\_pb\_mat\_sync\_sc as it is described under [https://sap-plugins.docs.developers.aeb.com/docs/exceptions](https://sap-plugins.docs.developers.aeb.com/docs/exceptions). When the exception is raised, then the complete handling (also the standard handling) of the material is considered as failed, which means there will be an entry created in the function call monitor which can be automatically repeated with the report /AEB/01\_FCC\_RETRY if the customizing is done. When this repeat happens (either automatically by the report or manually by a user in the function call monitor) then the whole material is transferred from the Product Classification engine and processed and also this BAdI will be called again.
 
 ```text Handle classification value is updated/inserted
 METHOD /aeb/if_ex_ta_cls_sync_01~hdl_classification_updated.
