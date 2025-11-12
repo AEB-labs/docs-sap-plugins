@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Certain BAdIs allow the transfer of an attachment. This can be, for example, a PDF document, an image file, or another type of attachment.  For more details of the functionality, refer to <https://customsmanagement.docs.developers.aeb.com/docs/add-an-attachment>
+Certain BAdIs allow the transfer of an attachment. This can be, for example, a PDF document, an image file, or another type of attachment.  For more details of the functionality, refer to [https://customsmanagement.docs.developers.aeb.com/docs/add-an-attachment](https://customsmanagement.docs.developers.aeb.com/docs/add-an-attachment)
 
 Hint: the data type RAWSTRING corresponds to an uninterpreted byte string of variable length. The corresponding ABAP type is XSTRING.
 
@@ -34,4 +34,4 @@ DATA:
 im_value->add_attachment( attachment ).
 ```
 
-Another helpful function in this context might be SCMS_BINARY_TO_XSTRING.
+Another helpful function in this context might be SCMS\_BINARY\_TO\_XSTRING.
