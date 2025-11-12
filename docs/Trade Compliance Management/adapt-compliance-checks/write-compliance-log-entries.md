@@ -12,7 +12,7 @@ next:
 ---
 To create your own log entries, use the following functions:
 
-- /AEB/CMP_WRITE_CRITICAL_LOG  
-- /AEB/CMP_WRITE_ERROR_LOG  
-- /AEB/CMP_WRITE_INFO_LOG 
-- /AEB/CMP_WRITE_WARNING_LOG
+* /AEB/CMP\_WRITE\_CRITICAL\_LOG  
+* /AEB/CMP\_WRITE\_ERROR\_LOG  
+* /AEB/CMP\_WRITE\_INFO\_LOG 
+* /AEB/CMP\_WRITE\_WARNING\_LOG
