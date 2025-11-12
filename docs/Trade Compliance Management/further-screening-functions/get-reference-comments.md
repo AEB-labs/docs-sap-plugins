@@ -12,5 +12,5 @@ next:
 ---
 To read a reference comment with information about the business object, you can use the following function modules:
 
-- /AEB/CMP_PB_DLV_DET_REF_COMM  for deliveries
-- /AEB/CMP_PB_SDOC_DET_REF_COMM for sales orders
+* /AEB/CMP\_PB\_DLV\_DET\_REF\_COMM  for deliveries
+* /AEB/CMP\_PB\_SDOC\_DET\_REF\_COMM for sales orders
