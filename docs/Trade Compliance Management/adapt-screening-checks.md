@@ -19,5 +19,5 @@ next:
 ---
 The moment the add-on executes a screening check, you can adapt the logic as follows: 
 
-- Decision as to whether the screening check should be carried out or not  
-- Which data should be used for the check
+* Decision as to whether the screening check should be carried out or not  
+* Which data should be used for the check
