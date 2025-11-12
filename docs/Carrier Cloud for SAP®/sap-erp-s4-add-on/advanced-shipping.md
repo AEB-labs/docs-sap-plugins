@@ -10,29 +10,15 @@ metadata:
 next:
   description: ''
 ---
-## API class /AEB/CL_PA_PB_CARRIER_BF
+## API class /AEB/CL\_PA\_PB\_CARRIER\_BF
 
 To use the full API functionality of Carrier Cloud for SAP, you can use those classes: 
 
-**/AEB/CL_PA_PB_CARRIER_BF**
+**/AEB/CL\_PA\_PB\_CARRIER\_BF**
 
- **/AEB/CL_PA_PB_BSMCARRIER_BF**
+ **/AEB/CL\_PA\_PB\_BSMCARRIER\_BF**
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/f8bbe8d86094fde2efeff1a377740e3a454cd6e3a100a7a92a316980de71d3a2-image.png",
-        null,
-        "The API class provided by the add-on for SAP"
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image alt="The API class provided by the add-on for SAP" align="center" src="https://files.readme.io/f8bbe8d86094fde2efeff1a377740e3a454cd6e3a100a7a92a316980de71d3a2-image.png" />
 
 ![](https://files.readme.io/1b62b7651a3e392592c4d24588c917ae14eb543734bfb6467dad4dcbae4b7447-image.png)
 
@@ -44,39 +30,86 @@ This classes enables you to call every available method and also change the fiel
 
 ## Supporting functions
 
-Before you can use any of the methods from the class, e.g. Create_Shipment, certain mandatory data is needed. To support you gathering the required data, there are some complementary features, which will be explained in this section: 
+Before you can use any of the methods from the class, e.g. Create\_Shipment, certain mandatory data is needed. To support you gathering the required data, there are some complementary features, which will be explained in this section: 
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Task",
-    "h-1": "Class",
-    "0-0": "Determination of the org unit",
-    "0-1": "**TM document: **/AE1/CL_PA_PB_FRO_OU_RULE_BC  \n**Delivery: **/AEB/CL_PA_PB_DLV_OU_RULE_BC  \n**Shipment: **/AEB/CL_PA_PB_SHP_OU_RULE_BC",
-    "1-0": "Determination of connection parms",
-    "1-1": "/AEB/CL_PA_PB_ENGN_PRM_BC",
-    "2-0": "Collecting data from SAP business object (\"Collector\")  \nThis function provides the basic data based on the settings in the configuration. It runs also through the \"AFTER_STD_FILLING\"-method of the according BAdI for each object.",
-    "2-1": "**TM document: **/AE1/CL_PA_PB_FRO_SHP_COLL_BC  \n**Delivery: **/AEB/CL_PA_PB_DLV_SHP_COLL_BC  \n**Shipment: **/AEB/CL_PA_PB_SHP_SHP_COLL_BC",
-    "3-0": "Determination of the workstation ID",
-    "3-1": "/AEB/CL_PA_PB_WSTA_ID_BC",
-    "4-0": "Determination of the reference number",
-    "4-1": "**TM document: **/AE1/CL_PA_PB_FRO_SHP_REF_BC  \n**Delivery:** /AEB/CL_PA_PB_DLV_SHP_REF_BC  \n**Shipment: **/AEB/CL_PA_PB_SHP_SHP_REF_BC"
-  },
-  "cols": 2,
-  "rows": 5,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Task
+      </th>
 
+      <th>
+        Class
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Determination of the org unit
+      </td>
+
+      <td>
+        * \*TM document: \*\*/AE1/CL\_PA\_PB\_FRO\_OU\_RULE\_BC  
+        * \*Delivery: \*\*/AEB/CL\_PA\_PB\_DLV\_OU\_RULE\_BC  
+        * \*Shipment: \*\*/AEB/CL\_PA\_PB\_SHP\_OU\_RULE\_BC
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Determination of connection parms
+      </td>
+
+      <td>
+        /AEB/CL\_PA\_PB\_ENGN\_PRM\_BC
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Collecting data from SAP business object ("Collector")\
+        This function provides the basic data based on the settings in the configuration. It runs also through the "AFTER\_STD\_FILLING"-method of the according BAdI for each object.
+      </td>
+
+      <td>
+        * \*TM document: \*\*/AE1/CL\_PA\_PB\_FRO\_SHP\_COLL\_BC  
+        * \*Delivery: \*\*/AEB/CL\_PA\_PB\_DLV\_SHP\_COLL\_BC  
+        * \*Shipment: \*\*/AEB/CL\_PA\_PB\_SHP\_SHP\_COLL\_BC
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Determination of the workstation ID
+      </td>
+
+      <td>
+        /AEB/CL\_PA\_PB\_WSTA\_ID\_BC
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Determination of the reference number
+      </td>
+
+      <td>
+        * \*TM document: \*\*/AE1/CL\_PA\_PB\_FRO\_SHP\_REF\_BC  
+        * \*Delivery:\*\* /AEB/CL\_PA\_PB\_DLV\_SHP\_REF\_BC  
+        * \*Shipment: \*\*/AEB/CL\_PA\_PB\_SHP\_SHP\_REF\_BC
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 The names of the classes are structured like this: 
 
-- /AEB/CL_PA_PB  - Class is for public usage in customer implementations of Carrier Cloud for SAP
-- DLV , SHP, FRO  -  the SAP document the class is applicable for: delivery, shipment or freight order (aka TM document)
-- OU_RULE_BC, SHP_COLL_BC, SHP_REF_BC, WSTA_ID_BC - the functionality the class can be used for: organizational unit rule (OU_RULE), collect shipping data (SHIP_COLL), get reference (REF) or get workstation data (WSTA).     
+* /AEB/CL\_PA\_PB  - Class is for public usage in customer implementations of Carrier Cloud for SAP
+* DLV , SHP, FRO  -  the SAP document the class is applicable for: delivery, shipment or freight order (aka TM document)
+* OU\_RULE\_BC, SHP\_COLL\_BC, SHP\_REF\_BC, WSTA\_ID\_BC - the functionality the class can be used for: organizational unit rule (OU\_RULE), collect shipping data (SHIP\_COLL), get reference (REF) or get workstation data (WSTA).     
 
 In this part of the guide we will walk through all those functions. All examples are based on an outbound delivery, but you can adapt them to other supported SAP business objects using the according class as listed above. Regardless of the SAP business object you're transferring, the result will be a "shipping order" in Carrier Cloud. 
 
@@ -158,9 +191,9 @@ If you run the report again the destination and client for Carrier Cloud for SAP
 
 Next, we need the data for the shipping order that we want to send to Carrier Cloud. Use the "collector"-class for the according SAP business object:
 
-- Delivery: /AEB/CL_PA_PB_DLV_SHP_COLL_BC
-- Shipment: /AEB/CL_PA_PB_SHP_SHP_COLL_BC
-- TM document: /AE1/CL_PA_PB_FRO_SHP_COLL_BC
+* Delivery: /AEB/CL\_PA\_PB\_DLV\_SHP\_COLL\_BC
+* Shipment: /AEB/CL\_PA\_PB\_SHP\_SHP\_COLL\_BC
+* TM document: /AE1/CL\_PA\_PB\_FRO\_SHP\_COLL\_BC
 
 The collector provides the data based on the standard logic and configuration of the AEB add-on, plus the additional logic from the BAdIs that are implemented. Background: To change or add something for the collected data, you can implement different BAdIs for the according business object:  [BAdIs to change data ](https://sap-plugins.docs.developers.aeb.com/docs/badis-to-change-the-exported-data-1).  
 
@@ -208,7 +241,7 @@ WRITE /.
 
  With this example you have collected the shipping data of the SAP delivery, e.g. the ship-to address and the carrier. 
 
-To change or add something for the collected data, you can implement the "AFTER_STD_FILLING"-method of the BAdI for the according business object:  [BAdIs to change data ](https://sap-plugins.docs.developers.aeb.com/docs/badis-to-change-the-exported-data-1). 
+To change or add something for the collected data, you can implement the "AFTER\_STD\_FILLING"-method of the BAdI for the according business object:  [BAdIs to change data ](https://sap-plugins.docs.developers.aeb.com/docs/badis-to-change-the-exported-data-1). 
 
 ## Determine the workstation
 
