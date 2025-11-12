@@ -18,17 +18,17 @@ Using the Risk Assessment module in Trade Compliance Management you can create q
 
 Functional process: 
 
-- A questionnaire needs to be requested as part of the export control check. See example bewlo for th e required data  
-- When a new document is created in SAP, the number of the document is not yet known at the time of the first check. Therefore, the questionnaire cannot be created immediately. 
-- Instead, a journal entry is created and processed in the background by a job. This triggers the export control check for the document again and creates the questionnaire. 
+* A questionnaire needs to be requested as part of the export control check. See example bewlo for th e required data  
+* When a new document is created in SAP, the number of the document is not yet known at the time of the first check. Therefore, the questionnaire cannot be created immediately. 
+* Instead, a journal entry is created and processed in the background by a job. This triggers the export control check for the document again and creates the questionnaire. 
 
 To provide the required data, implement the according BAdI:
 
-- Sales documents:  /AEB/CMP_EC_ORDER_06
-- Deliveries:  /AEB/CMP_EC_DLV_03
-- Purchase documents: /AEB/CMP_EC_PD_03
-- Service orders: /AEB/CMP_EC_SO_03
-- Service transactions (S/4HANA): /AE1/CMP_EC_ST_02 
+* Sales documents:  /AEB/CMP\_EC\_ORDER\_06
+* Deliveries:  /AEB/CMP\_EC\_DLV\_03
+* Purchase documents: /AEB/CMP\_EC\_PD\_03
+* Service orders: /AEB/CMP\_EC\_SO\_03
+* Service transactions (S/4HANA): /AE1/CMP\_EC\_ST\_02 
 
 This coding example creates a questionnaire 
 
@@ -193,8 +193,8 @@ DATA:
       ENDIF.
 ```
 
-Always check if the parameter "im_questionnaire_bc" is initial. Because this parameter is not passed in every context, but during an export control check it is available.  
-The next step is to get the data of the questionnaire with the method "get_questionnaire_for". Pass the parameter for the templateID and the referenceIdHost to retrieve the questionnaire. To stick with our example scenario, read the final usage from the result of the questionnaire and set the final usage for each item in the export controls data.  
+Always check if the parameter "im\_questionnaire\_bc" is initial. Because this parameter is not passed in every context, but during an export control check it is available.\
+The next step is to get the data of the questionnaire with the method "get\_questionnaire\_for". Pass the parameter for the templateID and the referenceIdHost to retrieve the questionnaire. To stick with our example scenario, read the final usage from the result of the questionnaire and set the final usage for each item in the export controls data.\
 The method getQuestionnaireFor might raise an exception in case of an error. It is not necessary to catch this exception as it will be handled outside. 
 
 In addition to the logic above there is also the possibility to save the data locally in your SAP system once the update event of a questionnaire has been synchronized.
