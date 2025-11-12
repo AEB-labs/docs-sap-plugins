@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-When a shipping order  gets updated in Carrier Cloud, the data can be synchronized back to SAP by a job that executes the program /AEB/PA_DLS_SYNC.  To access this data and implement your own logic, you can use the BAdI /AEB/PA_DLS_01.
+When a shipping order  gets updated in Carrier Cloud, the data can be synchronized back to SAP by a job that executes the program /AEB/PA\_DLS\_SYNC.  To access this data and implement your own logic, you can use the BAdI /AEB/PA\_DLS\_01.
 
 Here is a short example to write the recieved carrier shipment number into the BOLNR of the delivery:
 
