@@ -14,14 +14,14 @@ The following site will assist you how to adapt the data of a material which is 
 
 **Access to MAR-tables, org units, etc**
 
-If you want to use contextual data,  e.g. the material tables (MARA, MARC..) or if you like to have the relevant organizational units,  use the parameter "IM_MATERIAL_CONTEXT". This parameter has some methods, e.g. get_marc to read the content of the MARx-tables. This includes the content which is not yet persistent. Example:
+If you want to use contextual data,  e.g. the material tables (MARA, MARC..) or if you like to have the relevant organizational units,  use the parameter "IM\_MATERIAL\_CONTEXT". This parameter has some methods, e.g. get\_marc to read the content of the MARx-tables. This includes the content which is not yet persistent. Example:
 
-DATA (lt_marcs) = im_material_context->get_marcs( ).
+DATA (lt\_marcs) = im\_material\_context->get\_marcs( ).
 
-**Empty values vs. null **
+**Empty values vs. null**
 
- Some of our fields with simple data types like char or string are implemented as so called _nullable values_. So we have a class representation of each simple data type.  
-If you change such a field you need to use the correct type. For the material number you have to use the class /AEB/CL_01_CHAR_50_NV. NV means nullable values. To create this nullable value, the BAdI method offers you the parameter im_nullable_value_factory. Each nullable value has the attribte v for value.  
+ Some of our fields with simple data types like char or string are implemented as so called *nullable values*. So we have a class representation of each simple data type.\
+If you change such a field you need to use the correct type. For the material number you have to use the class /AEB/CL\_01\_CHAR\_50\_NV. NV means nullable values. To create this nullable value, the BAdI method offers you the parameter im\_nullable\_value\_factory. Each nullable value has the attribte v for value.\
 Why do we use nullable values? To differentiate between whether or not an empty value will lead  to an update in Product Classification. In case you want an update, create the nullable value without assign a value to v. If there should be no update, set  the field value in the interface to "NULL".
 
 Let us start with adapting the alternative material number. The standard just fill the alternative material number with the external represenation of the SAP material no.
@@ -41,8 +41,8 @@ DATA:
   ENDIF.
 ```
 
-Okay, know to a more complex requirement, where you want to adapt the value of a classification. In the following example we will change the value of COCO_IMPORT_DE (commodity code for import) to a const value.  
-First you have to loop over the classification values. Then you have to check it the value is the COCO_IMPORT_DE. In this case we change it to a fixed value of '01022959310'.  
+Okay, know to a more complex requirement, where you want to adapt the value of a classification. In the following example we will change the value of COCO\_IMPORT\_DE (commodity code for import) to a const value.\
+First you have to loop over the classification values. Then you have to check it the value is the COCO\_IMPORT\_DE. In this case we change it to a fixed value of '01022959310'.  
 
 ```text Change the value of a classification
 DATA:
@@ -63,7 +63,7 @@ DATA:
   ENDLOOP.
 ```
 
-As you see the whole material is implemented object-oriented. So in order to access the classifications you have to call the method get_classifications.  
+As you see the whole material is implemented object-oriented. So in order to access the classifications you have to call the method get\_classifications.\
 How to add a classification? See the example below.
 
 ```text Add a classification
@@ -84,7 +84,7 @@ DATA:
   im_value->set_classification_values_v1( classification_values ).
 ```
 
-Here you can see that we use the im_data_object_factory to create a new value. Ok let us try another thing. If you like to add a certificate to a material, you have to create a certificate by uinge the parameter im_data_object_factory which is provided by the  BAdI method. Then you fill the needed values and add the certificate to the existing list and set the to the material. The example below shows the needed steps. 
+Here you can see that we use the im\_data\_object\_factory to create a new value. Ok let us try another thing. If you like to add a certificate to a material, you have to create a certificate by uinge the parameter im\_data\_object\_factory which is provided by the  BAdI method. Then you fill the needed values and add the certificate to the existing list and set the to the material. The example below shows the needed steps. 
 
 ```text Add an certificate to material
 DATA:
@@ -120,7 +120,7 @@ DATA:
   im_value->set_certificates( certificates ).
 ```
 
-And here another example which shows how to add attachments to your material.  
+And here another example which shows how to add attachments to your material.\
 Please note that this example uses fronted service. This won't work in productiv implementation, but for testing it will work. 
 
 ```text Add an attachment to the material (selection only for front end uses)
@@ -190,7 +190,7 @@ DATA:
   im_value->set_link_attachments( link_attachments ).
 ```
 
-To add additional goods properties to your material you have to use method add_property.
+To add additional goods properties to your material you have to use method add\_property.
 
 ```text Add property
 lv_id = 'PROPERTY_ID'.
