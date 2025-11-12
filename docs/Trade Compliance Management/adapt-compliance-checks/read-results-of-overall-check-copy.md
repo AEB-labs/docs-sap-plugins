@@ -12,26 +12,26 @@ next:
 ---
 Use the following APIs to read entries from the Compliance Monitor. 
 
-| Business object          | Read whole entry               | Check if status is open  |
-| :----------------------- | :----------------------------- | :----------------------- |
-| Accounting document      | /AEB/CMP_PB_GET_AD_MON_ENTRY   |                          |
-| Applicant                | /AEB/CMP_PB_GET_AP_MON_ENTRY   | /AEB/CMP_PB_IS_AP_OPEN   |
-| Bank                     | /AEB/CMP_PB_GET_BNK_MON_ENTRY  | /AEB/CMP_PB_IS_BNK_OPEN  |
-| Business partner         | /AEB/CMP_PB_GET_BP_MON_ENTRY   | /AEB/CMP_PB_IS_BP_OPEN   |
-| Customer                 | /AEB/CMP_PB_GET_CUS_MON_ENTRY  | /AEB/CMP_PB_IS_CUS_OPEN  |
-| Delivery                 | /AEB/CMP_PB_GET_DLV_MON_ENTRY  | /AEB/CMP_PB_IS_DLV_OPEN  |
-| Employee                 | /AEB/CMP_PB_GET_EM_MON_ENTRY   | /AEB/CMP_PB_IS_EM_OPEN   |
-| Material document        | /AEB/CMP_PB_GET_MD_MON_ENTRY   | /AEB/CMP_PB_IS_MD_OPEN   |
-| Purchase document        | /AEB/CMP_PB_GET_PD_MON_ENTRY   | /AEB/CMP_PB_IS_PD_OPEN   |
-| Payment                  | /AEB/CMP_PB_GET_PIP_MON_ENTRY  |                          |
-| Sales document           | /AEB/CMP_PB_GET_SDOC_MON_ENTRY | /AEB/CMP_PB_IS_SDOC_OPEN |
-| Service notification     | /AEB/CMP_PB_GET_SN_MON_ENTRY   | /AEB/CMP_PB_IS_SN_OPEN   |
-| Service order            | /AEB/CMP_PB_GET_SO_MON_ENTRY   | /AEB/CMP_PB_IS_SO_OPEN   |
-| Vendor                   | /AEB/CMP_PB_GET_VDR_MON_ENTRY  | /AEB/CMP_PB_IS_VDR_OPEN  |
-| CRM business transaction | /AEB/CMP_PB_GET_CBT_MON_ENTRY  |                          |
-| CRM business partner     | /AEB/CMP_PB_GET_CBP_MON_ENTRY  |                          |
+| Business object          | Read whole entry                    | Check if status is open      |
+| :----------------------- | :---------------------------------- | :--------------------------- |
+| Accounting document      | /AEB/CMP\_PB\_GET\_AD\_MON\_ENTRY   |                              |
+| Applicant                | /AEB/CMP\_PB\_GET\_AP\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_AP\_OPEN   |
+| Bank                     | /AEB/CMP\_PB\_GET\_BNK\_MON\_ENTRY  | /AEB/CMP\_PB\_IS\_BNK\_OPEN  |
+| Business partner         | /AEB/CMP\_PB\_GET\_BP\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_BP\_OPEN   |
+| Customer                 | /AEB/CMP\_PB\_GET\_CUS\_MON\_ENTRY  | /AEB/CMP\_PB\_IS\_CUS\_OPEN  |
+| Delivery                 | /AEB/CMP\_PB\_GET\_DLV\_MON\_ENTRY  | /AEB/CMP\_PB\_IS\_DLV\_OPEN  |
+| Employee                 | /AEB/CMP\_PB\_GET\_EM\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_EM\_OPEN   |
+| Material document        | /AEB/CMP\_PB\_GET\_MD\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_MD\_OPEN   |
+| Purchase document        | /AEB/CMP\_PB\_GET\_PD\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_PD\_OPEN   |
+| Payment                  | /AEB/CMP\_PB\_GET\_PIP\_MON\_ENTRY  |                              |
+| Sales document           | /AEB/CMP\_PB\_GET\_SDOC\_MON\_ENTRY | /AEB/CMP\_PB\_IS\_SDOC\_OPEN |
+| Service notification     | /AEB/CMP\_PB\_GET\_SN\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_SN\_OPEN   |
+| Service order            | /AEB/CMP\_PB\_GET\_SO\_MON\_ENTRY   | /AEB/CMP\_PB\_IS\_SO\_OPEN   |
+| Vendor                   | /AEB/CMP\_PB\_GET\_VDR\_MON\_ENTRY  | /AEB/CMP\_PB\_IS\_VDR\_OPEN  |
+| CRM business transaction | /AEB/CMP\_PB\_GET\_CBT\_MON\_ENTRY  |                              |
+| CRM business partner     | /AEB/CMP\_PB\_GET\_CBP\_MON\_ENTRY  |                              |
 
-For  sales orders and deliveries you can call  the according functions during the save in the user exit. If you execute the call in the prepare_document-section of the user exit, the result is based on the monitor entry that was created before the current check (the check that is just executed in the save process). If  you do the call in the save_document-Section of the userexit , after the /AEB/  include, the result is based on the current check. 
+For  sales orders and deliveries you can call  the according functions during the save in the user exit. If you execute the call in the prepare\_document-section of the user exit, the result is based on the monitor entry that was created before the current check (the check that is just executed in the save process). If  you do the call in the save\_document-Section of the userexit , after the /AEB/  include, the result is based on the current check. 
 
 ## Reacting to a critical result of a purchase document check
 
@@ -41,28 +41,26 @@ Purchase document don't have standard blocks. Therefore you might want to establ
 
 Noch ergänzen: nicht supported, hängt von SAP Laufzeitumgebung ab, nicht 100% garantiert
 
- 
-
 ### Prevent certain output messages
 
 There are two different approaches, depending on the dispatch time of the messages.
 
 1. When dispatch time is 'Send immediately (when saving the application)'
    1. Implement the customer exit for the purchase document check as described in the installation manual
-   2. Implement all methods of BAdI /AEB/CMP_PURCH_DC_02 to set a static variable, whether the check result is suspicious (SUSPICIOUS_FOUND) or could not be performed due to an error (ERROR_OCCURRED).
+   2. Implement all methods of BAdI /AEB/CMP\_PURCH\_DC\_02 to set a static variable, whether the check result is suspicious (SUSPICIOUS\_FOUND) or could not be performed due to an error (ERROR\_OCCURRED).
    3. After the AEB include is processed in the customer exit, read the static variable and decide whether to prevent the output message.
-   4. In order to automatically trigger actions after the release of the purchase order, use the AEB BAdI "/AEB/CMP_MONITOR_11 – PURCHASE_DOCUMENT_DEBLOCKED" for your coding.
+   4. In order to automatically trigger actions after the release of the purchase order, use the AEB BAdI "/AEB/CMP\_MONITOR\_11 – PURCHASE\_DOCUMENT\_DEBLOCKED" for your coding.
 2. Other dispatch time settings
    1. Requirement: In case of a critical result, prevent triggering an output message, e.g. order confirmation to the vendor.
    2. To do so, you can define conditions in the procedure. Start transaction NACE, select the application "EF" and click on Procedures. Select the procedure,  and click on "control"-tree  at the left.
    3. Choose the desired output type, e.g. the type for the order  confirmation and amend or define a routine for the field "Requirement" .
-   4. In this routine, use the AEB function /AEB/CMP_PB_GET_PD_MON_ENTRY to read the Compliance Monitor entry.
-   5. If one of the parameters "HAS_SCR_HIT", "HAS_SCR_ERR", "HAS_EC_HIT" or "HAS_EC_ERR" is equal to "X" or "STATUS_ID" is equal to "J" (Prohibited) for one of the entries found, then prevent the outgoing message from being triggered
-   6. In order to automatically trigger actions after the release of a purchase order, use the AEB BAdI "/AEB/CMP_MONITOR_11 – PURCHASE_DOCUMENT_DEBLOCKED" for your coding. 
+   4. In this routine, use the AEB function /AEB/CMP\_PB\_GET\_PD\_MON\_ENTRY to read the Compliance Monitor entry.
+   5. If one of the parameters "HAS\_SCR\_HIT", "HAS\_SCR\_ERR", "HAS\_EC\_HIT" or "HAS\_EC\_ERR" is equal to "X" or "STATUS\_ID" is equal to "J" (Prohibited) for one of the entries found, then prevent the outgoing message from being triggered
+   6. In order to automatically trigger actions after the release of a purchase order, use the AEB BAdI "/AEB/CMP\_MONITOR\_11 – PURCHASE\_DOCUMENT\_DEBLOCKED" for your coding. 
 
 ### Prevent release of the order via ME29
 
-Code sample for BadI "ME_PROCESS_PO_CUST => Methode CHECK"  Noch ergänzen: COMMIT WORK, wird von SAP aber hier nicht empfohlen. Auf eigenes Risiko  
+Code sample for BadI "ME\_PROCESS\_PO\_CUST => Methode CHECK"  Noch ergänzen: COMMIT WORK, wird von SAP aber hier nicht empfohlen. Auf eigenes Risiko  
 
 ```text Prevent release
 DATA:
