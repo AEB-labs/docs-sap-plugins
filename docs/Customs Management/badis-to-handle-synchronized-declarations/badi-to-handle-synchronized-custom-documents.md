@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The BAdI /AEB/AES_DOC_01 will be run through during the synchronization of the data. You can implement it to handle processing of received customs documents, e.g. EAD or POE. The documents are provided as a byte stream representing the PDF.  
+The BAdI /AEB/AES\_DOC\_01 will be run through during the synchronization of the data. You can implement it to handle processing of received customs documents, e.g. EAD or POE. The documents are provided as a byte stream representing the PDF.\
 The BAdI is run through only once a document is received the first time.
 
 The following example is sending documents to Carrier Connect for Paperless Trade (e.g. DHL) for export declarations that are created from invoice and if the Carrier Connect shipping order is created from the delivery. 
