@@ -17,17 +17,11 @@ next:
       slug: restrict-background-task-usage-1
       title: Restrict background task usage
 ---
-[block:api-header]
-{
-  "title": "Filter dependent BAdIs"
-}
-[/block]
+## Filter dependent BAdIs
 
 In some cases, it's possible to use filter dependent BAdIs. They can be implemented multiple times. Each implementation then declares a filter value for which it should be called. At moment, the product is the only available filter criteria. In example,  to implement such a BAdI for the product Trade Compliance Management,  enter 'CMP' as the filter value.
-[block:api-header]
-{
-  "title": "Shared Memory"
-}
-[/block]
-It is possible to use the "Shared memory" functionality for the determination of application texts. Doing so, the table access to the tables DOKIL and DOKTL are reduced. 
-To enable the shared memory, implement BAdI /AEB/01_SHM_01.
+
+## Shared Memory
+
+It is possible to use the "Shared memory" functionality for the determination of application texts. Doing so, the table access to the tables DOKIL and DOKTL are reduced.\
+To enable the shared memory, implement BAdI /AEB/01\_SHM\_01.
