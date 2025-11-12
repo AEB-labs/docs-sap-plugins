@@ -1,3 +1,4 @@
 - create-shipment
 - update-shipping-order-process-shipment
 - read-data-get-shipments
+- attach-documents-to-a-shipping-order
