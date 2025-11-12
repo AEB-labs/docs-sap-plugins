@@ -22,22 +22,7 @@ next:
 ---
 The overall process is shown in the following flow diagram. It is common for all business objects.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/45a68c1-use_case_wup_diagram.jpg",
-        "use_case_wup_diagram.jpg",
-        338
-      ],
-      "align": "center",
-      "sizing": "auto"
-    }
-  ]
-}
-[/block]
-
+<Image title="use_case_wup_diagram.jpg" alt={338} align="center" width="auto" src="https://files.readme.io/45a68c1-use_case_wup_diagram.jpg" />
 
 # Explanation of single steps
 
@@ -53,17 +38,17 @@ The following steps are performed for every selected business object.
 
 If the delta synchronization is activated on the selection screen, a check is performed, whether a change happened since the last transfer. The corresponding BAdI implementations are also checked.
 
-| Business object  | BAdI method                                                          |
-| :--------------- | :------------------------------------------------------------------- |
-| Customer         | /AEB/WU_CUS_CC_01 -> has_changed                                     |
-| Vendor           | /AEB/WU_VDR_CC_01 -> has_changed                                     |
-| Material         | /AEB/WU_MAT_CC_01 -> has_changed                                     |
-| Bill of material | - /AEB/WU_PL_CC_01 -> has_changed - /AEB/WU_MAT_CC_01 -> has_changed |
-| Purchase order   | /AEB/WU_PO_CC_01 -> has_changed                                      |
-| Goods receipt    | /AEB/WU_GR_CC_01 -> has_changed                                      |
-| Incoming invoice | /AEB/WU_II_CC_01 -> has_changed                                      |
-| Sales order      | /AEB/WU_SO_CC_01 -> has_changed                                      |
-| Invoice          | /AEB/WU_INV_CC_01 -> has_changed                                     |
+| Business object  | BAdI method                                                                  |
+| :--------------- | :--------------------------------------------------------------------------- |
+| Customer         | /AEB/WU\_CUS\_CC\_01 -> has\_changed                                         |
+| Vendor           | /AEB/WU\_VDR\_CC\_01 -> has\_changed                                         |
+| Material         | /AEB/WU\_MAT\_CC\_01 -> has\_changed                                         |
+| Bill of material | - /AEB/WU\_PL\_CC\_01 -> has\_changed - /AEB/WU\_MAT\_CC\_01 -> has\_changed |
+| Purchase order   | /AEB/WU\_PO\_CC\_01 -> has\_changed                                          |
+| Goods receipt    | /AEB/WU\_GR\_CC\_01 -> has\_changed                                          |
+| Incoming invoice | /AEB/WU\_II\_CC\_01 -> has\_changed                                          |
+| Sales order      | /AEB/WU\_SO\_CC\_01 -> has\_changed                                          |
+| Invoice          | /AEB/WU\_INV\_CC\_01 -> has\_changed                                         |
 
 ## Relevant for transfer
 
@@ -81,17 +66,17 @@ Different checks are performed to see if the business object is relevant. Custom
 | Sales order      | - Determination of organizational unit - Definition of materials to be exported                                                                                                                                              |
 | Invoice          | - Determination of organizational unit - Definition of materials to be exported                                                                                                                                              |
 
-| Business object  | BAdI method                                      |
-| :--------------- | :----------------------------------------------- |
-| Customer         | /AEB/WU_CUS_OU_01 – is_customer_to_export        |
-| Vendor           | /AEB/WU_VDR_OU_01 – is_vendor_to_export          |
-| Material         | /AEB/WU_MAT_OU_01 – is_material_to_export        |
-| Bill of material | /AEB/WU_PL_OU_01 – is_parts_list_to_export       |
-| Purchase order   | /AEB/WU_PO_OU_01 – is_purchase_order_to_export   |
-| Goods receipt    | /AEB/WU_GR_OU_01 – is_goods_receipt_to_export    |
-| Incoming invoice | /AEB/WU_II_OU_01 – is_incoming_invoice_to_export |
-| Sales order      | /AEB/WU_SO_OU_01 – is_sales_order_to_export      |
-| Invoice          | /AEB/WU_INV_OU_01 - is_invoice_to_export         |
+| Business object  | BAdI method                                             |
+| :--------------- | :------------------------------------------------------ |
+| Customer         | /AEB/WU\_CUS\_OU\_01 – is\_customer\_to\_export         |
+| Vendor           | /AEB/WU\_VDR\_OU\_01 – is\_vendor\_to\_export           |
+| Material         | /AEB/WU\_MAT\_OU\_01 – is\_material\_to\_export         |
+| Bill of material | /AEB/WU\_PL\_OU\_01 – is\_parts\_list\_to\_export       |
+| Purchase order   | /AEB/WU\_PO\_OU\_01 – is\_purchase\_order\_to\_export   |
+| Goods receipt    | /AEB/WU\_GR\_OU\_01 – is\_goods\_receipt\_to\_export    |
+| Incoming invoice | /AEB/WU\_II\_OU\_01 – is\_incoming\_invoice\_to\_export |
+| Sales order      | /AEB/WU\_SO\_OU\_01 – is\_sales\_order\_to\_export      |
+| Invoice          | /AEB/WU\_INV\_OU\_01 - is\_invoice\_to\_export          |
 
 ## Filling
 
@@ -109,25 +94,25 @@ In the filling the data records for transmission to Origin & Preferences are cre
 | Sales order      | None                                                                                                                                                            |
 | Invoice          | None                                                                                                                                                            |
 
-| Business object  | BAdI method                                                                                |
-| :--------------- | :----------------------------------------------------------------------------------------- |
-| Customer         | - /AEB/WU_CUS_CR_01 – before_standard_filling - /AEB/WU_CUS_CR_01 – after_standard_filling |
-| Vendor           | - /AEB/WU_VDR_CR_01 – before_standard_filling - /AEB/WU_VDR_CR_01 – after_standard_filling |
-| Material         | - /AEB/WU_MAT_CR_01 – before_standard_filling - /AEB/WU_MAT_CR_01 – after_standard_filling |
-| Bill of material | - /AEB/WU_PL_CR_01 – before_standard_filling - /AEB/WU_PL_CR_01 – after_standard_filling   |
-| Purchase order   | /AEB/WU_PO_CR_01 – after_standard_filling                                                  |
-| Goods receipt    | /AEB/WU_GR_CR_01 - after_standard_filling                                                  |
-| Incoming invoice | /AEB/WU_II_CR_01 - after_standard_filling                                                  |
-| Sales order      | /AEB/WU_SO_CR_01 - after_standard_filling                                                  |
-| Invoice          | /AEB/WU_INV_CR_01 - after_standard_filling                                                 |
+| Business object  | BAdI method                                                                                          |
+| :--------------- | :--------------------------------------------------------------------------------------------------- |
+| Customer         | - /AEB/WU\_CUS\_CR\_01 – before\_standard\_filling - /AEB/WU\_CUS\_CR\_01 – after\_standard\_filling |
+| Vendor           | - /AEB/WU\_VDR\_CR\_01 – before\_standard\_filling - /AEB/WU\_VDR\_CR\_01 – after\_standard\_filling |
+| Material         | - /AEB/WU\_MAT\_CR\_01 – before\_standard\_filling - /AEB/WU\_MAT\_CR\_01 – after\_standard\_filling |
+| Bill of material | - /AEB/WU\_PL\_CR\_01 – before\_standard\_filling - /AEB/WU\_PL\_CR\_01 – after\_standard\_filling   |
+| Purchase order   | /AEB/WU\_PO\_CR\_01 – after\_standard\_filling                                                       |
+| Goods receipt    | /AEB/WU\_GR\_CR\_01 - after\_standard\_filling                                                       |
+| Incoming invoice | /AEB/WU\_II\_CR\_01 - after\_standard\_filling                                                       |
+| Sales order      | /AEB/WU\_SO\_CR\_01 - after\_standard\_filling                                                       |
+| Invoice          | /AEB/WU\_INV\_CR\_01 - after\_standard\_filling                                                      |
 
 ### Amount fields
 
 If you want to change an amount field, you'll need to differentiate between 
 
-- transfering a certain value for the amount 
-- or transfering an value of 0.000 for the amount  
-- or leave the amount field completely empty 
+* transfering a certain value for the amount 
+* or transfering an value of 0.000 for the amount  
+* or leave the amount field completely empty 
 
 ```text Transfer 100.00 EUR as value in context of BAdI-Method /AEB/IF_EX_WU_GR_CR_01~AFTER_STANDARD_FILLING
 FIELD-SYMBOLS: <item> type /AEB/WU_PB_GRI_DO.
@@ -157,5 +142,5 @@ FIELD-SYMBOLS: <item> type /AEB/WU_PB_GRI_DO.
 ```
 
 > 📘 Read data for the used variant
-> 
-> You can use function module RS_VARIANT_CONTENTS to get the data entered in a variant. The name of the variant used in an export run can be retrieved from the system variable SY-SLSET
+>
+> You can use function module RS\_VARIANT\_CONTENTS to get the data entered in a variant. The name of the variant used in an export run can be retrieved from the system variable SY-SLSET
