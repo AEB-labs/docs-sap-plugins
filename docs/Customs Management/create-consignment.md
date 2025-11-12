@@ -10,20 +10,20 @@ metadata:
 next:
   description: ''
 ---
-To transfer business objects from the SAP system to Customs Management, one can either use output messages (NAST framework) or the public APIs of the add-on.  
+To transfer business objects from the SAP system to Customs Management, one can either use output messages (NAST framework) or the public APIs of the add-on.\
 This section lists the public API functions that can be used in a context of a transaction document to trigger the data transfer. Choose the according object class for instantiation based on the document type:
 
 | Transaction document type | Class to trigger the data transfer |
 | :------------------------ | :--------------------------------- |
-| Billing document          | /AEB/CL_AES_PB_INV_EXP_BC          |
-| Purchase document         | /AEB/CL_AES_PB_PD_EXP_BC           |
-| Delivery document         | /AEB/CL_AES_PB_DLV_EXP_BC          |
-| Shipment document         | /AEB/CL_AES_PB_SHP_EXP_BC          |
-| Incoming invoice          | /AEB/CL_AES_PB_II_EXP_BC           |
-| Freight order             | /AE1/CL_AES_PB_FRO_EXP_BC          |
-| Material document         | /AEB/CL_AES_PB_MD_EXP_BC           |
+| Billing document          | /AEB/CL\_AES\_PB\_INV\_EXP\_BC     |
+| Purchase document         | /AEB/CL\_AES\_PB\_PD\_EXP\_BC      |
+| Delivery document         | /AEB/CL\_AES\_PB\_DLV\_EXP\_BC     |
+| Shipment document         | /AEB/CL\_AES\_PB\_SHP\_EXP\_BC     |
+| Incoming invoice          | /AEB/CL\_AES\_PB\_II\_EXP\_BC      |
+| Freight order             | /AE1/CL\_AES\_PB\_FRO\_EXP\_BC     |
+| Material document         | /AEB/CL\_AES\_PB\_MD\_EXP\_BC      |
 
-You can use the function _do_export_ to trigger the data transfer. See the following examples for each kind of transaction document (scroll to the right to see all):
+You can use the function *do\_export* to trigger the data transfer. See the following examples for each kind of transaction document (scroll to the right to see all):
 
 ```text Example coding to start a consignment for an invoice document
 DATA:
