@@ -20,59 +20,155 @@ next:
       title: Adapt the transfer of materials
 ---
 The transfer of a material is splitted several parts. The following diagram shows those parts.
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/cf94c92-2023-02-27_164805.jpg",
-        "2023-02-27_164805.jpg",
-        871,
-        846,
-        "#000000"
-      ]
-    }
-  ]
-}
-[/block]
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Things to do",
-    "h-1": "Example",
-    "h-2": "Configurable?",
-    "0-0": "Determine organizational unit",
-    "0-1": "Can be assigned by plant or by sales org or just by client.",
-    "0-2": "Yes",
-    "1-0": "Determine engine client",
-    "1-1": "The engine client is assigned to the organizational unit, but it is possible to assign the same engine client to multiple organizational units.",
-    "1-2": "Yes",
-    "2-0": "Determine product group",
-    "2-1": "Product group can be assigned by material type and material category.",
-    "2-2": "Yes",
-    "h-3": "Custom Code",
-    "0-3": "No",
-    "1-3": "No",
-    "2-3": "Yes",
-    "3-0": "Collect material data",
-    "3-1": "Provides all collected data which is to be transfered for the  material.",
-    "3-2": "Yes",
-    "3-3": "Yes",
-    "4-0": "Check classification values",
-    "4-1": "The plug-in sends only  classification values again, if there were changes since the last update. Otherwise existing changes in Product Classification could be overwritten.",
-    "4-2": "Yes, /AEB/TA_WORK_IN_PROCESS_INIT has a flag where you disable/enable this behavior. In context of saving materials it is enabled by default. You cannot change this.",
-    "4-3": "No",
-    "5-0": "Check is material to be deleted",
-    "5-1": "The material exists in SAP, but should not exist in Product Classification.",
-    "5-2": "No",
-    "5-3": "No",
-    "6-0": "Transfer material data",
-    "6-1": "The web service is called and the result will be handled, logs written etc.",
-    "6-2": "No",
-    "6-3": "No"
-  },
-  "cols": 4,
-  "rows": 7
-}
-[/block]
+![871](https://files.readme.io/cf94c92-2023-02-27_164805.jpg "2023-02-27_164805.jpg")
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Things to do
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Example
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Configurable?
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Custom Code
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Determine organizational unit
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Can be assigned by plant or by sales org or just by client.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Determine engine client
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The engine client is assigned to the organizational unit, but it is possible to assign the same engine client to multiple organizational units.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Determine product group
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Product group can be assigned by material type and material category.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Collect material data
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Provides all collected data which is to be transfered for the  material.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Check classification values
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The plug-in sends only  classification values again, if there were changes since the last update. Otherwise existing changes in Product Classification could be overwritten.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes, /AEB/TA\_WORK\_IN\_PROCESS\_INIT has a flag where you disable/enable this behavior. In context of saving materials it is enabled by default. You cannot change this.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Check is material to be deleted
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The material exists in SAP, but should not exist in Product Classification.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Transfer material data
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The web service is called and the result will be handled, logs written etc.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+  </tbody>
+</Table>
