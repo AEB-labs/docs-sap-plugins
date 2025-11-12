@@ -12,9 +12,9 @@ metadata:
 next:
   description: ''
 ---
-If you like to have all prices/runtimes for one carrier you could use get_quotes in the class /AEB/CL_PA_PB_BSMCARRIER_BF.
+If you like to have all prices/runtimes for one carrier you could use get\_quotes in the class /AEB/CL\_PA\_PB\_BSMCARRIER\_BF.
 
-Or if you also does not have the shipment created you could use get_quotes too.
+Or if you also does not have the shipment created you could use get\_quotes too.
 
 ```
 DATA:
