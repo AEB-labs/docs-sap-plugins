@@ -12,27 +12,53 @@ next:
 ---
 Even simple fields are represented as objects, so-called Nullable Values (recognizable by the ending \_NV). This makes it possible in the BAdI to differentiate whether a value is to be "zero" or empty. There is also a data object factory for Nullable Values, which is available as an importing parameter in the corresponding BAdIs.
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Example",
-    "h-1": "Meaning",
-    "0-0": "Document_value_as_nv =  \nim_nullable_value_factory->dec_15_2( 0 ).",
-    "0-1": "Value is 0.00.",
-    "1-0": "Document_value_as_nv =  \nim_nullable_value_factory->dec_15_2( ‘15.23’ ).",
-    "1-1": "Value is 15.23.",
-    "2-0": "Clear document_value_as_nv.",
-    "2-1": "instance is \"zero\"/null and the value is not interpreted."
-  },
-  "cols": 2,
-  "rows": 3,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Example
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Meaning
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Document\_value\_as\_nv =
+        im\_nullable\_value\_factory->dec\_15\_2( 0 ).
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Value is 0.00.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Document\_value\_as\_nv =\
+        im\_nullable\_value\_factory->dec\_15\_2( ‘15.23’ ).
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Value is 15.23.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Clear document\_value\_as\_nv.
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        instance is "zero"/null and the value is not interpreted.
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 Character:
 
