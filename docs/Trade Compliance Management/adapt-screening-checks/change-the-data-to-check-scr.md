@@ -12,18 +12,18 @@ next:
 ---
 You can adapt the data to be checked by Compliance Screening using one of the following BAdI:
 
-| BAdI name            | BAdI description                                                     |
-| :------------------- | :------------------------------------------------------------------- |
-| /AEB/CMP_SALES_DC_04 | Exclude certain partners in sales doument from check                 |
-| /AEB/CMP_SALES_DC_05 | Which partner no. (customer or vendor no) to use in sales documents  |
-| /AEB/CMP_DLV_DC_04   | Which partner no. (customer or vendor no) to use in delivery doc.    |
-| /AEB/CMP_SALES_DC_07 | Screening of a sales document: change data after standard filling    |
-| /AEB/CMP_DLV_DC_07   | Screening of a delivery: change data after standard filling          |
-| /AEB/CMP_PURCH_DC_03 | Screening of a purchase document: change data after standard filling |
-| /AEB/CMP_CUSTOMER_05 | Screening of a customer: change data after standard filling          |
-| /AEB/CMP_DP_DESCR_01 | Determine the origin of an address                                   |
-| /AEB/CMP_DP_DESCR_02 | Determine the type of an address                                     |
-| /AEB/CMP_BUS_PRT_08  | Screening of a business partner: change data after standard filling  |
+| BAdI name               | BAdI description                                                     |
+| :---------------------- | :------------------------------------------------------------------- |
+| /AEB/CMP\_SALES\_DC\_04 | Exclude certain partners in sales doument from check                 |
+| /AEB/CMP\_SALES\_DC\_05 | Which partner no. (customer or vendor no) to use in sales documents  |
+| /AEB/CMP\_DLV\_DC\_04   | Which partner no. (customer or vendor no) to use in delivery doc.    |
+| /AEB/CMP\_SALES\_DC\_07 | Screening of a sales document: change data after standard filling    |
+| /AEB/CMP\_DLV\_DC\_07   | Screening of a delivery: change data after standard filling          |
+| /AEB/CMP\_PURCH\_DC\_03 | Screening of a purchase document: change data after standard filling |
+| /AEB/CMP\_CUSTOMER\_05  | Screening of a customer: change data after standard filling          |
+| /AEB/CMP\_DP\_DESCR\_01 | Determine the origin of an address                                   |
+| /AEB/CMP\_DP\_DESCR\_02 | Determine the type of an address                                     |
+| /AEB/CMP\_BUS\_PRT\_08  | Screening of a business partner: change data after standard filling  |
 
 ## Screening checks for address IDs
 
@@ -41,23 +41,9 @@ This example implementation uses the "after standard filling" method of an BAdI 
     ch_doc_partners[ 1 ]-ids = address_ids.
 ```
 
-For a list a valid ID types, look at <https://trade-compliance.docs.developers.aeb.com/reference/screenaddresses-1> 
+For a list a valid ID types, look at [https://trade-compliance.docs.developers.aeb.com/reference/screenaddresses-1](https://trade-compliance.docs.developers.aeb.com/reference/screenaddresses-1) 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/0cf08470a61b1fa486fef39886c001336dec8a079a0029c55103c34ab182a351-image.png",
-        null,
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/0cf08470a61b1fa486fef39886c001336dec8a079a0029c55103c34ab182a351-image.png" />
 
 <br />
 
