@@ -11,14 +11,13 @@ next:
   description: ''
 ---
 Just as a short example, we replace the profile ID by one if a specific sales organization is used.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "DATA:\n  profile_id TYPE /aeb/if_80_pb_profile_id_do=>t_profile_id.\n\nIF im_vbrk-vkorg = 'VKORG'. \"or im_likp\n  profile_id = 'INV_FOR_VKORG'.\n  im_profile_id_do->set_profile_id( profile_id ).\nENDIF.",
-      "language": "text",
-      "name": "Change for VKORG"
-    }
-  ]
-}
-[/block]
+
+```text Change for VKORG
+DATA:
+  profile_id TYPE /aeb/if_80_pb_profile_id_do=>t_profile_id.
+
+IF im_vbrk-vkorg = 'VKORG'. "or im_likp
+  profile_id = 'INV_FOR_VKORG'.
+  im_profile_id_do->set_profile_id( profile_id ).
+ENDIF.
+```
