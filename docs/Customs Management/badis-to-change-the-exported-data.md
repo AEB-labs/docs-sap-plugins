@@ -22,19 +22,19 @@ next:
       slug: example-coding-for-deliveries
       title: Adding country specific extensions
 ---
-| SAP business object /  document | BAdI                 |
-| :------------------------------ | :------------------- |
-| Delivery                        | /AEB/AES_CONS_SDV_01 |
-| Shipment                        | /AEB/AES_CONS_SHP_01 |
-| Invoice                         | /AEB/AES_CONS_INV_01 |
-| Purchase document               | /AEB/AES_CONS_PD_01  |
-| Incoming Invoice                | /AEB/AES_CONS_II_01  |
-| Freight order                   | /AE1/AES_CONS_FRO_01 |
-| Material document               | /AEB/AES_CONS_MD_01  |
+| SAP business object /  document | BAdI                    |
+| :------------------------------ | :---------------------- |
+| Delivery                        | /AEB/AES\_CONS\_SDV\_01 |
+| Shipment                        | /AEB/AES\_CONS\_SHP\_01 |
+| Invoice                         | /AEB/AES\_CONS\_INV\_01 |
+| Purchase document               | /AEB/AES\_CONS\_PD\_01  |
+| Incoming Invoice                | /AEB/AES\_CONS\_II\_01  |
+| Freight order                   | /AE1/AES\_CONS\_FRO\_01 |
+| Material document               | /AEB/AES\_CONS\_MD\_01  |
 
-The data sent to Customs Management can be changed using the according BAdI for the SAP business object as listed in the table above. Each BAdI offers an interface method AFTER_STD_FILLING with the parameter IM_VALUE.   This parameter contains the data determined by the standard logic of the plug-in.  The data in this structure will be sent to Customs Management eventually, so you need to change it in the BAdI implementation according to your requirements. 
+The data sent to Customs Management can be changed using the according BAdI for the SAP business object as listed in the table above. Each BAdI offers an interface method AFTER\_STD\_FILLING with the parameter IM\_VALUE.   This parameter contains the data determined by the standard logic of the plug-in.  The data in this structure will be sent to Customs Management eventually, so you need to change it in the BAdI implementation according to your requirements. 
 
-This simple example shows how you can change a single field value in the IM_VALUE structure: 
+This simple example shows how you can change a single field value in the IM\_VALUE structure: 
 
 ```Text Change a single value
 DATA:
@@ -46,63 +46,18 @@ DATA:
   im_value->set_remark( remark ).
 ```
 
-The IM_VALUE parameter is a structure of type /AEB/IF_AES_PB_CONSIGNMENT_DO, which represents a consignment of  Customs Management. It contains different sub-objects: 
+The IM\_VALUE parameter is a structure of type /AEB/IF\_AES\_PB\_CONSIGNMENT\_DO, which represents a consignment of  Customs Management. It contains different sub-objects: 
 
-- Deliveries
-- Items
-- Packages 
-- Parties
+* Deliveries
+* Items
+* Packages 
+* Parties
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/a7b3b0e-image.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "1px"
-    }
-  ]
-}
-[/block]
+<Image align="center" width="1px" src="https://files.readme.io/a7b3b0e-image.png" />
 
+<Image align="center" width="1px" src="https://files.readme.io/fdc0de1-image.png" />
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/fdc0de1-image.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "1px"
-    }
-  ]
-}
-[/block]
-
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/2613e46-image.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "50% "
-    }
-  ]
-}
-[/block]
-
+<Image align="center" width="50% " src="https://files.readme.io/2613e46-image.png" />
 
 So regardless of what kind of SAP business object triggered the data transfer, Customs Management is always receiving a consignment object containing the mentioned sub-objects. Some examples:
 
