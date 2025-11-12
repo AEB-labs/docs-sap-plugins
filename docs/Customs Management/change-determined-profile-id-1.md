@@ -10,28 +10,90 @@ metadata:
 next:
   description: ''
 ---
-The Customs Management Plug-In collects some the data from the business object depending on a collector profile. This profile is assigned to the export interface in the customizing. If you have special logic on which profile to use, you can use the BAdIs provided for each business object. The BAdI has the Method CHG\_PROFILE\_ID\_FOR\_<BUSINESS_OBJECT> with the header data of the according business object and an object containing the profile ID as parameters.
-[block:parameters]
-{
-  "data": {
-    "h-0": "BAdI",
-    "h-1": "Business Object",
-    "0-0": "/AEB/80_PROF_SDV_01",
-    "0-1": "Delivery",
-    "1-0": "/AEB/80_PROF_INV_01",
-    "2-0": "/AEB/80_PROF_SHP_01",
-    "1-1": "Invoice",
-    "2-1": "Shipment",
-    "3-0": "/AEB/80_PROF_PD_01",
-    "4-0": "/AEB/80_PROF_II_01",
-    "3-1": "Purchase document",
-    "4-1": "Incoming Invoice",
-    "5-0": "/AE1/80_PROF_FRO_01",
-    "5-1": "Freight order",
-    "6-0": "/AEB/80_PROF_MD_01",
-    "6-1": "Material document"
-  },
-  "cols": 2,
-  "rows": 7
-}
-[/block]
+The Customs Management Plug-In collects some the data from the business object depending on a collector profile. This profile is assigned to the export interface in the customizing. If you have special logic on which profile to use, you can use the BAdIs provided for each business object. The BAdI has the Method CHG\_PROFILE\_ID\_FOR\_\<BUSINESS\_OBJECT> with the header data of the according business object and an object containing the profile ID as parameters.
+
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        BAdI
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Business Object
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        /AEB/80\_PROF\_SDV\_01
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Delivery
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        /AEB/80\_PROF\_INV\_01
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Invoice
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        /AEB/80\_PROF\_SHP\_01
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Shipment
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        /AEB/80\_PROF\_PD\_01
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Purchase document
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        /AEB/80\_PROF\_II\_01
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Incoming Invoice
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        /AE1/80\_PROF\_FRO\_01
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Freight order
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        /AEB/80\_PROF\_MD\_01
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Material document
+      </td>
+    </tr>
+  </tbody>
+</Table>
