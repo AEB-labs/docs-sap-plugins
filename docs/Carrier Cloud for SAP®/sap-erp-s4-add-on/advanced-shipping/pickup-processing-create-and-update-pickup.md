@@ -14,12 +14,12 @@ To read more about the functionality of a pickup and how to use it in Carrier Cl
 
 In SAP, the add from AEB provides these methods for the handling of pickups: 
 
-- CREATE_PICKUP
-- PROCESS_PICKUP
-- GET_PICKUP and GET_PICKUPS
-- DELETE_PICKUP
+* CREATE\_PICKUP
+* PROCESS\_PICKUP
+* GET\_PICKUP and GET\_PICKUPS
+* DELETE\_PICKUP
 
-The following code snippet outlines the creation of a pickup. Precondition here is that the shipping orders that should be assigned to the pickup are created based on deliveries. Therefore it collects the references of those shipping orders using the class /AEB/CL_PA_PB_DLV_SHP_REF_BC. If your process is based on other business objects from SAP, use the according class.   
+The following code snippet outlines the creation of a pickup. Precondition here is that the shipping orders that should be assigned to the pickup are created based on deliveries. Therefore it collects the references of those shipping orders using the class /AEB/CL\_PA\_PB\_DLV\_SHP\_REF\_BC. If your process is based on other business objects from SAP, use the according class.   
 
 ```text Create pickup
 "Create pickup call request
