@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can attach documents to an already existing shipping order by using the method ADD_SHIPMENT_ATTACHMENTS of class /AEB/CL_PA_PB_CARRIER_BF.  
+You can attach documents to an already existing shipping order by using the method ADD\_SHIPMENT\_ATTACHMENTS of class /AEB/CL\_PA\_PB\_CARRIER\_BF.  
 
 > 🚧 Attaching documents is only possible if the shipping order is not marked as completed.
 
@@ -66,7 +66,5 @@ TRY.
     "...
 ENDTRY.
 ```
-
-
 
 For more information about the handling of documents in Carrier Cloud, see here: [Attach documents](https://transport-freight-management.docs.developers.aeb.com/docs/transmitting-documents-to-carrier-connect)
