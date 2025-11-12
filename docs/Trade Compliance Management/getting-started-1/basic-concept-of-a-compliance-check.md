@@ -22,27 +22,16 @@ next:
       title: Adapt Export Controls checks
 ---
 Compliance checks are triggered in different situations:
-- when saving a business object (we call this "online check")
-- in context of the Compliance Monitor 
-- in context of the batch checks
-- in context of asynchronous checks
+
+* when saving a business object (we call this "online check")
+* in context of the Compliance Monitor 
+* in context of the batch checks
+* in context of asynchronous checks
 
 During the compliance check, different sub-steps are executed:     
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/4e7d4ff-Logic_CMP_SAP.png",
-        "Logic_CMP_SAP.png",
-        841,
-        556,
-        "#f08da6"
-      ]
-    }
-  ]
-}
-[/block]
+
+![841](https://files.readme.io/4e7d4ff-Logic_CMP_SAP.png "Logic_CMP_SAP.png")
+
 If a business object has more than one organizational unit, the all required checks are done for each organizational unit. The overall result decides, whether  the blocks are set or not.
 
 If  a business object is not checked by Screening and not checked Export Controls, it's like there is no check in general. Keep that in mind  if you adapt the logic for checking a business object.
