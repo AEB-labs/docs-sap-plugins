@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-With the preliminary steps listed under [Advanced shipping](https://sap-plugins.docs.developers.aeb.com/docs/processing-more-in-detail)  you have collected and prepared required data.  By using this data and calling the method "create_shipment" of class /AEB/CL_PA_PB_CARRIER_BF  you can create a shipping order.
+With the preliminary steps listed under [Advanced shipping](https://sap-plugins.docs.developers.aeb.com/docs/processing-more-in-detail)  you have collected and prepared required data.  By using this data and calling the method "create\_shipment" of class /AEB/CL\_PA\_PB\_CARRIER\_BF  you can create a shipping order.
 
 This example creates a shipping order for a delivery. If you want to transfer a different kind of business object, use the according classes for it (see list [Advanced shipping - supporting functions](https://sap-plugins.docs.developers.aeb.com/docs/processing-more-in-detail))
 
