@@ -10,27 +10,245 @@ metadata:
 next:
   description: ''
 ---
-[block:callout]
-{
-  "type": "warning",
-  "title": "Copy & Paste",
-  "body": "This is not a one solve all solution. Please make sure, that this fits to your processes."
-}
-[/block]
+> 🚧 Copy & Paste
+>
+> This is not a one solve all solution. Please make sure, that this fits to your processes.
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "DATA:\n  curr_as4data        TYPE t_cus_mrn_of_cons,\n  curr_inv_no_struct  TYPE t_cus_mrn_inv,\n  fld_comwa           TYPE vbco6,\n  t_vbfas             TYPE TABLE OF vbfa,\n  vbfa                TYPE vbfa,\n  fld_pos_no          TYPE /aeb/cmp_pb_item_ref_id,\n  curr_exnum          TYPE vbrk-exnum,\n  curr_trans_no       TYPE vttk-tknum,\n  fld_ref_no          TYPE posnr,\n  t_ec_item           TYPE /aeb/cmp_pb_ec_req_cle_itms,\n  ec_item             TYPE /aeb/cmp_pb_ec_req_cle_itm,\n  t_ec_clearing       TYPE /aeb/cmp_pb_ec_clea_res_dos,\n  curr_ec_clearing    TYPE /aeb/cmp_pb_ec_clea_res_do,\n  c_lic_pos           TYPE REF TO /aeb/cl_cmp_pb_ec_lic_info_bc,\n  t_lic_pos           TYPE STANDARD TABLE OF posnr_vl WITH DEFAULT KEY,\n  curr_doc_no         TYPE /aeb/cmp_pb_doc_no,\n  c_lics              TYPE REF TO /aeb/if_cmp_pb_ec_lici_res_do,\n  t_lic_info_dos      TYPE /aeb/cmp_if_cmp_pb_ec_li_i_dos,\n  curr_lic_info_do    TYPE REF TO /aeb/if_cmp_pb_ec_lic_info_do.\n\n\"Loop over different consignments / mrns\nLOOP AT as4data-cus_mrn_of_cons INTO curr_as4data.\n  \"Loop over invoices of consignments\n  LOOP AT curr_as4data-cus_mrn_inv INTO curr_inv_no_struct.\n    \"Determine delivery\n    fld_comwa-mandt = sy-mandt.\n    fld_comwa-vbeln = curr_inv_no_struct-inv_no.\n    CALL FUNCTION 'RV_ORDER_FLOW_INFORMATION'\n      EXPORTING\n        comwa      = fld_comwa\n        nachfolger = '-'\n      TABLES\n        vbfa_tab   = t_vbfas.\n    READ TABLE t_vbfas INTO vbfa WITH KEY vbtyp_v = 'J'.\n\n    \"Determine shipment\n    SELECT SINGLE tknum FROM vttp\n      INTO curr_trans_no\n      WHERE vbeln = vbfa-vbelv.\n\n    \"Write number in VA in CCO\n    CALL FUNCTION '/AEB/PA_PB_DLV_COMPLETE_SHP'\n      EXPORTING\n        im_likp = curr_trans_no.\n\n    \"Try to get clearings of items\n    SELECT posnr FROM lips\n      INTO TABLE t_lic_pos\n      WHERE vbeln = vbfa-vbelv.\n\n    curr_doc_no = vbfa-vbelv.\n    c_lic_pos = /aeb/cl_cmp_pb_ec_lic_info_bc=>new_for( curr_doc_no ).\n\n    LOOP AT t_lic_pos INTO fld_pos_no.\n      c_lics = c_lic_pos->get_license_info_for_item( fld_pos_no ).\n      t_lic_info_dos = c_lics->get_lic_info_dos( ).\n      LOOP AT t_lic_info_dos INTO curr_lic_info_do.\n        IF curr_lic_info_do->get_license_id( ) IS NOT INITIAL.\n          \"Read EC clearing for customs office and date\n          ec_item-doc_no = vbfa-vbelv.\n          ec_item-item_ref_id = fld_pos_no.\n          APPEND ec_item TO t_ec_item.\n          CALL FUNCTION '/AEB/CMP_PB_EC_GET_CLEA_FOR'\n            EXPORTING\n              im_requests = t_ec_item\n              im_org_unit = 'DE'\n            IMPORTING\n              ex_results  = t_ec_clearing.\n\n          \"Update EC clearing\n          LOOP AT t_ec_clearing INTO curr_ec_clearing.\n            CALL FUNCTION '/AEB/CMP_PB_EC_ADD_CI_FOR_DLV'\n              EXPORTING\n                im_mandt            = sy-mandt\n                im_vbeln            = vbfa-vbelv\n                im_posnr            = fld_ref_no\n                im_export_date      = curr_ec_clearing-clearing_data-dateofexport\n                im_cust_office      = curr_ec_clearing-clearing_data-customsoffice\n                im_cust_accept_date = curr_ec_clearing-clearing_data-customsacceptancedate\n                im_atlas_mrn        = curr_as4data-mrn.\n          ENDLOOP.\n          EXIT.\n        ENDIF.\n      ENDLOOP.\n    ENDLOOP.\n\n    \"Update Fields in documents\n    \"Update invoice\n    SELECT SINGLE exnum FROM vbrk\n      INTO curr_exnum\n      WHERE vbeln = curr_inv_no_struct-inv_no.\n\n    UPDATE eikp\n      SET text1 = curr_as4data-mrn\n      WHERE exnum = curr_exnum.\n\n    \"Update shipment\n    UPDATE vttk\n      SET text3 = curr_as4data-mrn\n      WHERE tknum = curr_trans_no.\n  ENDLOOP.\nENDLOOP.",
-      "language": "text",
-      "name": "Handle MRN"
-    },
-    {
-      "code": "TYPES: BEGIN OF t_cus_mrn_inv,\n         inv_no TYPE string,\n       END OF t_cus_mrn_inv.\nTYPES: tt_cus_mrn_inv TYPE STANDARD TABLE OF t_cus_mrn_inv WITH DEFAULT KEY.\nTYPES: BEGIN OF t_cus_mrn_of_cons,\n         mrn         TYPE string,\n         cus_mrn_inv TYPE tt_cus_mrn_inv,\n       END OF t_cus_mrn_of_cons.\nTYPES: tt_cus_mrn_of_cons TYPE STANDARD TABLE OF t_cus_mrn_of_cons WITH DEFAULT KEY.\nTYPES: BEGIN OF t_document,\n         cus_mrn_of_cons TYPE tt_cus_mrn_of_cons,\n       END OF t_document.\n\nDATA:\n  result_messages_dto TYPE REF TO /aeb/if_ct_pb_nsg_doc_res_dto,\n  bo_id               TYPE string,\n  as4data             TYPE t_document,\n  curr_as4data        TYPE t_cus_mrn_of_cons,\n  curr_inv_no_struct  TYPE t_cus_mrn_inv,\n  fld_comwa           TYPE vbco6,\n  t_vbfas             TYPE TABLE OF vbfa,\n  vbfa                TYPE vbfa,\n  fld_pos_no          TYPE /aeb/cmp_pb_item_ref_id,\n  curr_exnum          TYPE vbrk-exnum,\n  curr_trans_no       TYPE vttk-tknum,\n  fld_ref_no          TYPE posnr,\n  t_ec_item           TYPE /aeb/cmp_pb_ec_req_cle_itms,\n  ec_item             TYPE /aeb/cmp_pb_ec_req_cle_itm,\n  t_ec_clearing       TYPE /aeb/cmp_pb_ec_clea_res_dos,\n  curr_ec_clearing    TYPE /aeb/cmp_pb_ec_clea_res_do,\n  c_lic_pos           TYPE REF TO /aeb/cl_cmp_pb_ec_lic_info_bc,\n  t_lic_pos           TYPE STANDARD TABLE OF posnr_vl WITH DEFAULT KEY,\n  curr_doc_no         TYPE /aeb/cmp_pb_doc_no,\n  c_lics              TYPE REF TO /aeb/if_cmp_pb_ec_lici_res_do,\n  t_lic_info_dos      TYPE /aeb/cmp_if_cmp_pb_ec_li_i_dos,\n  curr_lic_info_do    TYPE REF TO /aeb/if_cmp_pb_ec_lic_info_do.\n\nTRY.\n    bo_id = im_journal_entry_group->get_bo_id( ).\n    im_engine_if->get_cus_data( EXPORTING\n                                  im_bf_name = 'As4Doc_BF_NAME'\n                                  im_businessobjectid = bo_id\n                                IMPORTING\n                                  ex_result_dto = result_messages_dto\n                                CHANGING\n                                  ch_result_data_target = as4data ).\n  CATCH /aeb/cx_01_pb_missing_parm_sc.\nENDTRY.\n\n\"Loop over different consignments / mrns\nLOOP AT as4data-cus_mrn_of_cons INTO curr_as4data.\n  \"Loop over invoices of consignments\n  LOOP AT curr_as4data-cus_mrn_inv INTO curr_inv_no_struct.\n    \"Determine delivery\n    fld_comwa-mandt = sy-mandt.\n    fld_comwa-vbeln = curr_inv_no_struct-inv_no.\n    CALL FUNCTION 'RV_ORDER_FLOW_INFORMATION'\n      EXPORTING\n        comwa      = fld_comwa\n        nachfolger = '-'\n      TABLES\n        vbfa_tab   = t_vbfas.\n    READ TABLE t_vbfas INTO vbfa WITH KEY vbtyp_v = 'J'.\n\n    \"Determine shipment\n    SELECT SINGLE tknum FROM vttp\n      INTO curr_trans_no\n      WHERE vbeln = vbfa-vbelv.\n\n    \"Write number in VA in CCO\n    CALL FUNCTION '/AEB/PA_PB_DLV_COMPLETE_SHP'\n      EXPORTING\n        im_likp = curr_trans_no.\n\n    \"Try to get clearings of items\n    SELECT posnr FROM lips\n      INTO TABLE t_lic_pos\n      WHERE vbeln = vbfa-vbelv.\n\n    curr_doc_no = vbfa-vbelv.\n    c_lic_pos = /aeb/cl_cmp_pb_ec_lic_info_bc=>new_for( curr_doc_no ).\n\n    LOOP AT t_lic_pos INTO fld_pos_no.\n      c_lics = c_lic_pos->get_license_info_for_item( fld_pos_no ).\n      t_lic_info_dos = c_lics->get_lic_info_dos( ).\n      LOOP AT t_lic_info_dos INTO curr_lic_info_do.\n        IF curr_lic_info_do->get_license_id( ) IS NOT INITIAL.\n          \"Read EC clearing for customs office and date\n          ec_item-doc_no = vbfa-vbelv.\n          ec_item-item_ref_id = fld_pos_no.\n          APPEND ec_item TO t_ec_item.\n          CALL FUNCTION '/AEB/CMP_PB_EC_GET_CLEA_FOR'\n            EXPORTING\n              im_requests = t_ec_item\n              im_org_unit = 'DE'\n            IMPORTING\n              ex_results  = t_ec_clearing.\n\n          \"Update EC clearing\n          LOOP AT t_ec_clearing INTO curr_ec_clearing.\n            CALL FUNCTION '/AEB/CMP_PB_EC_ADD_CI_FOR_DLV'\n              EXPORTING\n                im_mandt            = sy-mandt\n                im_vbeln            = vbfa-vbelv\n                im_posnr            = fld_ref_no\n                im_export_date      = curr_ec_clearing-clearing_data-dateofexport\n                im_cust_office      = curr_ec_clearing-clearing_data-customsoffice\n                im_cust_accept_date = curr_ec_clearing-clearing_data-customsacceptancedate\n                im_atlas_mrn        = curr_as4data-mrn.\n          ENDLOOP.\n          EXIT.\n        ENDIF.\n      ENDLOOP.\n    ENDLOOP.\n\n    \"Update Fields in documents\n    \"Update invoice\n    SELECT SINGLE exnum FROM vbrk\n      INTO curr_exnum\n      WHERE vbeln = curr_inv_no_struct-inv_no.\n\n    UPDATE eikp\n      SET text1 = curr_as4data-mrn\n      WHERE exnum = curr_exnum.\n\n    \"Update shipment\n    UPDATE vttk\n      SET text3 = curr_as4data-mrn\n      WHERE tknum = curr_trans_no.\n  ENDLOOP.\nENDLOOP.",
-      "language": "text",
-      "name": "Full Example"
-    }
-  ]
-}
-[/block]
+```text Handle MRN
+DATA:
+  curr_as4data        TYPE t_cus_mrn_of_cons,
+  curr_inv_no_struct  TYPE t_cus_mrn_inv,
+  fld_comwa           TYPE vbco6,
+  t_vbfas             TYPE TABLE OF vbfa,
+  vbfa                TYPE vbfa,
+  fld_pos_no          TYPE /aeb/cmp_pb_item_ref_id,
+  curr_exnum          TYPE vbrk-exnum,
+  curr_trans_no       TYPE vttk-tknum,
+  fld_ref_no          TYPE posnr,
+  t_ec_item           TYPE /aeb/cmp_pb_ec_req_cle_itms,
+  ec_item             TYPE /aeb/cmp_pb_ec_req_cle_itm,
+  t_ec_clearing       TYPE /aeb/cmp_pb_ec_clea_res_dos,
+  curr_ec_clearing    TYPE /aeb/cmp_pb_ec_clea_res_do,
+  c_lic_pos           TYPE REF TO /aeb/cl_cmp_pb_ec_lic_info_bc,
+  t_lic_pos           TYPE STANDARD TABLE OF posnr_vl WITH DEFAULT KEY,
+  curr_doc_no         TYPE /aeb/cmp_pb_doc_no,
+  c_lics              TYPE REF TO /aeb/if_cmp_pb_ec_lici_res_do,
+  t_lic_info_dos      TYPE /aeb/cmp_if_cmp_pb_ec_li_i_dos,
+  curr_lic_info_do    TYPE REF TO /aeb/if_cmp_pb_ec_lic_info_do.
+
+"Loop over different consignments / mrns
+LOOP AT as4data-cus_mrn_of_cons INTO curr_as4data.
+  "Loop over invoices of consignments
+  LOOP AT curr_as4data-cus_mrn_inv INTO curr_inv_no_struct.
+    "Determine delivery
+    fld_comwa-mandt = sy-mandt.
+    fld_comwa-vbeln = curr_inv_no_struct-inv_no.
+    CALL FUNCTION 'RV_ORDER_FLOW_INFORMATION'
+      EXPORTING
+        comwa      = fld_comwa
+        nachfolger = '-'
+      TABLES
+        vbfa_tab   = t_vbfas.
+    READ TABLE t_vbfas INTO vbfa WITH KEY vbtyp_v = 'J'.
+
+    "Determine shipment
+    SELECT SINGLE tknum FROM vttp
+      INTO curr_trans_no
+      WHERE vbeln = vbfa-vbelv.
+
+    "Write number in VA in CCO
+    CALL FUNCTION '/AEB/PA_PB_DLV_COMPLETE_SHP'
+      EXPORTING
+        im_likp = curr_trans_no.
+
+    "Try to get clearings of items
+    SELECT posnr FROM lips
+      INTO TABLE t_lic_pos
+      WHERE vbeln = vbfa-vbelv.
+
+    curr_doc_no = vbfa-vbelv.
+    c_lic_pos = /aeb/cl_cmp_pb_ec_lic_info_bc=>new_for( curr_doc_no ).
+
+    LOOP AT t_lic_pos INTO fld_pos_no.
+      c_lics = c_lic_pos->get_license_info_for_item( fld_pos_no ).
+      t_lic_info_dos = c_lics->get_lic_info_dos( ).
+      LOOP AT t_lic_info_dos INTO curr_lic_info_do.
+        IF curr_lic_info_do->get_license_id( ) IS NOT INITIAL.
+          "Read EC clearing for customs office and date
+          ec_item-doc_no = vbfa-vbelv.
+          ec_item-item_ref_id = fld_pos_no.
+          APPEND ec_item TO t_ec_item.
+          CALL FUNCTION '/AEB/CMP_PB_EC_GET_CLEA_FOR'
+            EXPORTING
+              im_requests = t_ec_item
+              im_org_unit = 'DE'
+            IMPORTING
+              ex_results  = t_ec_clearing.
+
+          "Update EC clearing
+          LOOP AT t_ec_clearing INTO curr_ec_clearing.
+            CALL FUNCTION '/AEB/CMP_PB_EC_ADD_CI_FOR_DLV'
+              EXPORTING
+                im_mandt            = sy-mandt
+                im_vbeln            = vbfa-vbelv
+                im_posnr            = fld_ref_no
+                im_export_date      = curr_ec_clearing-clearing_data-dateofexport
+                im_cust_office      = curr_ec_clearing-clearing_data-customsoffice
+                im_cust_accept_date = curr_ec_clearing-clearing_data-customsacceptancedate
+                im_atlas_mrn        = curr_as4data-mrn.
+          ENDLOOP.
+          EXIT.
+        ENDIF.
+      ENDLOOP.
+    ENDLOOP.
+
+    "Update Fields in documents
+    "Update invoice
+    SELECT SINGLE exnum FROM vbrk
+      INTO curr_exnum
+      WHERE vbeln = curr_inv_no_struct-inv_no.
+
+    UPDATE eikp
+      SET text1 = curr_as4data-mrn
+      WHERE exnum = curr_exnum.
+
+    "Update shipment
+    UPDATE vttk
+      SET text3 = curr_as4data-mrn
+      WHERE tknum = curr_trans_no.
+  ENDLOOP.
+ENDLOOP.
+```
+```text Full Example
+TYPES: BEGIN OF t_cus_mrn_inv,
+         inv_no TYPE string,
+       END OF t_cus_mrn_inv.
+TYPES: tt_cus_mrn_inv TYPE STANDARD TABLE OF t_cus_mrn_inv WITH DEFAULT KEY.
+TYPES: BEGIN OF t_cus_mrn_of_cons,
+         mrn         TYPE string,
+         cus_mrn_inv TYPE tt_cus_mrn_inv,
+       END OF t_cus_mrn_of_cons.
+TYPES: tt_cus_mrn_of_cons TYPE STANDARD TABLE OF t_cus_mrn_of_cons WITH DEFAULT KEY.
+TYPES: BEGIN OF t_document,
+         cus_mrn_of_cons TYPE tt_cus_mrn_of_cons,
+       END OF t_document.
+
+DATA:
+  result_messages_dto TYPE REF TO /aeb/if_ct_pb_nsg_doc_res_dto,
+  bo_id               TYPE string,
+  as4data             TYPE t_document,
+  curr_as4data        TYPE t_cus_mrn_of_cons,
+  curr_inv_no_struct  TYPE t_cus_mrn_inv,
+  fld_comwa           TYPE vbco6,
+  t_vbfas             TYPE TABLE OF vbfa,
+  vbfa                TYPE vbfa,
+  fld_pos_no          TYPE /aeb/cmp_pb_item_ref_id,
+  curr_exnum          TYPE vbrk-exnum,
+  curr_trans_no       TYPE vttk-tknum,
+  fld_ref_no          TYPE posnr,
+  t_ec_item           TYPE /aeb/cmp_pb_ec_req_cle_itms,
+  ec_item             TYPE /aeb/cmp_pb_ec_req_cle_itm,
+  t_ec_clearing       TYPE /aeb/cmp_pb_ec_clea_res_dos,
+  curr_ec_clearing    TYPE /aeb/cmp_pb_ec_clea_res_do,
+  c_lic_pos           TYPE REF TO /aeb/cl_cmp_pb_ec_lic_info_bc,
+  t_lic_pos           TYPE STANDARD TABLE OF posnr_vl WITH DEFAULT KEY,
+  curr_doc_no         TYPE /aeb/cmp_pb_doc_no,
+  c_lics              TYPE REF TO /aeb/if_cmp_pb_ec_lici_res_do,
+  t_lic_info_dos      TYPE /aeb/cmp_if_cmp_pb_ec_li_i_dos,
+  curr_lic_info_do    TYPE REF TO /aeb/if_cmp_pb_ec_lic_info_do.
+
+TRY.
+    bo_id = im_journal_entry_group->get_bo_id( ).
+    im_engine_if->get_cus_data( EXPORTING
+                                  im_bf_name = 'As4Doc_BF_NAME'
+                                  im_businessobjectid = bo_id
+                                IMPORTING
+                                  ex_result_dto = result_messages_dto
+                                CHANGING
+                                  ch_result_data_target = as4data ).
+  CATCH /aeb/cx_01_pb_missing_parm_sc.
+ENDTRY.
+
+"Loop over different consignments / mrns
+LOOP AT as4data-cus_mrn_of_cons INTO curr_as4data.
+  "Loop over invoices of consignments
+  LOOP AT curr_as4data-cus_mrn_inv INTO curr_inv_no_struct.
+    "Determine delivery
+    fld_comwa-mandt = sy-mandt.
+    fld_comwa-vbeln = curr_inv_no_struct-inv_no.
+    CALL FUNCTION 'RV_ORDER_FLOW_INFORMATION'
+      EXPORTING
+        comwa      = fld_comwa
+        nachfolger = '-'
+      TABLES
+        vbfa_tab   = t_vbfas.
+    READ TABLE t_vbfas INTO vbfa WITH KEY vbtyp_v = 'J'.
+
+    "Determine shipment
+    SELECT SINGLE tknum FROM vttp
+      INTO curr_trans_no
+      WHERE vbeln = vbfa-vbelv.
+
+    "Write number in VA in CCO
+    CALL FUNCTION '/AEB/PA_PB_DLV_COMPLETE_SHP'
+      EXPORTING
+        im_likp = curr_trans_no.
+
+    "Try to get clearings of items
+    SELECT posnr FROM lips
+      INTO TABLE t_lic_pos
+      WHERE vbeln = vbfa-vbelv.
+
+    curr_doc_no = vbfa-vbelv.
+    c_lic_pos = /aeb/cl_cmp_pb_ec_lic_info_bc=>new_for( curr_doc_no ).
+
+    LOOP AT t_lic_pos INTO fld_pos_no.
+      c_lics = c_lic_pos->get_license_info_for_item( fld_pos_no ).
+      t_lic_info_dos = c_lics->get_lic_info_dos( ).
+      LOOP AT t_lic_info_dos INTO curr_lic_info_do.
+        IF curr_lic_info_do->get_license_id( ) IS NOT INITIAL.
+          "Read EC clearing for customs office and date
+          ec_item-doc_no = vbfa-vbelv.
+          ec_item-item_ref_id = fld_pos_no.
+          APPEND ec_item TO t_ec_item.
+          CALL FUNCTION '/AEB/CMP_PB_EC_GET_CLEA_FOR'
+            EXPORTING
+              im_requests = t_ec_item
+              im_org_unit = 'DE'
+            IMPORTING
+              ex_results  = t_ec_clearing.
+
+          "Update EC clearing
+          LOOP AT t_ec_clearing INTO curr_ec_clearing.
+            CALL FUNCTION '/AEB/CMP_PB_EC_ADD_CI_FOR_DLV'
+              EXPORTING
+                im_mandt            = sy-mandt
+                im_vbeln            = vbfa-vbelv
+                im_posnr            = fld_ref_no
+                im_export_date      = curr_ec_clearing-clearing_data-dateofexport
+                im_cust_office      = curr_ec_clearing-clearing_data-customsoffice
+                im_cust_accept_date = curr_ec_clearing-clearing_data-customsacceptancedate
+                im_atlas_mrn        = curr_as4data-mrn.
+          ENDLOOP.
+          EXIT.
+        ENDIF.
+      ENDLOOP.
+    ENDLOOP.
+
+    "Update Fields in documents
+    "Update invoice
+    SELECT SINGLE exnum FROM vbrk
+      INTO curr_exnum
+      WHERE vbeln = curr_inv_no_struct-inv_no.
+
+    UPDATE eikp
+      SET text1 = curr_as4data-mrn
+      WHERE exnum = curr_exnum.
+
+    "Update shipment
+    UPDATE vttk
+      SET text3 = curr_as4data-mrn
+      WHERE tknum = curr_trans_no.
+  ENDLOOP.
+ENDLOOP.
+```
