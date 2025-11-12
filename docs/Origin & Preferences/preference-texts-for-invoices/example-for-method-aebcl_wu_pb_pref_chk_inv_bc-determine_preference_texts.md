@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-## Method /AEB/CL_WU_PB_PREF_CHK_INV_BC - determine_preference_texts
+## Method /AEB/CL\_WU\_PB\_PREF\_CHK\_INV\_BC - determine\_preference\_texts
 
 This is a standalone example of a call to the method combined with the output of the preference texts. 
 
