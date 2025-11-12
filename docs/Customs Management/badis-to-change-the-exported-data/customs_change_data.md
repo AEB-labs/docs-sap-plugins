@@ -14,7 +14,7 @@ next:
       slug: badi-aebaes_cons_shp_01
       title: BAdI /AEB/AES_CONS_SHP_01 (Shipment)
 ---
-These examples are not intended for a 1:1 copy, but to demonstrate the concepts and how to use certain patterns. Sometimes they use parameters which are only available in the context of the SAP business object like im_likp , im_vttk, etc.  Please adapt the examples to the context of the certain BAdI you are just implementing.    
+These examples are not intended for a 1:1 copy, but to demonstrate the concepts and how to use certain patterns. Sometimes they use parameters which are only available in the context of the SAP business object like im\_likp , im\_vttk, etc.  Please adapt the examples to the context of the certain BAdI you are just implementing.    
 
 ## Change the remark on consignment level
 
@@ -122,9 +122,9 @@ DATA:
 
 ## Set the aggregation or splitting criteria for an item
 
-For more information about the meaning of the aggregation and split criteria , see: <https://customsmanagement.docs.developers.aeb.com/docs/aggregation-and-split> 
+For more information about the meaning of the aggregation and split criteria , see: [https://customsmanagement.docs.developers.aeb.com/docs/aggregation-and-split](https://customsmanagement.docs.developers.aeb.com/docs/aggregation-and-split) 
 
-This example shows how to set the aggregation criteria, but one can also use it the same way for setting the split criteria by calling "set_additional_split_criteria( 'this is the value of the split criteria' )".     
+This example shows how to set the aggregation criteria, but one can also use it the same way for setting the split criteria by calling "set\_additional\_split\_criteria( 'this is the value of the split criteria' )".     
 
 ```text Set AdditionalAggregationKey
 DATA:
