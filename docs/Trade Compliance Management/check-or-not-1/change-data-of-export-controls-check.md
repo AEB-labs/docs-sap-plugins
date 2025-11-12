@@ -18,13 +18,13 @@ next:
 
 You can adapt the data used in the Export Controls check. Just implement the BAdI for each business object accordingly: 
 
-| Data object                    | BAdI                 |
-| :----------------------------- | :------------------- |
-| Sales document                 | /AEB/CMP_EC_ORDER_06 |
-| Delivery                       | /AEB/CMP_EC_DLV_03   |
-| Purchase document              | /AEB/CMP_EC_PD_03    |
-| Service order (ERP)            | /AEB/CMP_EC_SO_03    |
-| Service transactions (S/4HANA) | /AE1/CMP_EC_ST_02    |
+| Data object                    | BAdI                    |
+| :----------------------------- | :---------------------- |
+| Sales document                 | /AEB/CMP\_EC\_ORDER\_06 |
+| Delivery                       | /AEB/CMP\_EC\_DLV\_03   |
+| Purchase document              | /AEB/CMP\_EC\_PD\_03    |
+| Service order (ERP)            | /AEB/CMP\_EC\_SO\_03    |
+| Service transactions (S/4HANA) | /AE1/CMP\_EC\_ST\_02    |
 
 ## Data structure
 
@@ -32,8 +32,8 @@ Before you start the implementation, take a look on the data structures used in 
 
 ![](https://files.readme.io/6b22cef-2020-02-07_125021.jpg "2020-02-07_125021.jpg")
 
-The whole transaction is provided in an object-oriented structure. To access the relations and fields, use the given get/set/add -methods.  
-A _transaction_ is the checked document, i.e. a sales order.  Linked to that are the according _items_ i.e. sales order items. For Trade Compliance Management all checks are executed on item level, which also hold the classification values such as the _Export Control Number_
+The whole transaction is provided in an object-oriented structure. To access the relations and fields, use the given get/set/add -methods.\
+A *transaction* is the checked document, i.e. a sales order.  Linked to that are the according *items* i.e. sales order items. For Trade Compliance Management all checks are executed on item level, which also hold the classification values such as the *Export Control Number*
 
 ## Concept explanation: How to change the item quantity
 
@@ -54,10 +54,10 @@ endloop.
 
 Explanation of  this code snippet: 
 
-- First, we access the items by calling the method _get_items_. The result ist a list of instances of type interface /aeb/if_cmp_ec_item_do.
-- Then we loop over these instances. The quantity and any other plain field is provided as a so called  "nullable value". We use the nullable values to differ between "null" and "0.0". 
-- To create such nullable value use the factory parameter \_im_nullable_value_factory_. This parameter has methods to create each type that is supported.
-- In our example we use the type dec_15_3._ After you have assigned the quantity value to the according variable, you can apply it to the item by using the set-method_ \_set_quantity_.
+* First, we access the items by calling the method *get\_items*. The result ist a list of instances of type interface /aeb/if\_cmp\_ec\_item\_do.
+* Then we loop over these instances. The quantity and any other plain field is provided as a so called  "nullable value". We use the nullable values to differ between "null" and "0.0". 
+* To create such nullable value use the factory parameter \_im*nullable\_value\_factory*. This parameter has methods to create each type that is supported.
+* In our example we use the type dec*15\_3.* After you have assigned the quantity value to the according variable, you can apply it to the item by using the set-method *\_set\_quantity*.
 
 ## Using the context instead of reading the database
 
@@ -85,7 +85,7 @@ loop at items into curr_item.
 endloop.
 ```
 
-As you can see, we don't read the vbap from the database, and rather get it from the context object using the method _get_vbaps_. To find the right item, we use the reference id from the curr_item. 
+As you can see, we don't read the vbap from the database, and rather get it from the context object using the method *get\_vbaps*. To find the right item, we use the reference id from the curr\_item. 
 
 ## Changing classifications
 
@@ -156,7 +156,7 @@ loop at items into curr_item.
 endloop.
 ```
 
-Use the "add"-method to add a new classification. To create an instance for a new classificatio, use the method "new_cmp_pb_ec_prd_cls_do" of the provided parameter "im_data_object_factory".
+Use the "add"-method to add a new classification. To create an instance for a new classificatio, use the method "new\_cmp\_pb\_ec\_prd\_cls\_do" of the provided parameter "im\_data\_object\_factory".
 
 ## Get the values based on profiles maintained in Product Classification
 
@@ -288,8 +288,8 @@ LOOP AT im_value->get_partners( ) INTO curr_partner.
 ENDLOOP.
 ```
 
-Again we use the im_context_bc to get data for the business object. Do not use database statemens for transactional data here. For the country you have to provide the country ISO code, not the country key.  
-With the \_add_partner_ method you can easily add the partner to the transaction. In the same way it would also work for the items.
+Again we use the im*context\_bc to get data for the business object. Do not use database statemens for transactional data here. For the country you have to provide the country ISO code, not the country key.\
+With the \_add\_partner* method you can easily add the partner to the transaction. In the same way it would also work for the items.
 
 ## Overwrite the completion status
 
