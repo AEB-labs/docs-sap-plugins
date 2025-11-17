@@ -299,3 +299,35 @@ Delete existing goods description for DE, create a new one and set it for the it
       ENDLOOP.
     ENDLOOP.
 ```
+
+## Add produced documents (example for EXPORT_DE customs process)
+```
+    DATA: lo_de_itm_ext TYPE REF TO /aeb/if_aes_pb_ditm_de_do
+          .
+
+    DATA(lt_deliveries) = im_value->get_deliveries( ).
+    LOOP AT lt_deliveries INTO DATA(lo_delivery).
+      DATA(lt_items) = lo_delivery->get_items( ).
+      LOOP AT lt_items INTO DATA(lo_item).
+        DATA(lo_itm_ext) = lo_item->get_extension( ).
+        IF lo_itm_ext IS INITIAL.
+          lo_itm_ext = im_cons_data_object_factory->new_aes_pb_ditm_extd_do( ).
+          lo_item->set_extension( im_value = lo_itm_ext ).
+          lo_de_itm_ext = im_cons_data_object_factory->new_aes_pb_ditm_de_do( ).
+          lo_itm_ext->set_export_de( im_value = lo_de_itm_ext ).
+        ELSE.
+          lo_de_itm_ext = lo_itm_ext->get_export_de( ).
+          IF lo_de_itm_ext IS INITIAL.
+            lo_de_itm_ext = im_cons_data_object_factory->new_aes_pb_ditm_de_do( ).
+            lo_itm_ext->set_export_de( im_value = lo_de_itm_ext ).
+          ENDIF.
+        ENDIF.
+        DATA(lt_prod_docs) = lo_de_itm_ext->get_produced_documents( ).
+        DATA(lo_prod_doc) = im_cons_data_object_factory->new_aes_pb_prod_doc_eu_do( ).
+        DATA(lo_type) = im_nullable_value_factory->char_9( im_value = 'Y901' ).
+        lo_prod_doc->set_type_code( im_value = lo_type ).
+        APPEND lo_prod_doc TO lt_prod_docs.
+        lo_de_itm_ext->set_produced_documents( im_value = lt_prod_docs ).
+      ENDLOOP.
+    ENDLOOP.
+```
