@@ -185,16 +185,6 @@ Delete existing goods description for DE, create a new one and set it for the it
         lo_item->set_goods_description( im_value = lt_goods_desc ).
       ENDLOOP.
     ENDLOOP.
-
-    DATA(lt_deliveries) = im_value->get_deliveries( ).
-    LOOP AT lt_deliveries INTO DATA(lo_delivery).
-      data(lt_transport_means) = lo_delivery->get_transport_means( ).
-      LOOP AT lt_transport_means INTO data(lo_transport_means).
-        IF lo_transport_means->get_means_type( ) = 'BORDER'.
-          lo_transport_means->set_transport_mode_code( im_value = '3' ).
-        ENDIF.
-      ENDLOOP.
-    ENDLOOP.
 ```
 
 ## Set free template criteria on header level
@@ -218,15 +208,8 @@ Delete existing goods description for DE, create a new one and set it for the it
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
       DATA(lt_parties) = lo_delivery->get_parties( ).
       data(lo_carrier) = im_cons_data_object_factory->new_aes_pb_party_do(
-*                           im_city            =
                            im_company_number  = '1235'
-*                           im_contact         =
-*                           im_customs_process =
-*                           im_district        =
-*                           im_name            =
                            im_party_type      = 'CARRIER'
-*                           im_post_code       =
-*                           im_street          =
                            im_country         = 'CH'
                          ).
       APPEND lo_carrier to lt_parties.
