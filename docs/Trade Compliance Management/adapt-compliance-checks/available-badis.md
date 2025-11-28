@@ -17,10 +17,10 @@ next:
 A common use case for custom developments is to perform certain actions depending on the result of a Compliance check. The add-on provides multiple BAdI methods, which are called on certain times and depending on the result.\
 Each business object has a BAdI method to react to a certain result of the compliance check:
 
-* The business object is critical. A match on a sanctioned party list was found or the document is subject to export restrictions.
-* A technical error occurred. A check can not be done, because the connection to Trade Compliance Management is not working.
-* The business object is not critical.\
-  Additionally the business objects customer, vendor, business partner and service order also have a BAdI method, which is called if a critical business object changed to not critical anymore (for example when a good guy was defined).
+* SUSPICIOUS_FOUND: The business object is critical. A match on a sanctioned party list was found or the document is subject to export restrictions.
+* ERROR_OCCURRED: A technical error occurred. A check can not be done, because the connection to Trade Compliance Management is not working.
+* NOTHING_SUSPICIOUS_FOUND: The business object is not critical and has not been critical before
+* SUSPICIOUS_BECAME_GOOD: Additionally the business objects customer, vendor, business partner and service order also have a BAdI method, which is called if a critical business object changed to not critical anymore (for example when a good guy was defined).
 
 ## React to check results - available BAdIs
 
