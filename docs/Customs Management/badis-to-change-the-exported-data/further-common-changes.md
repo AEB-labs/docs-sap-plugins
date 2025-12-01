@@ -315,12 +315,12 @@ Delete existing goods description for DE, create a new one and set it for the it
     ENDLOOP.
 ```
 
-### Set internal reference
+## Set internal reference
 ```
 im_value->set_internal_reference( im_value = 'Internal Reference' ).
 ```
 
-### Initialize customs procedures on item level (e.g. for Swiss export in case you template the value on header level)
+## Initialize customs procedures on item level (e.g. for Swiss export in case you template the value on header level)
 ```
     DATA: lt_customs_procs TYPE /aeb/if_aes_pb_customs_proc_do=>tt_customs_proc_do
           .
