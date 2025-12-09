@@ -333,3 +333,16 @@ im_value->set_internal_reference( im_value = 'Internal Reference' ).
       ENDLOOP.
     ENDLOOP.
 ```
+
+## Set preference and preferential origin
+```
+    DATA(lt_deliveries) = im_value->get_deliveries( ).
+    LOOP AT lt_deliveries INTO DATA(lo_delivery).
+      DATA(lt_items) = lo_delivery->get_items( ).
+      LOOP AT lt_items INTO DATA(lo_item).
+        DATA(lo_is_preference) = im_nullable_value_factory->boolean( im_value = 'X' ).
+        lo_item->set_is_eligible_preference( im_value = lo_is_preference ).
+        lo_item->set_pref_origin_country_code( im_value = 'DE' ).
+      ENDLOOP.
+    ENDLOOP.
+```
