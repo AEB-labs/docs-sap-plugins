@@ -14,9 +14,15 @@ next:
       slug: change-data-of-export-controls-check
       title: Change the data for Export Controls checks
 ---
-The BAdI /AEB/CMP\_EC\_CHK\_01 is called after all data for Export Control has been collected by the standard logic. The collected data is provided as a read-only object. 
+The BAdI /AEB/CMP_EC_CHK_01 is called after all data for Export Control has been collected by the standard logic. The collected data is provided as a read-only object.
 
-Within the BAdI you can decide on wether or not the business object should be checked ("no check logic"). This BAdI will run for every business object. The configuration setting for checks of domestic documents is also considered. 
+Within the BAdI you can decide on wether or not the business object should be checked ("no check logic"). This BAdI will run for every business object. The configuration setting for checks of domestic documents is also considered.
+
+<Callout icon="❗️">
+  Once a document has been checked with ExportControls, this BAdI is not called.  
+</Callout>
+
+<br />
 
 This example outlines how to exclude documents from a check that are shipping inside the EU and have no export classifications:
 
@@ -51,4 +57,4 @@ This example outlines how to exclude documents from a check that are shipping in
 
 ```
 
-Please note that the "is\_in\_eu"-method must be defined by yourself, containing the required logic.
+Please note that the "is_in_eu"-method must be defined by yourself, containing the required logic.
