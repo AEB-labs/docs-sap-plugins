@@ -346,3 +346,24 @@ im_value->set_internal_reference( im_value = 'Internal Reference' ).
       ENDLOOP.
     ENDLOOP.
 ```
+
+## Delete items with zero quantity
+```
+    DATA(lt_deliveries) = im_value->get_deliveries( ).
+    LOOP AT lt_deliveries INTO DATA(lo_delivery).
+      DATA(lt_items) = lo_delivery->get_items( ).
+      LOOP AT lt_items INTO DATA(lo_item).
+        DATA(lt_quantities) = lo_item->get_quantities( ).
+        LOOP AT lt_quantities INTO DATA(lo_quantity).
+          IF lo_quantity->get_quantity_type( ) <> 'ITEM'.
+            CONTINUE.
+          ENDIF.
+          IF lo_quantity->get_quantity( ) IS INITIAL OR lo_quantity->get_quantity( )->get_value_v1( ) IS INITIAL OR lo_quantity->get_quantity( )->get_value_v1( )->v IS INITIAL.
+            DELETE lt_items.
+            EXIT.
+          ENDIF.
+        ENDLOOP.
+      ENDLOOP.
+      lo_delivery->set_items( im_value = lt_items ).
+    ENDLOOP.
+```
