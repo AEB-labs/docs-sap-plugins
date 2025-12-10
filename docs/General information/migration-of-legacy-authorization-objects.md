@@ -11,11 +11,7 @@ In the past, AEB delivered authorization objects in the Z namespace. Depending o
 
 1. Copy the following code block into a report and execute it in your system. The output of the report you will inform you about the next steps.
 
-2. <Accordion title="My Accordion Title" icon="fa-info-circle">
-     Lorem ipsum dolor sit amet, **consectetur adipiscing elit.** Ut enim
-     ad minim veniam, quis nostrud exercitation ullamco. Excepteur sint
-     occaecat cupidatat non proident!
-   </Accordion>
+2. <Accordion title="Report code" icon="fa-info-circle">
    ```Text zaeb_check_auth_migration
    CONSTANTS:
      c_basis_cockpit   TYPE xuobject VALUE 'ZAEB_01C10',
@@ -134,7 +130,7 @@ In the past, AEB delivered authorization objects in the Z namespace. Depending o
      WRITE /'Contact AEB Support to get the required transport requests.'.
    ENDFORM.
    ```
-   <br />
+   </Accordion>
 
 3. Manually move the objects to another package.
    Move all objects The package name must begin with a Z, otherwise it is freely selectable. However, do not select any of the ZAEB_*_NAMESPACELESS_OBJECTS packages.
