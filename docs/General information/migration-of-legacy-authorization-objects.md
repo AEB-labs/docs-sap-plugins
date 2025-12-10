@@ -9,7 +9,7 @@ metadata:
 
 In the past, AEB delivered authorization objects in the Z namespace. Depending on when and how you first installed AEB components in your SAP systems, you maintained these objects in authorization roles. AEB was informed about difficulties in S/4HANA migrations related to these authorization objects which could result in their deletion. You have the following options to prevent this:
 
-1. Copy the following code block into a report and execute it in your system. The output of the report will inform you about the next steps.  
+1. Copy the following code block into a report and execute it in your system. The output of the report will inform you about the next steps.
    ```Text Report code
    CONSTANTS:
      c_basis_cockpit   TYPE xuobject VALUE 'ZAEB_01C10',
@@ -129,9 +129,9 @@ In the past, AEB delivered authorization objects in the Z namespace. Depending o
    ENDFORM.
    ```
 
-2.  Manually move the objects to another package.
-   The new package name must begin with a Z. However, do not select any of the ZAEB_*_NAMESPACELESS_OBJECTS packages. Example: ZAEB_DEPRECATED_OBJECTS.  
+2. Manually move the objects to another package.
+   The new package name must begin with 'Z'. However, do not select any of the ZAEB_*_NAMESPACELESS_OBJECTS packages. Example: ZAEB_DEPRECATED_OBJECTS.
 
-   To move the objects, first create the new package. After that, you can use the Repository Information System. Open the Object Navigator (SE80) and select the Repository Information System. Open "Other objects -> Authorization Objects". Use the select option of the field "Authorization Object" to enter the following list of objects. Use the function "Upload from clipboard" to conveniently insert the objects. Execute the selection. On the result list, select all entries and perform the menu function "Auth. objects -> Reassign". Enter the new package name and execute the function.
+To move the objects, first create the new package. After that, you can use the Repository Information System. Open the Object Navigator (SE80) and select the Repository Information System. Open "Other objects -> Authorization Objects". Use the select option of the field "Authorization Object" to enter the following list of objects. Use the function "Upload from clipboard" to conveniently insert the objects. Execute the selection. On the result list, select all entries and perform the menu function "Auth. objects -> Reassign". Enter the new package name and execute the function.
 
 3. Switch to the new authorization objects. Each Z authorization object has been replaced by an authorization object in the /AEB/ namespace. In order for these to be used, the legacy Z authorization objects must be deleted from your system. All uses in roles must be removed before deletion, otherwise the roles will become invalid.
