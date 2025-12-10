@@ -130,12 +130,8 @@ In the past, AEB delivered authorization objects in the Z namespace. Depending o
    ```
 
 2.  Manually move the objects to another package.
-   Move all objects The package name must begin with a Z, otherwise it is freely selectable. However, do not select any of the ZAEB_*_NAMESPACELESS_OBJECTS packages.
-   Four objects have additionally maintained documentation, which is available as a separate entry in the package. However, they are not displayed in the SE80. The objects in the TADIR table are as follows:
-   UOZAEB_AAW00
-   UOZAEB_AEB00
-   UOZAEB_AES00
-   UOZAEB_AOU01
-   This documentation has no function and should be deleted. To do this, log on to the system in English and start transaction SU21. Open the relevant authorization object (without the UO at the beginning). Now switch to change mode and click on "Create Object Documentation". On the next screen, execute the "Delete" function via the menu.
+   The new package name must begin with a Z. However, do not select any of the ZAEB_*_NAMESPACELESS_OBJECTS packages. Example: ZAEB_DEPRECATED_OBJECTS.  
+
+   To move the objects, first create the new package. After that, you can use the Repository Information System. Open the Object Navigator (SE80) and select the Repository Information System. Open "Other objects -> Authorization Objects". Use the select option of the field "Authorization Object" to enter the following list of objects. Use the function "Upload from clipboard" to conveniently insert the objects. Execute the selection. On the result list, select all entries and perform the menu function "Auth. objects -> Reassign". Enter the new package name and execute the function.
 
 3. Switch to the new authorization objects. Each Z authorization object has been replaced by an authorization object in the /AEB/ namespace. In order for these to be used, the legacy Z authorization objects must be deleted from your system. All uses in roles must be removed before deletion, otherwise the roles will become invalid.
