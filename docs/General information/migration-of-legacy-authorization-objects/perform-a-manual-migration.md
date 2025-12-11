@@ -15,6 +15,8 @@ After that, you can use the Repository Information System to move the authorizat
 
 On the result list, select all entries and perform the menu function "Auth. objects -> Reassign". Enter the new package name and execute the function.
 
+You can check in table TADIR if the migration was successful.
+
 | Authorization object list |
 | :------------------------ |
 | ZAEBCMP100                |
