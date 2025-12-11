@@ -9,7 +9,7 @@ This report checks the authorization objects in use. It generates a detailed out
 
 Copy the following code block into a report and execute it in your system. The output of the report will inform you about the next steps.
 
-```
+```Text Report code
 CONSTANTS:
   c_basis_cockpit   TYPE xuobject VALUE 'ZAEB_01C10',
   c_cmp_monitor     TYPE xuobject VALUE 'ZAEB_CMP32',
