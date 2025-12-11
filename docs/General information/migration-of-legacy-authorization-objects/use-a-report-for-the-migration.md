@@ -1,7 +1,7 @@
 ---
 title: Use a report for the migration
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
