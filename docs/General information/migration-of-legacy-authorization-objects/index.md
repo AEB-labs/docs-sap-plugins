@@ -5,6 +5,7 @@ hidden: true
 metadata:
   robots: index
 next:
+  description: Choose from the following options
   pages:
     - slug: use-a-report-for-the-migration
       title: Use a report for the migration
