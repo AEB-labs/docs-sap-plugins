@@ -4,12 +4,20 @@ deprecated: false
 hidden: true
 metadata:
   robots: index
+next:
+  pages:
+    - slug: use-a-report-for-the-migration
+      title: Use a report for the migration
+      type: basic
+    - slug: perform-a-manual-migration
+      title: Perform a manual migration
+      type: basic
 ---
 <br />
 
-In the past, AEB delivered authorization objects in the Z namespace. Depending on when and how you first installed AEB components in your SAP systems, you maintained these objects in authorization roles. AEB was informed about difficulties in S/4HANA migrations related to these authorization objects which could result in their deletion. You have the following options to prevent this:
+In the past, AEB delivered authorization objects in the Z namespace. Depending on when and how you first installed AEB components in your SAP systems, you have installed and maintained these objects in authorization roles. In November 2025, AEB was informed about difficulties in S/4HANA migrations related to these authorization objects which could result in their deletion. This is critical, because maintained authorization roles will become invalid. You have the following options to prevent this:
 
-1. Use a "Report for the migration"
+1. Use a report for the migration
 
 2. Perform a manual migration
 
