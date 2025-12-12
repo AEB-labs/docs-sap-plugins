@@ -12,6 +12,9 @@ next:
     - slug: perform-a-manual-migration
       title: Perform a manual migration
       type: basic
+    - slug: switch-to-new-authorization-objects
+      title: Switch to new authorization objects
+      type: basic
 ---
 <br />
 
