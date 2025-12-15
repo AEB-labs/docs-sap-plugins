@@ -1,13 +1,13 @@
 ---
-title: Perform a manual migration
+title: Perform manual transfer of authorization objects
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
 To move the objects, first create a new package. Do not select any of the ZAEB_*_NAMESPACELESS_OBJECTS packages. You could use ZAEB_DEPRECATED_OBJECTS or any other package name starting with 'Z'.
 
-After package creation, you can use the Repository Information System to move the authorization objects into it. You need development rights for namespace 'Z*'. Open the Object Navigator (SE80) and select the Repository Information System. Open "Other objects -> Authorization Objects". Open the select option of the field "Authorization Object" to enter the following list of objects. Use the button "Upload from clipboard" to conveniently insert the objects. Execute the selection.
+After package creation, use the Repository Information System to move the authorization objects into it. You need development rights for namespace 'Z*'. Open the Object Navigator (SE80) and select the Repository Information System. Open "Other objects -> Authorization Objects". Open the select option of the field "Authorization Object" to enter the following list of objects. Use the button "Upload from clipboard" to conveniently insert the objects. Execute the selection.
 
 <Callout icon="📘" theme="info">
   Note: If less objects were selected than you entered, this is ok. Perform the next steps with your object list.
