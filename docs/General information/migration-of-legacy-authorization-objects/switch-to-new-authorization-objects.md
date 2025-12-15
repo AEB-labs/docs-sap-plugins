@@ -1,7 +1,7 @@
 ---
 title: Switch to new authorization objects
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
