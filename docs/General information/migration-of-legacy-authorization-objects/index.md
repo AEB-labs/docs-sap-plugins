@@ -11,7 +11,7 @@ next:
       title: Use a report for the transfer of authorization objects
       type: basic
     - slug: perform-a-manual-migration
-      title: Perform a manual migration
+      title: Perform manual transfer of authorization objects
       type: basic
     - slug: switch-to-new-authorization-objects
       title: Switch to new authorization objects
