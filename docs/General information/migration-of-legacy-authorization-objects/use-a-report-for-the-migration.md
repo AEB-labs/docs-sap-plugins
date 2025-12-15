@@ -1,5 +1,5 @@
 ---
-title: Use a report for the migration
+title: Use a report for the transfer of authorization objects
 deprecated: false
 hidden: true
 metadata:
