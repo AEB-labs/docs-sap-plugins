@@ -1,7 +1,7 @@
 ---
 title: Use a report for the transfer of authorization objects
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
