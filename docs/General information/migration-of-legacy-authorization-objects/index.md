@@ -1,7 +1,7 @@
 ---
 title: Transfer of legacy authorization objects
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 next:
