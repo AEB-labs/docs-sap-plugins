@@ -25,4 +25,4 @@ In the past, AEB provided authorization objects in the Z namespace, as there was
 2. Perform a manual migration
 3. Switch to new authorization objects
 
-Choose your next step accordingly in the section below.  
+Select your next step accordingly in the following section.
