@@ -11,4 +11,4 @@ For every legacy authorization object starting with 'ZAEB' there is a replacemen
 2. Remove the old authorization objects from the authorization roles.
 3. Import the deletion report for the old authorization objects.
 
-As long as an old authorization object is present in your system, it will be queried by the authorization check. Then new one will only be evaluated if the old authorization object does not exist anymore.
+As long as a  Z-authorization object is present in your system, it will be queried by the authorization check. The new object will only be evaluated if the according Z-authorization object does not exist anymore.
