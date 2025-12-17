@@ -7,7 +7,7 @@ metadata:
 ---
 This report checks the authorization objects in use. It generates a detailed output informing you about the next steps. If you need to transfer authorization objects, the report will guide you to the AEB support in order to get the correct transport requests to import. The transport requests will move the authorization objects into the package ZAEB_DEPRECATED_OBJECTS.
 
-Copy the following code block into a report and execute it in your system. The output of the report will inform you about the next steps.
+Copy the following code block into a report and execute it in your quality assurance system. The output of the report will inform you about the next steps.
 
 ```Text Report code
 CONSTANTS:
@@ -71,15 +71,17 @@ ENDFORM.
 
 FORM output_result.
   SKIP.
+  WRITE: 'System:', sy-sysid.
+  SKIP.
 
   IF auth_objects_found-basis <> 'X'
-  AND auth_objects_found-cmp <> 'X'
-  AND auth_objects_found-aes <> 'X'
-  AND auth_objects_found-emcs <> 'X'
-  AND auth_objects_found-ma <> 'X'
-  AND auth_objects_found-pa <> 'X'
-  AND auth_objects_found-ta <> 'X'
-  AND auth_objects_found-wu <> 'X'.
+    AND auth_objects_found-cmp <> 'X'
+    AND auth_objects_found-aes <> 'X'
+    AND auth_objects_found-emcs <> 'X'
+    AND auth_objects_found-ma <> 'X'
+    AND auth_objects_found-pa <> 'X'
+    AND auth_objects_found-ta <> 'X'
+    AND auth_objects_found-wu <> 'X'.
     WRITE 'There are no authorization objects to migrate.'.
     RETURN.
   ENDIF.
