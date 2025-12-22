@@ -94,9 +94,9 @@ Several functions are available:
 
 The determined preference texts have to be printed on the invoice. The head text can be placed at the beginning or the end of the invoice. Item texts should be printed at the corresponding item.
 
-# Overview of functions for invoices
+# Overview of functions
 
-Besides the determination of preference texts, there are some additional methods in class /AEB/CL_WU_PB_PREF_CHK_INV_BC.
+Besides the determination of preference texts, there are some additional methods in the classes /AEB/CL_WU_PB_PREF_CHK_INV_BC, /AEB/CL_WU_PB_PREF_CHK_DLV_BC and /AEB/CL_WU_PB_PREF_CHK_CUS_BC.
 
 <Callout icon="📘" theme="info">
   The fields VBAK-KUNNR and VBRK-LAND1 are the basis for determining the partner/country.
