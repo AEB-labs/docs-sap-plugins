@@ -146,19 +146,11 @@ The method provides the preferential origins of the invoice items if it is neces
 
 This method determines the non-preferential country of origin ("non-preferential origin") from the Material Monitor threshold data (/AEB/WUMMDMON) for every item. If no value can be determined from the data, the country of origin from the material master is returned.
 
-# Further functions for other documents
+# Further functions 
 
-<br />
-
-| Function module                | Description                                                   |
-| :----------------------------- | :------------------------------------------------------------ |
-| /AEB/WU_PB_CHK_CUS_DECL_OF_ORI | Determine if a declaration of origin is allowd for a document |
-| /AEB/WU_PB_CHK_CUS_ITM_PREF    | Determines if an item is entitled to preference               |
-| /AEB/WU_PB_CHK_IS_CUS_TO_SIGN  | Determines if a document has to be signed                     |
-| /AEB/WU_PB_DET_CUS_AWR_CTRY    | Determines the non-pref. country of origin                    |
-| /AEB/WU_PB_DET_CUS_ORIG_CTRYS  | Determines preferential origin for all items                  |
-| /AEB/WU_PB_DET_CUS_PREF_TEXTS  | Determines the declaration of origin for a document           |
-| /AEB/WU_PB_DET_SO_ITM_MAT_NO   | Determines the unique material number for a sales order item  |
+| Function module              | Description                                                  |
+| :--------------------------- | :----------------------------------------------------------- |
+| /AEB/WU_PB_DET_SO_ITM_MAT_NO | Determines the unique material number for a sales order item |
 
 | Class                | Description                                                                             |
 | :------------------- | :-------------------------------------------------------------------------------------- |
