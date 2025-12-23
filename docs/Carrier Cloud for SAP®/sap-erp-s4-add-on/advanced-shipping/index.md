@@ -26,9 +26,9 @@ Use the following classes to use the full API functionality of Carrier Cloud for
 
 These classes enables you to call every available method and also change the field values and parameters completely flexible. For a detailed documentation of this API see here: [API Documentation Carrier Cloud](https://transport-freight-management.docs.developers.aeb.com/docs/about-carrier-connect).
 
-## Supporting functions
+## Functions to support with the collecting of data
 
-Before you can use any of the methods from the class, e.g. Create_Shipment, certain mandatory data is needed. To support you gathering the required data, there are some complementary features, which will be explained in this section:
+Before you can use any of the methods from the class, e.g. CREATE_SHIPMENT, certain mandatory data is needed. To support you collecting the required data, there are some complementary features, which will be explained in this section:
 
 <Table align={["left","left"]}>
   <thead>
@@ -111,7 +111,7 @@ The names of the classes are structured like this:
 
 In this part of the guide we will walk through all those functions. All examples are based on an outbound delivery, but you can adapt them to other supported SAP business objects using the according class as listed above. Regardless of the SAP business object you're transferring, the result will be a "shipping order" in Carrier Cloud.
 
-## Organizational unit
+### Organizational unit
 
 First step is to determine the AEB specific organizational unit for a business object. The org unit is helpful to separate data access and read certain data from the configuration. This program determines the organizational unit for a delivery and writes it to the screen:
 
@@ -146,7 +146,7 @@ WRITE: 'OrgUnit: ' , org_unit.
 WRITE /.
 ```
 
-## Connection parameters
+### Connection parameters
 
 The next step is to read the connection parameters linked to this organizational unit. This connection is used to call the endpoint (the Carrier Cloud for SAP) eventually.
 
@@ -185,7 +185,7 @@ WRITE: 'Engine client: ' , engn_prm_mo->get_engine_client( ).s
 
 If you run the report again the destination and client for Carrier Cloud for SAP will be shown.
 
-## Collecting data from an SAP business object
+### Collecting data from an SAP business object
 
 Next, we need the data for the shipping order that we want to send to Carrier Cloud. Use the "collector"-class for the according SAP business object:
 
@@ -241,7 +241,7 @@ With this example you have collected the shipping data of the SAP delivery, e.g.
 
 To change or add something for the collected data, you can implement the "AFTER_STD_FILLING"-method of the BAdI for the according business object:  [BAdIs to change data ](https://sap-plugins.docs.developers.aeb.com/docs/badis-to-change-the-exported-data-1).
 
-## Determine the workstation
+### Determine the workstation
 
 The workstation ID is mandatory for creating a shipping order and printing labels.  Just add the following code lines to the program:
 
@@ -252,7 +252,7 @@ write: workstation_id.
 write /.
 ```
 
-## Determine the reference number
+### Determine the reference number
 
 In certain scenarios & calls the reference number of the shipping order is required.  During the creation of a shipping order in Carrier Connect a unique reference is assigned. By using this function, you can retrieve that reference ID for the according SAP business object:
 
@@ -275,7 +275,7 @@ write /.
 
 ## Further subsequent functionality
 
-Using the API class you can make use of further functionality:
+Using the API classes /AEB/CL_PA_PB_CARRIER_BF and /AEB/CL_PA_PB_BSMCARRIER_BF , you can make use of further functionality:
 
 [Create shipping order (Create shipment)](https://sap-plugins.docs.developers.aeb.com/docs/create-shipment)
 
