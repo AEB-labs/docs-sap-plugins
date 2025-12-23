@@ -26,7 +26,7 @@ Use the following classes to use the full API functionality of Carrier Cloud for
 
 These classes enables you to call every available method and also change the field values and parameters completely flexible. For a detailed documentation of this API see here: [API Documentation Carrier Cloud](https://transport-freight-management.docs.developers.aeb.com/docs/about-carrier-connect).
 
-## Functions that support determination of data ("collecting data") 
+## Functions that support the determination of data ("collecting data") 
 
 Before you can use any of the methods from the class, e.g. CREATE_SHIPMENT, certain mandatory data is needed. To support you collecting the required data, there are some complementary features, which will be explained in this section:
 
