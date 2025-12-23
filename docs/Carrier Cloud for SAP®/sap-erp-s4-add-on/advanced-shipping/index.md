@@ -12,7 +12,7 @@ next:
 ---
 ## API class /AEB/CL_PA_PB_CARRIER_BF
 
-Use the following classes for the complete API functionality of Carrier Cloud for SAP: 
+Use the following classes to use the full API functionality of Carrier Cloud for SAP: 
 
 **/AEB/CL_PA_PB_CARRIER_BF**
 
