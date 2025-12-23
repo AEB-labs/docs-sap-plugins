@@ -12,7 +12,7 @@ next:
 ---
 ## API class /AEB/CL_PA_PB_CARRIER_BF
 
-Use the following classes to use the full API functionality of Carrier Cloud for SAP: 
+Use the following classes to use the full API functionality of Carrier Cloud for SAP:
 
 **/AEB/CL_PA_PB_CARRIER_BF**
 
@@ -26,7 +26,7 @@ Use the following classes to use the full API functionality of Carrier Cloud for
 
 These classes enables you to call every available method and also change the field values and parameters completely flexible. For a detailed documentation of this API see here: [API Documentation Carrier Cloud](https://transport-freight-management.docs.developers.aeb.com/docs/about-carrier-connect).
 
-## Functions to support with the collecting of data
+## Functions that support determination of data ("collecting data") 
 
 Before you can use any of the methods from the class, e.g. CREATE_SHIPMENT, certain mandatory data is needed. To support you collecting the required data, there are some complementary features, which will be explained in this section:
 
@@ -96,7 +96,7 @@ Before you can use any of the methods from the class, e.g. CREATE_SHIPMENT, cert
 
       <td>
         * *TM document: **/AE1/CL_PA_PB_FRO_SHP_REF_BC
-        * *Delivery:** /AEB/CL_PA_PB_DLV_SHP_REF_BC
+        * _Delivery:_* /AEB/CL_PA_PB_DLV_SHP_REF_BC
         * *Shipment: **/AEB/CL_PA_PB_SHP_SHP_REF_BC
       </td>
     </tr>
