@@ -241,6 +241,12 @@ With this example you have collected the shipping data of the SAP delivery, e.g.
 
 To change or add something for the collected data, you can implement the "AFTER_STD_FILLING"-method of the BAdI for the according business object:  [BAdIs to change data ](https://sap-plugins.docs.developers.aeb.com/docs/badis-to-change-the-exported-data-1).
 
+<Callout icon="📘" theme="info">
+  Provide the header data, items and handling units when calling the collector class. Data is only determined based on the data that is passed along with the call.     
+</Callout>
+
+<br />
+
 ### Determine the workstation
 
 The workstation ID is mandatory for creating a shipping order and printing labels.  Just add the following code lines to the program:
