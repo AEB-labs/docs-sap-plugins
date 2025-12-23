@@ -10,27 +10,25 @@ metadata:
 next:
   description: ''
 ---
-## API class /AEB/CL\_PA\_PB\_CARRIER\_BF
+## API class /AEB/CL_PA_PB_CARRIER_BF
 
-To use the full API functionality of Carrier Cloud for SAP, you can use those classes: 
+Use the following classes for the complete API functionality of Carrier Cloud for SAP: 
 
-**/AEB/CL\_PA\_PB\_CARRIER\_BF**
+**/AEB/CL_PA_PB_CARRIER_BF**
 
- **/AEB/CL\_PA\_PB\_BSMCARRIER\_BF**
+**/AEB/CL_PA_PB_BSMCARRIER_BF**
 
-<Image alt="The API class provided by the add-on for SAP" align="center" src="https://files.readme.io/f8bbe8d86094fde2efeff1a377740e3a454cd6e3a100a7a92a316980de71d3a2-image.png" />
+<Image align="center" alt="The API class provided by the add-on for SAP" border={false} width="70% " src="https://files.readme.io/f8bbe8d86094fde2efeff1a377740e3a454cd6e3a100a7a92a316980de71d3a2-image.png" />
 
-![](https://files.readme.io/1b62b7651a3e392592c4d24588c917ae14eb543734bfb6467dad4dcbae4b7447-image.png)
+<Image border={false} src="https://files.readme.io/1b62b7651a3e392592c4d24588c917ae14eb543734bfb6467dad4dcbae4b7447-image.png" />
 
 <br />
 
-The API classes are provided by the add-on for SAP
-
-This classes enables you to call every available method and also change the field values and parameters completely flexible. For a detailed documentation of this API see here: [API Documentation Carrier Cloud](https://transport-freight-management.docs.developers.aeb.com/docs/about-carrier-connect).
+These classes enables you to call every available method and also change the field values and parameters completely flexible. For a detailed documentation of this API see here: [API Documentation Carrier Cloud](https://transport-freight-management.docs.developers.aeb.com/docs/about-carrier-connect).
 
 ## Supporting functions
 
-Before you can use any of the methods from the class, e.g. Create\_Shipment, certain mandatory data is needed. To support you gathering the required data, there are some complementary features, which will be explained in this section: 
+Before you can use any of the methods from the class, e.g. Create_Shipment, certain mandatory data is needed. To support you gathering the required data, there are some complementary features, which will be explained in this section:
 
 <Table align={["left","left"]}>
   <thead>
@@ -52,9 +50,9 @@ Before you can use any of the methods from the class, e.g. Create\_Shipment, cer
       </td>
 
       <td>
-        * \*TM document: \*\*/AE1/CL\_PA\_PB\_FRO\_OU\_RULE\_BC  
-        * \*Delivery: \*\*/AEB/CL\_PA\_PB\_DLV\_OU\_RULE\_BC  
-        * \*Shipment: \*\*/AEB/CL\_PA\_PB\_SHP\_OU\_RULE\_BC
+        * *TM document: **/AE1/CL_PA_PB_FRO_OU_RULE_BC
+        * *Delivery: **/AEB/CL_PA_PB_DLV_OU_RULE_BC
+        * *Shipment: **/AEB/CL_PA_PB_SHP_OU_RULE_BC
       </td>
     </tr>
 
@@ -64,20 +62,20 @@ Before you can use any of the methods from the class, e.g. Create\_Shipment, cer
       </td>
 
       <td>
-        /AEB/CL\_PA\_PB\_ENGN\_PRM\_BC
+        /AEB/CL_PA_PB_ENGN_PRM_BC
       </td>
     </tr>
 
     <tr>
       <td>
-        Collecting data from SAP business object ("Collector")\
-        This function provides the basic data based on the settings in the configuration. It runs also through the "AFTER\_STD\_FILLING"-method of the according BAdI for each object.
+        Collecting data from SAP business object ("Collector")  
+        This function provides the basic data based on the settings in the configuration. It runs also through the "AFTER_STD_FILLING"-method of the according BAdI for each object.
       </td>
 
       <td>
-        * \*TM document: \*\*/AE1/CL\_PA\_PB\_FRO\_SHP\_COLL\_BC  
-        * \*Delivery: \*\*/AEB/CL\_PA\_PB\_DLV\_SHP\_COLL\_BC  
-        * \*Shipment: \*\*/AEB/CL\_PA\_PB\_SHP\_SHP\_COLL\_BC
+        * *TM document: **/AE1/CL_PA_PB_FRO_SHP_COLL_BC
+        * *Delivery: **/AEB/CL_PA_PB_DLV_SHP_COLL_BC
+        * *Shipment: **/AEB/CL_PA_PB_SHP_SHP_COLL_BC
       </td>
     </tr>
 
@@ -87,7 +85,7 @@ Before you can use any of the methods from the class, e.g. Create\_Shipment, cer
       </td>
 
       <td>
-        /AEB/CL\_PA\_PB\_WSTA\_ID\_BC
+        /AEB/CL_PA_PB_WSTA_ID_BC
       </td>
     </tr>
 
@@ -97,25 +95,25 @@ Before you can use any of the methods from the class, e.g. Create\_Shipment, cer
       </td>
 
       <td>
-        * \*TM document: \*\*/AE1/CL\_PA\_PB\_FRO\_SHP\_REF\_BC  
-        * \*Delivery:\*\* /AEB/CL\_PA\_PB\_DLV\_SHP\_REF\_BC  
-        * \*Shipment: \*\*/AEB/CL\_PA\_PB\_SHP\_SHP\_REF\_BC
+        * *TM document: **/AE1/CL_PA_PB_FRO_SHP_REF_BC
+        * *Delivery:** /AEB/CL_PA_PB_DLV_SHP_REF_BC
+        * *Shipment: **/AEB/CL_PA_PB_SHP_SHP_REF_BC
       </td>
     </tr>
   </tbody>
 </Table>
 
-The names of the classes are structured like this: 
+The names of the classes are structured like this:
 
-* /AEB/CL\_PA\_PB  - Class is for public usage in customer implementations of Carrier Cloud for SAP
+* /AEB/CL_PA_PB  - Class is for public usage in customer implementations of Carrier Cloud for SAP
 * DLV , SHP, FRO  -  the SAP document the class is applicable for: delivery, shipment or freight order (aka TM document)
-* OU\_RULE\_BC, SHP\_COLL\_BC, SHP\_REF\_BC, WSTA\_ID\_BC - the functionality the class can be used for: organizational unit rule (OU\_RULE), collect shipping data (SHIP\_COLL), get reference (REF) or get workstation data (WSTA).     
+* OU_RULE_BC, SHP_COLL_BC, SHP_REF_BC, WSTA_ID_BC - the functionality the class can be used for: organizational unit rule (OU_RULE), collect shipping data (SHIP_COLL), get reference (REF) or get workstation data (WSTA).
 
-In this part of the guide we will walk through all those functions. All examples are based on an outbound delivery, but you can adapt them to other supported SAP business objects using the according class as listed above. Regardless of the SAP business object you're transferring, the result will be a "shipping order" in Carrier Cloud. 
+In this part of the guide we will walk through all those functions. All examples are based on an outbound delivery, but you can adapt them to other supported SAP business objects using the according class as listed above. Regardless of the SAP business object you're transferring, the result will be a "shipping order" in Carrier Cloud.
 
 ## Organizational unit
 
-First step is to determine the AEB specific organizational unit for a business object. The org unit is helpful to separate data access and read certain data from the configuration. This program determines the organizational unit for a delivery and writes it to the screen: 
+First step is to determine the AEB specific organizational unit for a business object. The org unit is helpful to separate data access and read certain data from the configuration. This program determines the organizational unit for a delivery and writes it to the screen:
 
 ```text Determine the org unit
 REPORT zaeb_create_first_shipment.
@@ -150,7 +148,7 @@ WRITE /.
 
 ## Connection parameters
 
-The next step is to read the connection parameters linked to this organizational unit. This connection is used to call the endpoint (the Carrier Cloud for SAP) eventually.  
+The next step is to read the connection parameters linked to this organizational unit. This connection is used to call the endpoint (the Carrier Cloud for SAP) eventually.
 
 ```text Determine the connection parameters
 REPORT zaeb_create_first_shipment.
@@ -185,19 +183,19 @@ WRITE: 'Destination: ' , engn_prm_mo->get_destination( ).
 WRITE: 'Engine client: ' , engn_prm_mo->get_engine_client( ).s
 ```
 
-If you run the report again the destination and client for Carrier Cloud for SAP will be shown. 
+If you run the report again the destination and client for Carrier Cloud for SAP will be shown.
 
 ## Collecting data from an SAP business object
 
 Next, we need the data for the shipping order that we want to send to Carrier Cloud. Use the "collector"-class for the according SAP business object:
 
-* Delivery: /AEB/CL\_PA\_PB\_DLV\_SHP\_COLL\_BC
-* Shipment: /AEB/CL\_PA\_PB\_SHP\_SHP\_COLL\_BC
-* TM document: /AE1/CL\_PA\_PB\_FRO\_SHP\_COLL\_BC
+* Delivery: /AEB/CL_PA_PB_DLV_SHP_COLL_BC
+* Shipment: /AEB/CL_PA_PB_SHP_SHP_COLL_BC
+* TM document: /AE1/CL_PA_PB_FRO_SHP_COLL_BC
 
-The collector provides the data based on the standard logic and configuration of the AEB add-on, plus the additional logic from the BAdIs that are implemented. Background: To change or add something for the collected data, you can implement different BAdIs for the according business object:  [BAdIs to change data ](https://sap-plugins.docs.developers.aeb.com/docs/badis-to-change-the-exported-data-1).  
+The collector provides the data based on the standard logic and configuration of the AEB add-on, plus the additional logic from the BAdIs that are implemented. Background: To change or add something for the collected data, you can implement different BAdIs for the according business object:  [BAdIs to change data ](https://sap-plugins.docs.developers.aeb.com/docs/badis-to-change-the-exported-data-1).
 
-Here is an example of how to collect the data for an outbound delivery:  
+Here is an example of how to collect the data for an outbound delivery:
 
 ```text Collect the data
 REPORT zaeb_create_first_shipment.
@@ -239,13 +237,13 @@ write shipment-referencenumber1.
 WRITE /.
 ```
 
- With this example you have collected the shipping data of the SAP delivery, e.g. the ship-to address and the carrier. 
+With this example you have collected the shipping data of the SAP delivery, e.g. the ship-to address and the carrier.
 
-To change or add something for the collected data, you can implement the "AFTER\_STD\_FILLING"-method of the BAdI for the according business object:  [BAdIs to change data ](https://sap-plugins.docs.developers.aeb.com/docs/badis-to-change-the-exported-data-1). 
+To change or add something for the collected data, you can implement the "AFTER_STD_FILLING"-method of the BAdI for the according business object:  [BAdIs to change data ](https://sap-plugins.docs.developers.aeb.com/docs/badis-to-change-the-exported-data-1).
 
 ## Determine the workstation
 
-The workstation ID is mandatory for creating a shipping order and printing labels.  Just add the following code lines to the program: 
+The workstation ID is mandatory for creating a shipping order and printing labels.  Just add the following code lines to the program:
 
 ```text Set Workstation ID
 DATA: workstation_id TYPE string.
@@ -277,7 +275,7 @@ write /.
 
 ## Further subsequent functionality
 
-Using the API class you can make use of further functionality:   
+Using the API class you can make use of further functionality:
 
 [Create shipping order (Create shipment)](https://sap-plugins.docs.developers.aeb.com/docs/create-shipment)
 
