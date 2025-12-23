@@ -10,15 +10,17 @@ metadata:
 next:
   description: ''
 ---
-The AEB add-on provides predetermined function modules to support the creation and processing of  a shipping order in Carrier Cloud.  The term "predetermined" means that the function modules are usable for certain shipping scenarios but have some limitations and are less flexible. In example, the workstation or the mode of printing cannot be changed and will be detremined based on the configuration.  Another example for such limitations are special processes like document uploads or paperless trade. 
+The AEB add-on provides predetermined function modules to support the creation and processing of  a shipping order in Carrier Cloud.  The term "predetermined" means that the function modules are usable for certain shipping scenarios but have some limitations and are less flexible. In example, the workstation or the mode of printing cannot be changed and will be detremined based on the configuration.  Another example for such limitations are special processes like document uploads or paperless trade.
 
-> 📘 To handle the shipping with complete flexibility, use the classes and methods documented in [Advanced Shipping](https://sap-plugins.docs.developers.aeb.com/docs/processing-more-in-detail).
+<Callout icon="📘" theme="info">
+  #### The functions emntioned in this section are for certain pre-determined scenarios only. To make use of the functionality with more flexibility, use the classes and methods documented in [Advanced Shipping](https://sap-plugins.docs.developers.aeb.com/docs/processing-more-in-detail).
+</Callout>
 
 # Supported business objects
 
-Using the provided functions modules, you can transfer the following SAP business objects to Carrier Cloud for creating or updating a shipping order there: 
+Using the provided functions modules, you can transfer the following SAP business objects to Carrier Cloud for creating or updating a shipping order there:
 
-* Outbound delivery 
+* Outbound delivery
 * Shipment (LE-TRA)
 * TM business objects: freight order, freight booking and consignment
 
@@ -26,7 +28,47 @@ Using the provided functions modules, you can transfer the following SAP busines
 
 ## Outbound deliveries and shipments
 
-<Table align={["left","left","left"]}>
+| Combined tasks                                                                                         | FM for outbound deliveries     | FM for shipments               |
+| :----------------------------------------------------------------------------------------------------- | :----------------------------- | :----------------------------- |
+| Create the shipping order <br /> Prepare all labels <br /> Complete the shipping order <br />          | /AEB/PA_PB_DLV_CR_SHP_W_COMP   | /AEB/PA_PB_SHP_CR_SHP_W_COMP   |
+| Create the shipping order <br /> Prepare and print all labels <br /> Complete the shipping order       | /AEB/PA_PB_DLV_CR_SHP_W_PRINT  | /AEB/PA_PB_SHP_CR_SHP_W_PRINT  |
+| Create the shipping order <br /> No preparation, no print <br /> No completion                         | /AEB/PA_PB_DLV_CR_SHP          | /AEB/PA_PB_SHP_CR_SHP          |
+| Prepare and print labels <br /> Complete the shipping order                                            | /AEB/PA_PB_DLV_PRINT_SHP       | /AEB/PA_PB_SHP_PRINT_SHP       |
+| Prepare labels <br /> Complete the shipping order                                                      | /AEB/PA_PB_DLV_COMPLETE_SHP    | /AEB/PA_PB_SHP_COMPLETE_SHP    |
+| Creates the shipping order <br /> Prepare and print labels (also for reprinting)  <br /> No completion | /AEB/PA_PB_DLV_CR_PKGS_W_PRINT | /AEB/PA_PB_SHP_CR_PKGS_W_PRINT |
+
+### Function module /AEB/PA_PB_DLV_CR_PKGS_W_PRINT
+
+This function module creates a shipping order (if not already existing), with all the transmitted packages. Labels are  printed directly for these packages. If the packages are already existing, only labels are printed. If packaging information is required in Carrier Cloud, the parameter IM_VEKPS must not only include packages for which a label is to be printed, but also the packages that are below this package.
+
+Import parameters:
+
+* IM_LIKP (Header data shipment)
+* IM_VEKPS (List of handling units)
+* IM_VEPOS_WITH_VENUM_OF_VEKPS (list of packed items)
+* IM_LIPPS (List of item data shipment)
+* IM_VBPAS (List of partners)
+* IM_IS_SHP_TO_CREATE (Forces the creation of a shipping order) If the parameter does not have value "X", a  
+  shipping order will be created provided that no shipping order exists so far. If the parameter has value "X", an error message will be returned if the shipping order already has been created.
+* IM_SUPPRESS_INFO_MSGS (Indicator for suppressing info messages)
+* IM_SUPPRESS_ALL_MSGS (Indicator for suppressing all messages)
+
+Export parameters:
+
+* EX_HAS_ERROR (Error marker)
+* EX_HAS_WARNING (Warning indicator)
+* EX_MESSAGES (Messages)
+* EX_PACKAGE_RESULTS (List of processed packages - result)
+
+> The parameters are the similar for the function modules listed above and the explanation can be applied to them the same way.
+
+## TM business objects
+
+For TM based objects, the AEB add-on does provides a class and methods instead of function modules. However, the limitations regarding the flexibility mentioned above do apply here as well.
+
+Class name: /AE1/CL_PA_PB_FRO_PS_AC
+
+<Table align={["left","left"]}>
   <thead>
     <tr>
       <th>
@@ -34,11 +76,7 @@ Using the provided functions modules, you can transfer the following SAP busines
       </th>
 
       <th>
-        FM for outbound deliveries
-      </th>
-
-      <th>
-        FM for shipments
+        Method
       </th>
     </tr>
   </thead>
@@ -46,129 +84,65 @@ Using the provided functions modules, you can transfer the following SAP busines
   <tbody>
     <tr>
       <td>
-        Create the shipping order <br /> Prepare all labels <br /> Complete the shipping order <br />
+        * Create the shipping order  - Prepare all labels    - Complete the shipment
       </td>
 
       <td>
-        /AEB/PA\_PB\_DLV\_CR\_SHP\_W\_COMP
-      </td>
-
-      <td>
-        /AEB/PA\_PB\_SHP\_CR\_SHP\_W\_COMP
+        CREATE_SHP_W_COMPLETE
       </td>
     </tr>
 
     <tr>
       <td>
-        Create the shipping order <br /> Prepare and print all labels <br /> Complete the shipping order
+        * Create the shipping order   - Prepare all labels   - Complete the shipment
       </td>
 
       <td>
-        /AEB/PA\_PB\_DLV\_CR\_SHP\_W\_PRINT
-      </td>
-
-      <td>
-        /AEB/PA\_PB\_SHP\_CR\_SHP\_W\_PRINT
+        CREATE_SHP_W_PRINT
       </td>
     </tr>
 
     <tr>
       <td>
-        Create the shipping order <br /> No preparation, no print <br /> No completion
+        * Create the shipping order - No preparation, no print - No completion
       </td>
 
       <td>
-        /AEB/PA\_PB\_DLV\_CR\_SHP
-      </td>
-
-      <td>
-        /AEB/PA\_PB\_SHP\_CR\_SHP
+        CREATE_SHP
       </td>
     </tr>
 
     <tr>
       <td>
-        Prepare and print labels <br /> Complete the shipping order
+        * Prepare and print labels - Complete the shipping order
       </td>
 
       <td>
-        /AEB/PA\_PB\_DLV\_PRINT\_SHP
-      </td>
-
-      <td>
-        /AEB/PA\_PB\_SHP\_PRINT\_SHP
+        PRINT_SHP
       </td>
     </tr>
 
     <tr>
       <td>
-        Prepare labels <br /> Complete the shipping order
+        * Prepare labels - Complete the shipping order
       </td>
 
       <td>
-        /AEB/PA\_PB\_DLV\_COMPLETE\_SHP
-      </td>
-
-      <td>
-        /AEB/PA\_PB\_SHP\_COMPLETE\_SHP
+        COMPLETE_SHP
       </td>
     </tr>
 
     <tr>
       <td>
-        Creates the shipping order <br /> Prepare and print labels (also for reprinting)  <br /> No completion
+        * Creates the shipping order (checks automatically, if not already existing)                                        - Prepare and print labels (also usuable for reprinting, if package already exists)                               - No completion
       </td>
 
       <td>
-        /AEB/PA\_PB\_DLV\_CR\_PKGS\_W\_PRINT
-      </td>
-
-      <td>
-        /AEB/PA\_PB\_SHP\_CR\_PKGS\_W\_PRINT
+        CREATE_PKGS_W_PRINT
       </td>
     </tr>
   </tbody>
 </Table>
-
-### Function module /AEB/PA\_PB\_DLV\_CR\_PKGS\_W\_PRINT
-
-This function module creates a shipping order (if not already existing), with all the transmitted packages. Labels are  printed directly for these packages. If the packages are already existing, only labels are printed. If packaging information is required in Carrier Cloud, the parameter IM\_VEKPS must not only include packages for which a label is to be printed, but also the packages that are below this package.
-
-  Import parameters:
-
-* IM\_LIKP (Header data shipment)
-* IM\_VEKPS (List of handling units)
-* IM\_VEPOS\_WITH\_VENUM\_OF\_VEKPS (list of packed items)
-* IM\_LIPPS (List of item data shipment)
-* IM\_VBPAS (List of partners)
-* IM\_IS\_SHP\_TO\_CREATE (Forces the creation of a shipping order) If the parameter does not have value "X", a\
-  shipping order will be created provided that no shipping order exists so far. If the parameter has value "X", an error message will be returned if the shipping order already has been created.
-* IM\_SUPPRESS\_INFO\_MSGS (Indicator for suppressing info messages)
-* IM\_SUPPRESS\_ALL\_MSGS (Indicator for suppressing all messages)
-
-Export parameters:
-
-* EX\_HAS\_ERROR (Error marker)
-* EX\_HAS\_WARNING (Warning indicator)
-* EX\_MESSAGES (Messages)
-* EX\_PACKAGE\_RESULTS (List of processed packages - result)
-
-> The parameters are the similar for the function modules listed above and the explanation can be applied to them the same way.  
-
-## TM business objects
-
-For TM based objects, the AEB add-on does provides a class and methods instead of function modules. However, the limitations regarding the flexibility mentioned above do apply here as well.
-
-Class name: /AE1/CL\_PA\_PB\_FRO\_PS\_AC  
-
-| Combined tasks                                                                                                                                                                                                                                        | Method                   |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------- |
-| - Create the shipping order  - Prepare all labels    - Complete the shipment                                                                                                                                                                          | CREATE\_SHP\_W\_COMPLETE |
-| - Create the shipping order   - Prepare all labels   - Complete the shipment                                                                                                                                                                          | CREATE\_SHP\_W\_PRINT    |
-| - Create the shipping order - No preparation, no print - No completion                                                                                                                                                                                | CREATE\_SHP              |
-| - Prepare and print labels - Complete the shipping order                                                                                                                                                                                              | PRINT\_SHP               |
-| - Prepare labels - Complete the shipping order                                                                                                                                                                                                        | COMPLETE\_SHP            |
-| - Creates the shipping order (checks automatically, if not already existing)                                        - Prepare and print labels (also usuable for reprinting, if package already exists)                               - No completion | CREATE\_PKGS\_W\_PRINT   |
 
 # Creating a shipping order
 
@@ -203,7 +177,7 @@ CALL FUNCTION '/AEB/PA_PB_DLV_CR_SHP'
 
 # Processing a shipping order
 
-Processing the shipping order means something like adding packages or set the completion status. In this code sample we're processing a shipping order by printing labels and completing it. 
+Processing the shipping order means something like adding packages or set the completion status. In this code sample we're processing a shipping order by printing labels and completing it.
 
 ```text
 REPORT zaeb_print_and_complete_shipment.
@@ -244,7 +218,7 @@ In some cases, it might be necessary to cancel the shipping order in Carrier Clo
       </td>
 
       <td>
-        /AEB/PA\_PB\_DLV\_CANCEL\_SHP
+        /AEB/PA_PB_DLV_CANCEL_SHP
       </td>
     </tr>
 
@@ -254,7 +228,7 @@ In some cases, it might be necessary to cancel the shipping order in Carrier Clo
       </td>
 
       <td>
-        /AEB/PA\_PB\_SHP\_CANCEL\_SHP
+        /AEB/PA_PB_SHP_CANCEL_SHP
       </td>
     </tr>
 
@@ -264,8 +238,8 @@ In some cases, it might be necessary to cancel the shipping order in Carrier Clo
       </td>
 
       <td>
-        Class: /AE1/CL\_PA\_PB\_FRO\_PS\_BC\
-        Method: CANCEL\_SHP
+        Class: /AE1/CL_PA_PB_FRO_PS_BC  
+        Method: CANCEL_SHP
       </td>
     </tr>
   </tbody>
@@ -290,9 +264,9 @@ CALL FUNCTION '/AEB/PA_PB_DLV_CANCEL_SHP'
 
 # Creating a pickup
 
-After completing the shipping order you might also want to create a pickup. This is possible using one of the following function modules: 
+After completing the shipping order you might also want to create a pickup. This is possible using one of the following function modules:
 
-| Business object | Function module                       |
-| :-------------- | :------------------------------------ |
-| Shipment        | /AEB/PA\_PB\_CR\_PU\_W\_PR\_FOR\_SHPS |
-| Delivery        | /AEB/PA\_PB\_CR\_PU\_W\_PR\_FOR\_DLVS |
+| Business object | Function module                |
+| :-------------- | :----------------------------- |
+| Shipment        | /AEB/PA_PB_CR_PU_W_PR_FOR_SHPS |
+| Delivery        | /AEB/PA_PB_CR_PU_W_PR_FOR_DLVS |
