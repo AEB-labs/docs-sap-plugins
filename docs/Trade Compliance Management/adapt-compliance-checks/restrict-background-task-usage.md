@@ -12,18 +12,23 @@ next:
 ---
 ## Scenario
 
-When you want to use background tasks to check multiple business objects parallel you might overload the connected engine, because the SAP system is sending to many requests per second. To limit how many requests are sent you can either resize the logon group /AEB/DEFAULT or implement the BAdI /AEB/01\_QTSK\_CTRL\_01. Resizing the logon group is easier but also not as exact, because you can only specify a percentage of processes which could be used. The BAdI on the other hand allows you to specify the exact amount of processes to be used and even allows you to change it depending on the use case.
+When using background tasks to check multiple business objects in parallel, there is a risk to overload the Compliance engine, because the SAP system is sending to many requests in a certain time. To limit the number of parallel requests there are two options: 
 
-## BAdI /AEB/01\_QTSK\_CTRL\_01
+* Adjust the resources available for logon groups for the affected application servers. AEB does not recommend this appoach, as it is a very complex setup and has side effects of all related application servers. 
+* Implement the BAdI /AEB/01_QTSK_CTRL_01 which allows you to specify the exact amount of processes to be used and even allows you to change it depending on the use case.  
+
+<br />
+
+## BAdI /AEB/01_QTSK_CTRL_01
 
 The parameter of the BAdI is a  runtime context object. It offers the following methods:
 
-* GET\_RUNTIME\_CONTEXT (Provides the runtime context from which the task was created)
-* GET\_USED\_SERVER\_GROUP\_NAME (Provides the used server group)
-* GET\_SERVER\_GROUP\_MAX\_WPS\_COUNT (Provides the maximum number of processes of the server group)
-* GET\_MAX\_WPS\_TO\_USE\_COUNT (Provides the maximum number of processes to be used)
-* GET\_INITIAL\_FREE\_WPS\_COUNT (Provides the number of free processes at initialization)
-* SET\_MAX\_WPS\_TO\_USE\_COUNT (Sets the maximum number of processes to be used)
+* GET_RUNTIME_CONTEXT (Provides the runtime context from which the task was created)
+* GET_USED_SERVER_GROUP_NAME (Provides the used server group)
+* GET_SERVER_GROUP_MAX_WPS_COUNT (Provides the maximum number of processes of the server group)
+* GET_MAX_WPS_TO_USE_COUNT (Provides the maximum number of processes to be used)
+* GET_INITIAL_FREE_WPS_COUNT (Provides the number of free processes at initialization)
+* SET_MAX_WPS_TO_USE_COUNT (Sets the maximum number of processes to be used)
 
 You can simply set the maximum number of processes to the amount that should be used.
 
