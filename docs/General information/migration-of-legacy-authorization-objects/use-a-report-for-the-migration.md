@@ -1,5 +1,5 @@
 ---
-title: Use a report for the transfer of authorization objects
+title: Check used authorization objects
 deprecated: false
 hidden: false
 metadata:
