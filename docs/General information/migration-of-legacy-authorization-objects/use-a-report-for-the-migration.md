@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-This report checks the authorization objects in use. It generates a detailed output informing you about the next steps. If you need to transfer authorization objects, the report will guide you to the AEB support in order to get the correct transport requests to import. AEB will provide you transport requests that will move the authorization objects into the package ZAEB_DEPRECATED_OBJECTS.
+This report checks the authorization objects in use. It generates a detailed output informing you about the next steps. If you need to transfer authorization objects, the report will guide you to the AEB support in order to get the correct transport requests to import. AEB will provide you transport requests that will move the concerned authorization objects into the package ZAEB_DEPRECATED_OBJECTS.
 
 Copy the following code block into a report and execute it in your quality assurance system. The output of the report will inform you about the next steps.
 
