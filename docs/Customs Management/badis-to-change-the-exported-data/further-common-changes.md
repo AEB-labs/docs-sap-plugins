@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-## General information
+# /AEB/AES_CONS_INV_01
 Following examples refer to the invoice badi /AEB/AES_CONS_INV_01. Most of the code will also work the same for other objects. Access to the order flow will of course have to be adjusted if other objects are used.
 
 ## Read commodity from material master (ECC) to update commodity export
@@ -367,3 +367,21 @@ im_value->set_internal_reference( im_value = 'Internal Reference' ).
       lo_delivery->set_items( im_value = lt_items ).
     ENDLOOP.
 ```
+
+# /AEB/AES_CONS_MD_01
+Following examples refer to the invoice badi AEB/AES_CONS_MD_01. Please check if the examples are also applicable in your use case.
+
+## Change profile ID for bonded warehouse (identified by Movement type)
+```
+    DATA(lt_mseg) = im_md_ctx_bc->get_msegs( ).
+
+    DATA(lv_profile_code) = im_value->get_profile_code( ).
+
+    READ TABLE lt_mseg INTO DATA(ls_mseg) INDEX 1.
+    IF ls_mseg-bwart = '01'.
+      lv_profile_code = lv_profile_code = '_BONDED'.
+    ENDIF.
+
+    im_value->set_profile_code( im_value = lv_profile_code ).
+```
+
