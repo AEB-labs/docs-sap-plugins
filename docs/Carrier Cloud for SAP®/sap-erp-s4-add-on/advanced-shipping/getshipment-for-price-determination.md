@@ -10,7 +10,9 @@ metadata:
 next:
   description: ''
 ---
-This service determines the pricing (charges) for an existing shipment in Carrier Connect.  Use the method *get_shipment* of the class /AEB/CL_PA_PB_BSMCARRIER_BF.
+This service determines the pricing (charges) for an existing shipment in Carrier Connect.  Use the method *get_shipment* of the class /AEB/CL_PA_PB_BSMCARRIER_BF. 
+
+This example provides the data based on an outbound delivery from SAP: 
 
 ```
 DATA:
