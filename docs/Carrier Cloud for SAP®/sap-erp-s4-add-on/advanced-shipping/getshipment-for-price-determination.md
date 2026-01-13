@@ -12,7 +12,7 @@ next:
 ---
 This service determines the pricing (freight charges) for an already existing shipment in Carrier Connect.  Use the method _get_shipment_ of the class /AEB/CL_PA_PB_BSMCARRIER_BF.
 
-This example provides the data based on an outbound delivery from SAP:
+This coding example provides the data based on an outbound delivery from SAP:
 
 ```
 DATA:
