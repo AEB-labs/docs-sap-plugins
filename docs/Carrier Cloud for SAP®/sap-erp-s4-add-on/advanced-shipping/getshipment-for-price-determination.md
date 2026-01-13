@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-If you like to determine the price for an existing shipment in Carrier Connect you can use get\_shipment in the class /AEB/CL\_PA\_PB\_BSMCARRIER\_BF.
+This service determines the pricing (charges) for an existing shipment in Carrier Connect.  Use the method *get_shipment* of the class /AEB/CL_PA_PB_BSMCARRIER_BF.
 
 ```
 DATA:
