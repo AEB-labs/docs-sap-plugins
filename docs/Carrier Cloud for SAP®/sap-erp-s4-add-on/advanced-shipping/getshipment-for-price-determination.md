@@ -14,7 +14,7 @@ This service determines the pricing (freight charges) for an already existing sh
 
 This coding example provides the data based on an outbound delivery from SAP:
 
-```
+```Text Get shipment
 DATA:
   likp                   TYPE likp,
   lipss                  TYPE STANDARD TABLE OF lips,
