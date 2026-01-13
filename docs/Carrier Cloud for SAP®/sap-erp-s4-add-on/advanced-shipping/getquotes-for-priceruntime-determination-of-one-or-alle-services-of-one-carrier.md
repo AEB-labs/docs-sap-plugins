@@ -1,7 +1,5 @@
 ---
-title: >-
-  GetQuotes for price/runtime determination of one or alle services of one
-  carrier
+title: 'GetQuotes for pricing and runtime information '
 excerpt: ''
 deprecated: false
 hidden: false
@@ -12,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-If you like to have all prices/runtimes for one carrier you could use get\_quotes in the class /AEB/CL\_PA\_PB\_BSMCARRIER\_BF.
+To request pricing and runtime information for a certain carrier, use method *get_quotes*  of the class /AEB/CL_PA_PB_BSMCARRIER_BF.
 
-Or if you also does not have the shipment created you could use get\_quotes too.
+You can call this service even if the shipment has not been created yet in Carrier Connect.
 
 ```
 DATA:
