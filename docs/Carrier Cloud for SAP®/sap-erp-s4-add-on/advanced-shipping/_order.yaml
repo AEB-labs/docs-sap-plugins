@@ -5,5 +5,4 @@
 - export-process-paperless-trade
 - pickup-processing-create-and-update-pickup
 - getshipment-for-price-determination
-- >-
-  getquotes-for-priceruntime-determination-of-one-or-alle-services-of-one-carrier
+- getquotes-price-runtime-information
