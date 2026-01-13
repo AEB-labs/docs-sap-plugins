@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-To request pricing and runtime information for a certain carrier, use method *get_quotes*  of the class /AEB/CL_PA_PB_BSMCARRIER_BF.
+To request pricing and runtime information for a certain carrier, use method _get_quotes_  of the class /AEB/CL_PA_PB_BSMCARRIER_BF.
 
 You can call this service even if the shipment has not been created yet in Carrier Connect.
 
-```
+```Text Get quotes
 DATA:
   likp                   TYPE likp,
   lipss                  TYPE STANDARD TABLE OF lips,
