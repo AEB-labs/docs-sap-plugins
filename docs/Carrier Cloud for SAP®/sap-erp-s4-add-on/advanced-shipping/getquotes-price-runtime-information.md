@@ -12,7 +12,7 @@ next:
 ---
 To request pricing and runtime information for a certain carrier, use method _get_quotes_  of the class /AEB/CL_PA_PB_BSMCARRIER_BF.
 
-You can call this service even if the shipment has not been created yet in Carrier Connect.
+You can call this service anytime, even if the shipment has not been created in Carrier Connect.
 
 ```Text Get quotes
 DATA:
