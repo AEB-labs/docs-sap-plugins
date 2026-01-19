@@ -77,7 +77,7 @@ Several functions are available:
       </td>
 
       <td>
-        * Method /AEB/CL_WU_PB_PREF_CHK_CUS_BC - determine_preference_texts (recommended) - Function module /AEB/WU_PB_DET_CU_PREF_TEXTS (deprecated)
+        * Method /AEB/CL_WU_PB_PREF_CHK_CUS_BC - determine_preference_texts (recommended) - Function module /AEB/WU_PB_DET_CUS_PREF_TEXTS (deprecated)
       </td>
     </tr>
   </tbody>
@@ -146,7 +146,7 @@ The method provides the preferential origins of the invoice items if it is neces
 
 This method determines the non-preferential country of origin ("non-preferential origin") from the Material Monitor threshold data (/AEB/WUMMDMON) for every item. If no value can be determined from the data, the country of origin from the material master is returned.
 
-# Further functions 
+# Further functions
 
 | Function module              | Description                                                  |
 | :--------------------------- | :----------------------------------------------------------- |
