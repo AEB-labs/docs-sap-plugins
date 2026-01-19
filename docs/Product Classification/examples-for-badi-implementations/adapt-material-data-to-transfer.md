@@ -190,8 +190,10 @@ DATA:
   im_value->set_link_attachments( link_attachments ).
 ```
 
+## Material properties
 To add additional goods properties to your material you have to use method add\_property.
 
+### Classification 4.0.1
 ```text Add property
 lv_id = 'PROPERTY_ID'.
 lv_value = 'PROPERTY_VALUE'.
@@ -199,4 +201,18 @@ lv_value = 'PROPERTY_VALUE'.
 lo_property = im_data_object_factory->new_ta_pb_mat_prop_do( im_identcode = lv_id
                                                              im_value     = lv_value ).
 im_value->add_property( im_value = lo_property ).
+```
+
+### Classification 4.0.2
+```
+DATA: lt_values TYPE /aeb/01_strings,
+          lv_value  TYPE /aeb/01_string
+          .
+    lv_value = 'ABC'.
+    APPEND lv_value to lt_values.
+    lo_property = im_data_object_factory->new_ta_pb_mat_prop_do(
+                    im_identcode       = 'TEST'
+                    im_values          = lt_values
+                  ).
+    im_value->add_property( im_value = lo_property ).
 ```
