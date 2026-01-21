@@ -6,10 +6,13 @@ metadata:
   robots: index
 ---
 # /AEB/AES_CONS_INV_01
+
 Following examples refer to the invoice badi /AEB/AES_CONS_INV_01. Most of the code will also work the same for other objects. Access to the order flow will of course have to be adjusted if other objects are used.
 
 ## Read commodity from material master (ECC) to update commodity export
+
 Get list of classifications from item, delete existing value for commodity export, create new value, attach it to the list and set the extended list to the item.
+
 ```
 DATA: lv_matnr TYPE matnr,
           lv_posnr TYPE posnr
@@ -65,6 +68,7 @@ DATA: lv_matnr TYPE matnr,
 ```
 
 ## Create packages from delivery header
+
 ```
 DATA: ls_comwa         TYPE vbco6,
           lt_vbfas         TYPE TABLE OF vbfa,
@@ -109,6 +113,7 @@ DATA: ls_comwa         TYPE vbco6,
 ```
 
 ## Change person in charge
+
 ```
     DATA(lo_person) = im_cons_data_object_factory->new_aes_pb_person_do( ).
     lo_person->set_surname( im_value = 'Name' ).
@@ -117,6 +122,7 @@ DATA: ls_comwa         TYPE vbco6,
 ```
 
 ## Delete items with zero quantity
+
 ```
     DATA: lv_zero_quantitiy TYPE /aeb/01_boolean
           .
@@ -145,6 +151,7 @@ DATA: ls_comwa         TYPE vbco6,
 ```
 
 ## Add export control number
+
 ```
     DATA(lt_deliveries) = im_value->get_deliveries( ).
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
@@ -162,7 +169,9 @@ DATA: ls_comwa         TYPE vbco6,
 ```
 
 ## Change goods description for DE
+
 Delete existing goods description for DE, create a new one and set it for the item
+
 ```
     DATA: lv_text TYPE /aeb/if_aes_pb_text_in_lan_do=>t_text.
 
@@ -188,6 +197,7 @@ Delete existing goods description for DE, create a new one and set it for the it
 ```
 
 ## Set free template criteria on header level
+
 ```
     DATA(lt_deliveries) = im_value->get_deliveries( ).
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
@@ -203,6 +213,7 @@ Delete existing goods description for DE, create a new one and set it for the it
 ```
 
 ## Add a new partner (e.g. carrier)
+
 ```
     DATA(lt_deliveries) = im_value->get_deliveries( ).
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
@@ -218,6 +229,7 @@ Delete existing goods description for DE, create a new one and set it for the it
 ```
 
 ## Add delivery number as client specific field
+
 ```
     DATA(lt_deliveries) = im_value->get_deliveries( ).
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
@@ -239,6 +251,7 @@ Delete existing goods description for DE, create a new one and set it for the it
 ```
 
 ## Correct net weight for item
+
 ```
     DATA(lt_deliveries) = im_value->get_deliveries( ).
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
@@ -256,6 +269,7 @@ Delete existing goods description for DE, create a new one and set it for the it
 ```
 
 ## Set a consignment ID via additional references
+
 ```
     data(lt_deliveries) = im_value->get_deliveries( ).
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
@@ -271,6 +285,7 @@ Delete existing goods description for DE, create a new one and set it for the it
 ```
 
 ## Add postcode information to consignee
+
 ```
     DATA(lt_deliveries) = im_value->get_deliveries( ).
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
@@ -284,6 +299,7 @@ Delete existing goods description for DE, create a new one and set it for the it
 ```
 
 ## Add produced documents (example for EXPORT_DE customs process)
+
 ```
     DATA: lo_de_itm_ext TYPE REF TO /aeb/if_aes_pb_ditm_de_do
           .
@@ -316,14 +332,17 @@ Delete existing goods description for DE, create a new one and set it for the it
 ```
 
 ## Set internal reference
+
 ```
 im_value->set_internal_reference( im_value = 'Internal Reference' ).
 ```
 
-## Initialize customs procedures on item level (e.g. for Swiss export in case you template the value on header level)
+## Initialize customs procedures on item level 
+
+Usage example:  You want template the value on header level for Swiss export. 
+
 ```
-    DATA: lt_customs_procs TYPE /aeb/if_aes_pb_customs_proc_do=>tt_customs_proc_do
-          .
+    DATA: lt_customs_procs TYPE /aeb/if_aes_pb_customs_proc_do=>tt_customs_proc_do.
 
     DATA(lt_deliveries) = im_value->get_deliveries( ).
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
@@ -335,6 +354,7 @@ im_value->set_internal_reference( im_value = 'Internal Reference' ).
 ```
 
 ## Set preference and preferential origin
+
 ```
     DATA(lt_deliveries) = im_value->get_deliveries( ).
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
@@ -348,6 +368,7 @@ im_value->set_internal_reference( im_value = 'Internal Reference' ).
 ```
 
 ## Delete items with zero quantity
+
 ```
     DATA(lt_deliveries) = im_value->get_deliveries( ).
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
@@ -369,9 +390,11 @@ im_value->set_internal_reference( im_value = 'Internal Reference' ).
 ```
 
 # /AEB/AES_CONS_MD_01
+
 Following examples refer to the invoice badi AEB/AES_CONS_MD_01. Please check if the examples are also applicable in your use case.
 
 ## Change profile ID for bonded warehouse (identified by Movement type)
+
 ```
     DATA(lt_mseg) = im_md_ctx_bc->get_msegs( ).
 
@@ -384,4 +407,3 @@ Following examples refer to the invoice badi AEB/AES_CONS_MD_01. Please check if
 
     im_value->set_profile_code( im_value = lv_profile_code ).
 ```
-
