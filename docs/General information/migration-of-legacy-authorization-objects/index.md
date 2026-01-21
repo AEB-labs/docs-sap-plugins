@@ -32,4 +32,4 @@ Your SAP system is affected by this change in the following cases:
 * You're using the AEB add-on package (installation via SAINT / Updates SPAM).
 * Your SAP system is an S/4HANA instance.
 * You have authorization objects in the system starting with ZAEB*.    (check via transaction SU21)
-* You are upgrading to version 922 of the AEB add-on or the AEB add-on is already on version 922 and you are upgrading your S/4HANA to a new release
+* You are upgrading from ERP ECC to S/4HANA to upgrading your S/4HANA system to a new release
