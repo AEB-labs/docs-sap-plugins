@@ -407,3 +407,30 @@ Following examples refer to the invoice badi AEB/AES_CONS_MD_01. Please check if
 
     im_value->set_profile_code( im_value = lv_profile_code ).
 ```
+
+# /AEB/AES_CONS_SHP_01
+Following examples refer to the invoice badi AEB/AES_CONS_SHP_01. Please check if the examples are also applicable in your use case.
+
+## Change mode of transport border to Intrastat value
+
+```
+    DATA: lv_vbeln TYPE vbeln_vl
+          .
+
+    DATA(lt_deliveries) = im_value->get_deliveries( ).
+    LOOP AT lt_deliveries INTO DATA(lo_delivery).
+      lv_vbeln = lo_delivery->get_delivery_number( ).
+      CALL FUNCTION 'CONVERSION_EXIT_ALPHA_INPUT'
+        EXPORTING
+          input  = lv_vbeln
+        IMPORTING
+          output = lv_vbeln.
+      SELECT SINGLE gts_expvz FROM likp WHERE vbeln = @lv_vbeln INTO @DATA(lv_gts_expvz).
+      DATA(lt_transport_means) = lo_delivery->get_transport_means( ).
+      LOOP AT lt_transport_means INTO DATA(lo_transport_means).
+        IF lo_transport_means->get_means_type( ) = 'BORDER'.
+          lo_transport_means->set_transport_mode_code( im_value = CONV #( lv_gts_expvz ) ).
+        ENDIF.
+      ENDLOOP.
+    ENDLOOP.
+```
