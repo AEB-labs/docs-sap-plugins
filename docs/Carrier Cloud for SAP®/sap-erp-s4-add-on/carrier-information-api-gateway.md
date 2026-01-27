@@ -1,11 +1,15 @@
 ---
 title: Carrier Information API Gateway
 excerpt: >-
-  The Carrier Information API Gateway provides ceratin carrier related
+  The "Carrier Information API Gateway" provides ceratin carrier related
   information, e.g. routes and freight charges.  
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
+Legal disclaimers for using the API:
+
 All API responses include important notices stating that freight costs and transit times may not be used for comparison with other service providers. This is a legal requirement for using the gateway.
+
+AEB refers to the clearly formulated information in the service descriptions and notes in the API responses. The responsibility for compliance with carrier conditions lies with the customer. Individual customer solutions are outside of AEB responsibility.
