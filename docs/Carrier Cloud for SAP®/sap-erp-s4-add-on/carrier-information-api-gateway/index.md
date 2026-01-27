@@ -1,8 +1,8 @@
 ---
 title: Carrier Information API Gateway
 excerpt: >-
-  The "Carrier Information API Gateway" provides ceratin carrier related
-  information, e.g. routes and freight charges.  
+  The "Carrier Information API Gateway" provides carrier related information,
+  e.g. runtimes and freight charges
 deprecated: false
 hidden: false
 metadata:
