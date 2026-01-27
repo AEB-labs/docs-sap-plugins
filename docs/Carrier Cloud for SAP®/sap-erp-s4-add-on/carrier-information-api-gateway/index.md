@@ -7,6 +7,14 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: getquotes-price-runtime-information
+      title: 'GetQuotes for pricing and runtime information '
+      type: basic
+    - slug: getshipment-for-price-determination
+      title: GetShipment for price determination
+      type: basic
 ---
 Legal disclaimers for using the API:
 
