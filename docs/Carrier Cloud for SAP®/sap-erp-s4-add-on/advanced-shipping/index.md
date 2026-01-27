@@ -293,6 +293,6 @@ Using the API classes /AEB/CL_PA_PB_CARRIER_BF and /AEB/CL_PA_PB_BSMCARRIER_BF ,
 
 [Pickup processing (Create and process pickup)](https://sap-plugins.docs.developers.aeb.com/docs/pickup-processing-create-and-update-pickup)
 
-[GetShipment for price determination](https://dash.readme.com/project/sap-plugin/v1.0/docs/getshipment-for-price-determination)
+<br />
 
-[GetQuotes for price/runtime determination of one or alle services of one carrier](https://dash.readme.com/project/sap-plugin/v1.0/docs/getquotes-for-priceruntime-determination-of-one-or-alle-services-of-one-carrier)
+<br />
