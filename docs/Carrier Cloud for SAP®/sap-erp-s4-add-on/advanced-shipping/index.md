@@ -16,17 +16,15 @@ Use the following classes to use the full API functionality of Carrier Cloud for
 
 **/AEB/CL_PA_PB_CARRIER_BF**
 
-**/AEB/CL_PA_PB_BSMCARRIER_BF**
+<br />
 
 <Image align="center" alt="The API class provided by the add-on for SAP" border={false} width="70% " src="https://files.readme.io/f8bbe8d86094fde2efeff1a377740e3a454cd6e3a100a7a92a316980de71d3a2-image.png" />
-
-<Image border={false} src="https://files.readme.io/1b62b7651a3e392592c4d24588c917ae14eb543734bfb6467dad4dcbae4b7447-image.png" />
 
 <br />
 
 These classes enables you to call every available method and also change the field values and parameters completely flexible. For a detailed documentation of this API see here: [API Documentation Carrier Cloud](https://transport-freight-management.docs.developers.aeb.com/docs/about-carrier-connect).
 
-## Functions that support the determination of data ("collecting data") 
+## Functions that support the determination of data ("collecting data")
 
 Before you can use any of the methods from the class, e.g. CREATE_SHIPMENT, certain mandatory data is needed. To support you collecting the required data, there are some complementary features, which will be explained in this section:
 
@@ -242,7 +240,7 @@ With this example you have collected the shipping data of the SAP delivery, e.g.
 To change or add something for the collected data, you can implement the "AFTER_STD_FILLING"-method of the BAdI for the according business object:  [BAdIs to change data ](https://sap-plugins.docs.developers.aeb.com/docs/badis-to-change-the-exported-data-1).
 
 <Callout icon="📘" theme="info">
-  Provide the header data, items and handling units when calling the collector class. Data is only determined based on the data that is passed along with the call.     
+  Provide the header data, items and handling units when calling the collector class. Data is only determined based on the data that is passed along with the call.
 </Callout>
 
 <br />
