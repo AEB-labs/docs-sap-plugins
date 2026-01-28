@@ -101,11 +101,11 @@ Before you can use any of the methods from the class, e.g. CREATE_SHIPMENT, cert
   </tbody>
 </Table>
 
-The names of the classes are structured like this:
+The names of the classes above are structured as folllows:
 
-* /AEB/CL_PA_PB  - Class is for public usage in customer implementations of Carrier Cloud for SAP
-* DLV , SHP, FRO  -  the SAP document the class is applicable for: delivery, shipment or freight order (aka TM document)
-* OU_RULE_BC, SHP_COLL_BC, SHP_REF_BC, WSTA_ID_BC - the functionality the class can be used for: organizational unit rule (OU_RULE), collect shipping data (SHIP_COLL), get reference (REF) or get workstation data (WSTA).
+* /AEB/CL_PA_PB  - the class is released for public (PB) usage in customer implementations of Carrier Cloud for SAP
+* DLV , SHP, FRO  -  the according SAP document: delivery, shipment or freight order (aka TM document)
+* OU_RULE_BC, SHP_COLL_BC, SHP_REF_BC or WSTA_ID_BC - the functionality the class can be used for. Determine Organizational unit (OU_RULE), collect shipping data (SHIP_COLL), get the reference (REF) or get the workstation ID (WSTA).
 
 In this part of the guide we will walk through all those functions. All examples are based on an outbound delivery, but you can adapt them to other supported SAP business objects using the according class as listed above. Regardless of the SAP business object you're transferring, the result will be a "shipping order" in Carrier Cloud.
 
