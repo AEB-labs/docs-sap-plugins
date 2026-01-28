@@ -16,7 +16,7 @@ The class **/AEB/CL_PA_PB_CARRIER_BF**  offers the complete API functionality of
 
 <br />
 
-<Image align="center" alt="The API class provided by the add-on for SAP" border={true} caption="API class" src="https://files.readme.io/f8bbe8d86094fde2efeff1a377740e3a454cd6e3a100a7a92a316980de71d3a2-image.png" width="70% " />
+<Image align="center" alt="The API class provided by the add-on for SAP" border={false} src="https://files.readme.io/f8bbe8d86094fde2efeff1a377740e3a454cd6e3a100a7a92a316980de71d3a2-image.png" width="75% " />
 
 <br />
 
