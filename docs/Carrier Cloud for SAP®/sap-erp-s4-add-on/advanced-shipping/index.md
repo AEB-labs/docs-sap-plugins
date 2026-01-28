@@ -48,9 +48,9 @@ Before you can use any of the methods from the class, e.g. CREATE_SHIPMENT, cert
       </td>
 
       <td>
-        * *TM document: **/AE1/CL_PA_PB_FRO_OU_RULE_BC
-        * *Delivery: **/AEB/CL_PA_PB_DLV_OU_RULE_BC
-        * *Shipment: **/AEB/CL_PA_PB_SHP_OU_RULE_BC
+        * TM document: /AE1/CL_PA_PB_FRO_OU_RULE_BC
+        * Delivery: /AEB/CL_PA_PB_DLV_OU_RULE_BC
+        * Shipment: /AEB/CL_PA_PB_SHP_OU_RULE_BC
       </td>
     </tr>
 
@@ -71,9 +71,9 @@ Before you can use any of the methods from the class, e.g. CREATE_SHIPMENT, cert
       </td>
 
       <td>
-        * *TM document: **/AE1/CL_PA_PB_FRO_SHP_COLL_BC
-        * *Delivery: **/AEB/CL_PA_PB_DLV_SHP_COLL_BC
-        * *Shipment: **/AEB/CL_PA_PB_SHP_SHP_COLL_BC
+        * TM document: /AE1/CL_PA_PB_FRO_SHP_COLL_BC
+        * Delivery: /AEB/CL_PA_PB_DLV_SHP_COLL_BC
+        * Shipment: /AEB/CL_PA_PB_SHP_SHP_COLL_BC
       </td>
     </tr>
 
@@ -93,9 +93,9 @@ Before you can use any of the methods from the class, e.g. CREATE_SHIPMENT, cert
       </td>
 
       <td>
-        * *TM document: **/AE1/CL_PA_PB_FRO_SHP_REF_BC
-        * _Delivery:_* /AEB/CL_PA_PB_DLV_SHP_REF_BC
-        * *Shipment: **/AEB/CL_PA_PB_SHP_SHP_REF_BC
+        * TM document: /AE1/CL_PA_PB_FRO_SHP_REF_BC
+        * Delivery: /AEB/CL_PA_PB_DLV_SHP_REF_BC
+        * Shipment: /AEB/CL_PA_PB_SHP_SHP_REF_BC
       </td>
     </tr>
   </tbody>
