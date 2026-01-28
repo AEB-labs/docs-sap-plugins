@@ -16,11 +16,11 @@ The class **/AEB/CL_PA_PB_CARRIER_BF**  offers the complete API functionality of
 
 <br />
 
-<Image align="center" alt="The API class provided by the add-on for SAP" border={true} src="https://files.readme.io/f8bbe8d86094fde2efeff1a377740e3a454cd6e3a100a7a92a316980de71d3a2-image.png" width="70% " />
+<Image align="center" alt="The API class provided by the add-on for SAP" border={true} caption="API class" src="https://files.readme.io/f8bbe8d86094fde2efeff1a377740e3a454cd6e3a100a7a92a316980de71d3a2-image.png" width="70% " />
 
 <br />
 
-These classes enables you to call every available method and also change the field values and parameters completely flexible. For a detailed documentation of this API see here: [API Documentation Carrier Cloud](https://transport-freight-management.docs.developers.aeb.com/docs/about-carrier-connect).
+This one enables you execute each available method and also change the field values and parameters completely flexible. For a detailed functional documentation of this API see here: [API Documentation Carrier Cloud](https://transport-freight-management.docs.developers.aeb.com/docs/about-carrier-connect).
 
 ## Functions that support the determination of data ("collecting data")
 
