@@ -12,19 +12,21 @@ next:
 ---
 ## API class /AEB/CL_PA_PB_CARRIER_BF
 
-The class **/AEB/CL_PA_PB_CARRIER_BF**  offers the complete API functionality of Carrier Cloud for SAP:
+The class **/AEB/CL_PA_PB_CARRIER_BF**  offers the complete API functionality of Carrier Cloud for SAP. In contrast to the function modules (simple shipping), all field values and parameters can be changed flexibly.  
+
+The class offers different methods: 
 
 <br />
 
-<Image align="center" alt="The API class provided by the add-on for SAP" border={false} src="https://files.readme.io/f8bbe8d86094fde2efeff1a377740e3a454cd6e3a100a7a92a316980de71d3a2-image.png" width="75% " />
+<Image align="center" alt="The API class provided by the add-on for SAP" border={false} width="75% " src="https://files.readme.io/f8bbe8d86094fde2efeff1a377740e3a454cd6e3a100a7a92a316980de71d3a2-image.png" />
+
+For a detailed functional documentation of the API see: [API Documentation Carrier Cloud](https://transport-freight-management.docs.developers.aeb.com/docs/about-carrier-connect).
 
 <br />
 
-This one enables you execute each available method and also change the field values and parameters completely flexible. For a detailed functional documentation of this API see here: [API Documentation Carrier Cloud](https://transport-freight-management.docs.developers.aeb.com/docs/about-carrier-connect).
+## Functions that support the determination of data (collecting data)
 
-## Functions that support the determination of data ("collecting data")
-
-Before you can use any of the methods from the class, e.g. CREATE_SHIPMENT, certain mandatory data is needed. To support you collecting the required data, there are some complementary features, which will be explained in this section:
+Before you can use any of the methods from the class, e.g. CREATE_SHIPMENT, certain mandatory data needs to be determined. To support you in collecting the required data, there are some complementary features, which will be explained in this section. 
 
 <Table align={["left","left"]}>
   <thead>
