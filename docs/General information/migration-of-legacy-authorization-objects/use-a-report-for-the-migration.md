@@ -5,10 +5,8 @@ hidden: false
 metadata:
   robots: index
 ---
-This report checks the AEB authorization objects used in your SAP system. 
-
-As a result, it generates a detailed output informing you about the next steps.
-In case of transferring authorization objects is needed, please send the detailed output to the AEB support in order to get the required transport requests. Importing the transport requests will move the concerned authorization objects into the package ZAEB_DEPRECATED_OBJECTS.
+This report checks the AEB related authorization objects used in your SAP system.As a result, it generates a detailed output informing you about the next steps.
+In case the report suggests that the transfer of authorization objects is needed, please send the detailed output to the AEB support in order to get the required transport requests. Importing these transport requests will move the concerned authorization objects into the package ZAEB_DEPRECATED_OBJECTS.
 
 Copy the following code block into a report and execute it in your quality assurance system. The output of the report will inform you about the next steps.
 
