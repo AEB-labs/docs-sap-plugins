@@ -28,7 +28,7 @@ Your SAP system is affected by this change in the following cases:
 
 You have the following options to prevent unwanted changes to your authorization roles:
 
-Option A) Execute a report to analyze which of your roles are concerned. Contact the AEB support with that information to transfer the concerned Z-authorization objects to a new package.
+Option A)  Execute a report to analyze which of your roles are concerned. Contact the AEB support with that information to transfer the concerned Z-authorization objects to a new package.
 
 or
 
