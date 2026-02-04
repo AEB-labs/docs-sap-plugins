@@ -36,7 +36,7 @@ Option B)  Perform a manual transfer of the authorization objects
 
 or
 
-Option C) Switch to new authorization objects
+Option C) Switch to new authorization objects and change the existing roles.  
 
 Select your next step accordingly in the following "What's next" - section:
 
