@@ -1,5 +1,5 @@
 ---
-title: Perform manual transfer of authorization objects
+title: Manual transfer of authorization objects (option B)
 deprecated: false
 hidden: false
 metadata:
