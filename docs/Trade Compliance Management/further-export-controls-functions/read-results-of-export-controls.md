@@ -34,20 +34,21 @@ If you want to read data of the export controls checks for subsequent processes,
       </td>
 
       <td>
-        /AEB/CL\_CMP\_PB\_EC\_DATA\_READ\_BC
+        /AEB/CL_CMP_PB_EC_DATA_READ_BC
       </td>
     </tr>
 
     <tr>
       <td>
-        Read the approval and clearing data for the items of a document.\
-        The parameters IM\_ORG\_UNIT and IM\_ENGN\_CALL\_PARAMS are optional. Both parameters will be determined by the functions itself if left empty.\
-        The fields VBELN and POSNR of parameter IM\_REQUESTS are deprecated. Use instead the fields DOC\_NO and ITEM\_REF\_ID of the same structure. <br />\
-        Note: This function calls a web service when executed.
+        Read the approval and clearing data for the items of a document.  
+        The parameters IM_ORG_UNIT and IM_ENGN_CALL_PARAMS are optional. Both parameters will be determined by the functions itself if left empty.  
+        The fields VBELN and POSNR of parameter IM_REQUESTS are deprecated. Use instead the fields DOC_NO and ITEM_REF_ID of the same structure. <br />  
+
+        * This function calls a web service when executed.
       </td>
 
       <td>
-        /AEB/CMP\_PB\_EC\_GET\_CLEA\_FOR
+        /AEB/CMP_PB_EC_GET_CLEA_FOR
       </td>
     </tr>
 
@@ -57,7 +58,7 @@ If you want to read data of the export controls checks for subsequent processes,
       </td>
 
       <td>
-        /AEB/CMP\_PB\_EC\_GET\_HISTORY\_FOR
+        /AEB/CMP_PB_EC_GET_HISTORY_FOR
       </td>
     </tr>
 
@@ -67,26 +68,26 @@ If you want to read data of the export controls checks for subsequent processes,
       </td>
 
       <td>
-        /AEB/CL\_CMP\_PB\_QUEST\_BC
+        /AEB/CL_CMP_PB_QUEST_BC
       </td>
     </tr>
 
     <tr>
       <td>
-        Read further informations about the license.  
+        Read further informations about the license.
 
-        * \*Hint\*\*: The function works only for licenses from license management (LM). But it cannot  be used for the general licenses from export controls. (meaning the licenses from the data service). <br />\
-          Note: This function calls a web service when executed.
+        * This function works only for licenses from license management (LM). But it cannot  be used for the general licenses from export controls. (meaning the licenses from the data service).  
+        * This function calls a web service when executed.
       </td>
 
       <td>
-        /AEB/CL\_CMP\_PB\_EC\_LIC\_INFO\_BC
+        /AEB/CL_CMP_PB_EC_LIC_INFO_BC
       </td>
     </tr>
   </tbody>
 </Table>
 
-Assuming you have released the order 5050 , item 10 and want to read the licence data from the assigned licence. In this example, the licence statement is retrieved this way:  
+Assuming you have released the order 5050 , item 10 and want to read the licence data from the assigned licence. In this example, the licence statement is retrieved this way:
 
 ```text Read licence data assigned to a release
 DATA:
@@ -115,17 +116,17 @@ ENDLOOP.
 
 To handle the update event of a questionnaire you can use the following BAdIs:
 
-| Business object          | BAdI                   |
-| :----------------------- | :--------------------- |
-| Sales document           | /AEB/CMP\_RA\_SDOC\_01 |
-| Delivery                 | /AEB/CMP\_RA\_DLV\_01  |
-| Purchase document        | /AEB/CMP\_RA\_PD\_01   |
-| Service order            | /AEB/CMP\_RA\_SO\_01   |
-| Service transaction (S4) | /AE1/CMP\_RA\_ST\_01   |
+| Business object          | BAdI                |
+| :----------------------- | :------------------ |
+| Sales document           | /AEB/CMP_RA_SDOC_01 |
+| Delivery                 | /AEB/CMP_RA_DLV_01  |
+| Purchase document        | /AEB/CMP_RA_PD_01   |
+| Service order            | /AEB/CMP_RA_SO_01   |
+| Service transaction (S4) | /AE1/CMP_RA_ST_01   |
 
-Let's implement a simple scenario were we update a Z-field of VBAK with the status of the questionnaire which is linked to the sales order. 
+Let's implement a simple scenario were we update a Z-field of VBAK with the status of the questionnaire which is linked to the sales order.
 
-> ❗️ If you want to use the result of an questionnaire in the export control check, e.g.  for the end usage or other manual restrictions,  do not use the “Handle Update” BAdI. You'll need to determine this data at runtime: see [Change data for Export Control checks](https://sap-plugins.docs.developers.aeb.com/docs/change-data-of-export-controls-check)  and description of the class  */AEB/CL\_CMP\_PB\_QUEST\_BC* on top of this page. As the result is returned to SAP asynchronously via  journal, it is otherwise possible that the result of a questionnaire that has just been completed has not yet been processed at the time of the check.
+> ❗️ If you want to use the result of an questionnaire in the export control check, e.g.  for the end usage or other manual restrictions,  do not use the “Handle Update” BAdI. You'll need to determine this data at runtime: see [Change data for Export Control checks](https://sap-plugins.docs.developers.aeb.com/docs/change-data-of-export-controls-check)  and description of the class  _/AEB/CL_CMP_PB_QUEST_BC_ on top of this page. As the result is returned to SAP asynchronously via  journal, it is otherwise possible that the result of a questionnaire that has just been completed has not yet been processed at the time of the check.
 
 ```text Update vbak when questionnaire update event occurs
 DATA:
@@ -161,9 +162,9 @@ DATA:
     UPDATE vbak SET zz_quest_res = total_result_type WHERE vbeln = im_vbeln.
 ```
 
-Just use the passed parameter im\_questionnaire\_bc to get the questionnaire. Get the total result type and update the VBAK table. In this context the table is locked so no other process can change it.\
-If you don't want to use a direct SQL update Statement to update your SAP document, you can use one of the released BAPIs, e.g. BAPI\_SALESORDER\_CHANGE that are provided by SAP. But then you have to consider certain things: Calling a BAPI will also run through the user exits or BAdIs for saving the document.  Usually the AEB includes for the online check are implemented there, which means an additional Compliance check is triggered when calling the SAP BAPI. In most cases, this check is not needed, as the AEB standard also does a re-check of the SAP document after the HDL\_QUESTIONNAIRE\_UPDATED BAdI is called.\
-To prevent that the BAPI triggers the online check, use the public helper class /AEB/CL\_CMP\_PB\_CHK\_HP. This one is also an importing parameter of the BAdI method. The class has the method SUPPRESS\_CHECK which has to be called before every BAPI call and the method RESET\_SUPPRESS\_CHECK which enables the check again for the next BAPI call. A recommended use of the BAPI in this BAdI implementation would therefore look like as follows:
+Just use the passed parameter im_questionnaire_bc to get the questionnaire. Get the total result type and update the VBAK table. In this context the table is locked so no other process can change it.  
+If you don't want to use a direct SQL update Statement to update your SAP document, you can use one of the released BAPIs, e.g. BAPI_SALESORDER_CHANGE that are provided by SAP. But then you have to consider certain things: Calling a BAPI will also run through the user exits or BAdIs for saving the document.  Usually the AEB includes for the online check are implemented there, which means an additional Compliance check is triggered when calling the SAP BAPI. In most cases, this check is not needed, as the AEB standard also does a re-check of the SAP document after the HDL_QUESTIONNAIRE_UPDATED BAdI is called.  
+To prevent that the BAPI triggers the online check, use the public helper class /AEB/CL_CMP_PB_CHK_HP. This one is also an importing parameter of the BAdI method. The class has the method SUPPRESS_CHECK which has to be called before every BAPI call and the method RESET_SUPPRESS_CHECK which enables the check again for the next BAPI call. A recommended use of the BAPI in this BAdI implementation would therefore look like as follows:
 
 ```text Update with use of a BAPI
 DATA:
@@ -192,7 +193,7 @@ DATA:
   im_public_check_helper->reset_suppress_check( ).
 ```
 
-> 🚧 Call the BAPI\_TRANSACTION\_COMMIT to ensure that the changed data can be used by the following Compliance check. Otherwise the check is not executed with the current data.
+> 🚧 Call the BAPI_TRANSACTION_COMMIT to ensure that the changed data can be used by the following Compliance check. Otherwise the check is not executed with the current data.
 
 ## Raise execptions during questionnaire updates
 
