@@ -1,5 +1,5 @@
 ---
-title: Check used authorization objects
+title: 'Keep authorization objects (option A) '
 deprecated: false
 hidden: false
 metadata:
