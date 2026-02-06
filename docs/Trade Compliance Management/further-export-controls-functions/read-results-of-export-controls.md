@@ -126,7 +126,11 @@ To handle the update event of a questionnaire you can use the following BAdIs:
 
 Let's implement a simple scenario were we update a Z-field of VBAK with the status of the questionnaire which is linked to the sales order.
 
-> ❗️ If you want to use the result of an questionnaire in the export control check, e.g.  for the end usage or other manual restrictions,  do not use the “Handle Update” BAdI. You'll need to determine this data at runtime: see [Change data for Export Control checks](https://sap-plugins.docs.developers.aeb.com/docs/change-data-of-export-controls-check)  and description of the class  _/AEB/CL_CMP_PB_QUEST_BC_ on top of this page. As the result is returned to SAP asynchronously via  journal, it is otherwise possible that the result of a questionnaire that has just been completed has not yet been processed at the time of the check.
+<Callout icon="❗️" theme="error">
+   If you want to use the result of an questionnaire in the export control check, e.g.  for the end usage or other manual restrictions,  do not use the “Handle Update” BAdI. You'll need to determine this data at runtime. For further information, see [Change data for Export Control checks](https://sap-plugins.docs.developers.aeb.com/docs/change-data-of-export-controls-check)  and the class /AEB/CL_CMP_PB_QUEST_BC on top of this page. 
+
+  As the result is returned to SAP asynchronously via  journal, it is otherwise possible that the result of a questionnaire that has just been completed has not yet been processed at the time of the check.
+</Callout>
 
 ```text Update vbak when questionnaire update event occurs
 DATA:
