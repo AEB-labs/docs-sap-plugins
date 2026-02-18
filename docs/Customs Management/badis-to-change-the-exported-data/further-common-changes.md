@@ -389,6 +389,19 @@ Usage example:  You want template the value on header level for Swiss export.
     ENDLOOP.
 ```
 
+## Change code for customs office of exit
+
+```
+    LOOP AT im_value->get_deliveries( ) INTO DATA(lo_delivery).
+      DATA(lt_customs_offices) = lo_delivery->get_customs_offices( ).
+      LOOP AT lt_customs_offices INTO DATA(lo_customs_office).
+        IF lo_customs_office->get_office_type( ) = 'EXIT'.
+          lo_customs_office->set_office_code( im_value = 'DE004851' ).
+        ENDIF.
+      ENDLOOP.
+    ENDLOOP.
+```
+
 # /AEB/AES_CONS_MD_01
 
 Following examples refer to the invoice badi AEB/AES_CONS_MD_01. Please check if the examples are also applicable in your use case.
