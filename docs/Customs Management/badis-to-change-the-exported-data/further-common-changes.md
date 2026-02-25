@@ -412,6 +412,20 @@ Usage example:  You want template the value on header level for Swiss export.
     ENDLOOP.
 ```
 
+## Change nature of transaction in an example for Export Germany
+If you want to change this field for other countries different extension will have to be used!
+```
+    DATA(lt_deliveries) = im_value->get_deliveries( ).
+    LOOP AT lt_deliveries INTO DATA(lo_delivery).
+      DATA(lt_items) = lo_delivery->get_items( ).
+      LOOP AT lt_items INTO DATA(lo_item).
+        DATA(lo_item_extension) = lo_item->get_extension( ).
+        DATA(lo_item_de_ext) = lo_item_extension->get_export_de( ).
+        DATA(lo_nat_trans) = im_nullable_value_factory->char_2( im_value = '11' ) .
+        lo_item_de_ext->set_transaction_nature_code( lo_nat_trans ).
+      ENDLOOP.
+    ENDLOOP.
+```
 
 # /AEB/AES_CONS_MD_01
 
