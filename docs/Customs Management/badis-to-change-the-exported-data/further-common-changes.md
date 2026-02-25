@@ -402,6 +402,17 @@ Usage example:  You want template the value on header level for Swiss export.
     ENDLOOP.
 ```
 
+## Add an additional aggregation key to the item
+```
+    LOOP AT im_value->get_deliveries( ) INTO DATA(lo_delivery).
+      LOOP AT lo_delivery->get_items( ) INTO DATA(lo_item).
+        DATA(lo_key_nv) = im_nullable_value_factory->char_100( im_value = lo_item->get_item_no( ) ).
+        lo_item->set_additional_aggregation_key( im_value = lo_key_nv ).
+      ENDLOOP.
+    ENDLOOP.
+```
+
+
 # /AEB/AES_CONS_MD_01
 
 Following examples refer to the invoice badi AEB/AES_CONS_MD_01. Please check if the examples are also applicable in your use case.
