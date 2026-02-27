@@ -20,5 +20,5 @@ To trigger a Compliance check for an existing business object you can use the fo
 <br />
 
 <Callout icon="📘" theme="info">
-  These functions only carry out a simple screening check and return as a Boolean whether addresses in the business object are rated as critical (match). However, this does not set any locks in the business object and no entries are created in the Compliance Monitor.
+  These functions only carry out a simple screening check and return just a boolean whether the business object is rated as critical (match). However, this does not set any locks in the business object and no entries are created in the Compliance Monitor.
 </Callout>
