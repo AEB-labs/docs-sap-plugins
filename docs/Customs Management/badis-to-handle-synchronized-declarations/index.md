@@ -30,10 +30,10 @@ A typical usecase for this BAdI is to write the customs registration number in f
     mrn_number        TYPE exti2,
     mrn_number_object TYPE REF TO /aeb/cl_01_char_35_nv.
 
-*Read the MRN number from synchronized data
+*Read the MRN object from synchronized data
   mrn_number_object = im_declaration->get_customs_registration_numbe( ).
 
- "Store MRN number in a field
+ "Assign value of the MRN number to a variable
   IF NOT mrn_number_object IS INITIAL.
     mrn_number = mrn_number_object->v.
 
