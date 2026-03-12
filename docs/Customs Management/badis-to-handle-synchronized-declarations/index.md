@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-These BAdIs are called every time a declaration is received from the International Customs Integration Engine, which is everytime there is a change in declaration.
+These BAdIs are called every time a declaration is received from the International Customs Integration service. A declaration is synchronized every time it has been changed.
 
 | Document type                                  | BAdI                |
 | :--------------------------------------------- | :------------------ |
