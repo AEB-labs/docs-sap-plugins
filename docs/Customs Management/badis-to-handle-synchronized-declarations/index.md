@@ -10,35 +10,41 @@ metadata:
 next:
   description: ''
 ---
-These BAdIs are called every time a declaration is received from the International Customs Integration Engine, which is everytime there is a change in declaration. 
+These BAdIs are called every time a declaration is received from the International Customs Integration Engine, which is everytime there is a change in declaration.
 
-| Document type                                  | BAdI                   |
-| :--------------------------------------------- | :--------------------- |
-| Delivery                                       | /AEB/AES\_ET\_SYNC\_04 |
-| Shipment                                       | /AEB/AES\_ET\_SYNC\_05 |
-| Invoice                                        | /AEB/AES\_ET\_SYNC\_06 |
-| Purchase document                              | /AEB/AES\_ET\_SYNC\_07 |
-| Incoming Invoice                               | /AEB/AES\_ET\_SYNC\_08 |
-| Freight order                                  | /AE1/AES\_ET\_SYNC\_09 |
-| Other collectors (manual created consignments) | /AEB/AES\_ET\_SYNC\_09 |
-| Material document                              | /AEB/AES\_ET\_SYNC\_10 |
+| Document type                                  | BAdI                |
+| :--------------------------------------------- | :------------------ |
+| Delivery                                       | /AEB/AES_ET_SYNC_04 |
+| Shipment                                       | /AEB/AES_ET_SYNC_05 |
+| Invoice                                        | /AEB/AES_ET_SYNC_06 |
+| Purchase document                              | /AEB/AES_ET_SYNC_07 |
+| Incoming Invoice                               | /AEB/AES_ET_SYNC_08 |
+| Freight order                                  | /AE1/AES_ET_SYNC_09 |
+| Other collectors (manual created consignments) | /AEB/AES_ET_SYNC_09 |
+| Material document                              | /AEB/AES_ET_SYNC_10 |
 
-A typical usecase for this BAdI is to write the customs registration number in further database fields in your SAP System. In the following example you can see how it is written into the SAP shipment.
+A typical usecase for this BAdI is to write the customs registration number in further database fields in your SAP System. In the following example you can see how the value is saved into the external ID2  of a the shipment (German: Transport).
 
-```text Update the customs registration number at SAP shipment
-DATA:
+```text Write MRN into a field of a shipment
+  DATA:
     mrn_number        TYPE exti2,
     mrn_number_object TYPE REF TO /aeb/cl_01_char_35_nv.
 
+*Read the MRN number from synchronized data
   mrn_number_object = im_declaration->get_customs_registration_numbe( ).
+
+ "Store MRN number in a field
   IF NOT mrn_number_object IS INITIAL.
     mrn_number = mrn_number_object->v.
+
+  "Define your own logic here according to your requirements
     UPDATE vttk SET exti2 = mrn_number WHERE tknum = im_tknum.
+
   ENDIF.
 ```
 
-If you have manual created consignments the link to the SAP document will be on item level. For that you have the possibility to access the client system ids on item level in the synchronization BADIs.\
-In addition you have the public class /aeb/cl\_01\_pb\_tid\_def\_bc or /ae1/cl\_01\_pb\_tid\_def\_bc (S4 HANA specific objects like freight order). With this class you can convert the client system id to the SAP document number to access the SAP Document. 
+If you have manual created consignments the link to the SAP document will be on item level. For that you have the possibility to access the client system ids on item level in the synchronization BADIs.  
+In addition you have the public class /aeb/cl_01_pb_tid_def_bc or /ae1/cl_01_pb_tid_def_bc (S4 HANA specific objects like freight order). With this class you can convert the client system id to the SAP document number to access the SAP Document.
 
 ```text Use item client system ids from Sync BADIs
 METHOD /aeb/if_ex_aes_et_sync_09~hdl_declaration_synchronized.
@@ -67,4 +73,4 @@ METHOD /aeb/if_ex_aes_et_sync_09~hdl_declaration_synchronized.
   ENDMETHOD.
 ```
 
-All of these BAdIs support the raising of the exception /aeb/cx\_aes\_pb\_et\_sync\_sc as it is described under [https://sap-plugins.docs.developers.aeb.com/docs/exceptions](https://sap-plugins.docs.developers.aeb.com/docs/exceptions). When the exception is raised, then the complete handling (also the standard handling) of the customs declaration is considered as failed, which means there will be an entry created in the function call monitor which can be automatically repeated with the report /AEB/01\_FCC\_RETRY if the customizing is done. When this repeat happens (either automatically by the report or manually by a user in the function call monitor) then the whole customs declaration is transferred from the engine and processed and also this BAdI will be called again.
+All of these BAdIs support the raising of the exception /aeb/cx_aes_pb_et_sync_sc as it is described under [https://sap-plugins.docs.developers.aeb.com/docs/exceptions](https://sap-plugins.docs.developers.aeb.com/docs/exceptions). When the exception is raised, then the complete handling (also the standard handling) of the customs declaration is considered as failed, which means there will be an entry created in the function call monitor which can be automatically repeated with the report /AEB/01_FCC_RETRY if the customizing is done. When this repeat happens (either automatically by the report or manually by a user in the function call monitor) then the whole customs declaration is transferred from the engine and processed and also this BAdI will be called again.
