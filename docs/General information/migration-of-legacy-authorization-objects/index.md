@@ -8,13 +8,13 @@ next:
   description: Choose from the following options
   pages:
     - slug: use-a-report-for-the-migration
-      title: Check used authorization objects
+      title: 'Keep authorization objects (option A) '
       type: basic
     - slug: perform-a-manual-migration
-      title: Perform manual transfer of authorization objects
+      title: Manual transfer of authorization objects (option B)
       type: basic
     - slug: switch-to-new-authorization-objects
-      title: Switch to new authorization objects
+      title: Switch to new authorization objects (option C)
       type: basic
 ---
 <br />
@@ -28,15 +28,15 @@ Your SAP system is affected by this change in the following cases:
 
 You have the following options to prevent unwanted changes to your authorization roles:
 
-Option A)  Execute a report to analyze which of your roles are concerned. Contact the AEB support with that information to transfer the concerned Z-authorization objects to a new package. No changes to the existing roles are required. 
+<Anchor label="Option A" target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/use-a-report-for-the-migration">Option A</Anchor>  Execute a report to analyze which of your roles are concerned. Contact the AEB support with that information to transfer the concerned Z-authorization objects to a new package. No changes to the existing roles are required.
 
 or
 
-Option B)  Perform a manual transfer of the authorization objects. No changes to the existing roles are required.
+ <Anchor label="Option B" target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/perform-a-manual-migration">Option B</Anchor>  Perform a manual transfer of the authorization objects. No changes to the existing roles are required.
 
 or
 
-Option C) Switch to new authorization objects and change the existing roles.  
+<Anchor label="Option C" target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/switch-to-new-authorization-objects">Option C</Anchor>   Switch to new authorization objects and change the existing roles.
 
 Select your next step accordingly in the following "What's next" - section:
 
