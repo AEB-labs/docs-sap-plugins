@@ -427,6 +427,29 @@ If you want to change this field for other countries different extension will ha
     ENDLOOP.
 ```
 
+## Add container and seal information
+```
+    "Delivery loop
+    LOOP AT im_value->get_deliveries( ) INTO DATA(lo_delivery).
+      "Get list of transport equipments (container)
+      DATA(lt_trns_eq) = lo_delivery->get_transport_equipments( ).
+      "Create new container
+      DATA(lo_container) = im_cons_data_object_factory->new_aes_pb_trsprt_equip_do(
+                             im_equipment_type = 'CONTAINER'                 " Type
+                             im_identification = 'HLXU1234'                 " Identifier
+                           ).
+      "Get table of seals for the container
+      DATA(lt_seals) = lo_container->get_seals( ).
+      "Create a new seal
+      DATA(lo_seal) = im_cons_data_object_factory->new_aes_pb_seal_do( im_identification = 'ABC123' ).
+      APPEND lo_seal TO lt_seals.
+      lo_container->set_seals( im_value = lt_seals ).
+      APPEND lo_container TO lt_trns_eq.
+      "Set container with seals to delivery
+      lo_delivery->set_transport_equipments( im_value = lt_trns_eq ).
+    ENDLOOP.
+```
+
 # /AEB/AES_CONS_MD_01
 
 Following examples refer to the invoice badi AEB/AES_CONS_MD_01. Please check if the examples are also applicable in your use case.
