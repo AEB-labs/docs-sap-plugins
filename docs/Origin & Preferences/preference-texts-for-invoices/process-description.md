@@ -19,7 +19,7 @@ next:
 
 Examples: [https://sap-plugins.docs.developers.aeb.com/docs/example-for-method-aebcl_wu_pb_pref_chk_inv_bc-determine_preference_texts](https://sap-plugins.docs.developers.aeb.com/docs/example-for-method-aebcl_wu_pb_pref_chk_inv_bc-determine_preference_texts)
 
-<Image border={false} src="https://files.readme.io/45fb475-invoice_printing.png" title="invoice_printing.png" />
+![](https://files.readme.io/45fb475-invoice_printing.png "invoice_printing.png")
 
 # Explanation of single steps
 
@@ -121,7 +121,7 @@ relating to the declaration of origin according to the status of individual item
 **Requirements**  
 The following conditions must be met before the method can select the correct preference text:
 
-* The “ex-works price” is relevant for determining preference. The method needs to have this value indicated in the calculation subtotal field VBRP-KZWI5. This means that the “ex-works price” must already appear in this field when the preference text is selected. The ex-works price is to be specified for a quantity of 1.
+* The “ex-works price” is relevant for determining preference. The standard logic determines this value from the calculation subtotal field KZWI5. This means that the “ex-works price” must already appear in this field when the preference text is selected. If this is not the case you can/have to fill the real factory price in the BAdIs mentioned above. The ex-works price is to be specified for a quantity of 1.
 * The invoice must already be posted in the SAP system – that is, available under the document number in the SAP database.
 * The following logic is applied for returning the preference texts:
   * The preference text that occurs most frequently in the items is returned at the header level.
