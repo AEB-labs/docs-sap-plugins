@@ -98,13 +98,11 @@ The SAP business object, e.g. the invoice, must already be posted in the SAP sys
 
 The “ex-works price” is relevant for determining the preference attribute. The standard logic derives this price value from the calculation subtotal field KZWI5. Therefore, the “ex-works price” must already be available in this field at the time the  functions of the add-on are executed.  If this is not the case, the actual factory price must be populated using the BAdIs mentioned above. The ex-works price must be specified for a quantity of 1.
 
-<br />
-
  
 
-## Use preference texts on invoice
+## Apply preference texts on invoice
 
-The determined preference texts have to be printed on the invoice. The head text can be placed at the beginning or the end of the invoice. Item texts should be printed at the corresponding item.
+The determined preference texts have to be printed on the invoice. The text on header level can be placed at the beginning or the end of the invoice. Item texts should be printed at the corresponding item.
 
 # Overview of functions
 
