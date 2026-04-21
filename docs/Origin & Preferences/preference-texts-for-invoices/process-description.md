@@ -25,11 +25,11 @@ Examples: [https://sap-plugins.docs.developers.aeb.com/docs/example-for-method-a
 
 ## Start customer individual invoice printing procedure
 
-The functions of the O&P invoice printing have to be integrated directly into the SAP invoice printing procedure.
+The following functions can be integrated directly into the SAP invoice printing procedure.
 
 ## Determine preference texts
 
-All document data are retrieved at runtime from the data base. After this, the data can be changed by a BAdI implementation. Now every item is checked whether the preference is achieved. Finally, the preference texts are generated. The requirements of the agreements with regard to language, name of the countries involved, and signature requirement are taken into account.
+All document data are retrieved at runtime from the database. After this, the data can be changed by a BAdI implementation. Then every item is checked whether the preference applies. Finally, the preference texts are generated. The requirements of the agreements with regard to language, name of the countries involved, and signature requirement are taken into account.
 
 | Business object | Relevant types of rules              |
 | :-------------- | :----------------------------------- |
@@ -90,6 +90,18 @@ Several functions are available:
 | Delivery                  | /AEB/WU_DOC_DLV_01 - after_std_filling |
 | Any other business object | /AEB/WU_DOC_CUS_01 – after_std_filling |
 
+## Requirements 
+
+The following conditions must be met before the determination logic can be executed:
+
+The SAP business object, e.g. the invoice, must already be posted in the SAP system; in other words, it must be available in the SAP database under the corresponding document number.
+
+The “ex-works price” is relevant for determining the preference attribute. The standard logic derives this price value from the calculation subtotal field KZWI5. Therefore, the “ex-works price” must already be available in this field at the time the  functions of the add-on are executed.  If this is not the case, the actual factory price must be populated using the BAdIs mentioned above. The ex-works price must be specified for a quantity of 1.
+
+<br />
+
+ 
+
 ## Use preference texts on invoice
 
 The determined preference texts have to be printed on the invoice. The head text can be placed at the beginning or the end of the invoice. Item texts should be printed at the corresponding item.
@@ -119,16 +131,15 @@ relating to the declaration of origin according to the status of individual item
 ### DETERMINE_PREFERENCE_TEXTS
 
 **Requirements**  
-The following conditions must be met before the method can select the correct preference text:
+Some conditions must be met before the method can select the correct preference text. Check the section *Requirments* above for more details.  
 
-* The “ex-works price” is relevant for determining preference. The standard logic determines this value from the calculation subtotal field KZWI5. This means that the “ex-works price” must already appear in this field when the preference text is selected. If this is not the case you can/have to fill the real factory price in the BAdIs mentioned above. The ex-works price is to be specified for a quantity of 1.
-* The invoice must already be posted in the SAP system – that is, available under the document number in the SAP database.
-* The following logic is applied for returning the preference texts:
-  * The preference text that occurs most frequently in the items is returned at the header level.
-  * Only if a preference text at the item level differs from the text at the header level, it is also returned at the item level.
-  * If no item is entitled to preference, no text is returned at the header level.
+The following logic is applied for returning the preference texts:
 
-**Call**  
+* The preference text that appears most frequently across the items is assigned at the header level.
+* A preference text is only displayed at the item level if it differs from the header-level text.
+* If none of the items qualifies for a preference, no text is shown at the header level.
+
+**Calling the method**  
 The method provides the preference texts for a document at runtime, so it can be integrated into the invoice printing process in order to print the correct preference texts.
 
 ### CHECK_IS_DECL_OF_ORI_ALLOWED
