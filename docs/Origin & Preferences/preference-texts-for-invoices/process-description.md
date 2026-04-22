@@ -15,9 +15,11 @@ next:
         example-for-method-aebcl_wu_pb_pref_chk_inv_bc-determine_preference_texts
       title: Implementation examples
 ---
-## Invoice printing
+# Print preferential data on documents 
 
-Examples: [https://sap-plugins.docs.developers.aeb.com/docs/example-for-method-aebcl_wu_pb_pref_chk_inv_bc-determine_preference_texts](https://sap-plugins.docs.developers.aeb.com/docs/example-for-method-aebcl_wu_pb_pref_chk_inv_bc-determine_preference_texts)
+For printing onto invoices or for other downstream functions, Origin & Preferences Add-on for SAP offers the option of using multiple functions to identify the correct preference texts and declarations of origin for the header and item level of an invoice.
+
+Implementation examples: [https://sap-plugins.docs.developers.aeb.com/docs/example-for-method-aebcl_wu_pb_pref_chk_inv_bc-determine_preference_texts](https://sap-plugins.docs.developers.aeb.com/docs/example-for-method-aebcl_wu_pb_pref_chk_inv_bc-determine_preference_texts)
 
 ![](https://files.readme.io/45fb475-invoice_printing.png "invoice_printing.png")
 
@@ -90,15 +92,13 @@ Several functions are available:
 | Delivery                  | /AEB/WU_DOC_DLV_01 - after_std_filling |
 | Any other business object | /AEB/WU_DOC_CUS_01 – after_std_filling |
 
-# Requirements 
+# Requirements
 
 The following conditions must be met before the determination logic can be executed:
 
 The SAP business object, e.g. the invoice, must already be posted in the SAP system; in other words, it must be available in the SAP database under the corresponding document number.
 
 The “ex-works price” is relevant for determining the preference attribute. The standard logic derives this price value from the condition subtotal field KZWI5 which is calculated per item. Therefore, the “ex-works price” must already be available in this field at the time the functions below are executed.  If this is not the case, the actual "factory price" must be populated using the according BAdI for the business object.  The value of the field KZWI5 is provided in the  changing parameter field CH_PB_DOC_DO-FACTORY_PRICE and FACTORY_PRICE_CURRENCY of the BAdI.  Apply your logic here to change the value of the factory price. Keep in mind that the price must be specified for a quantity of 1.
-
- 
 
 # Overview of functions
 
@@ -125,7 +125,7 @@ relating to the declaration of origin according to the status of individual item
 ### DETERMINE_PREFERENCE_TEXTS
 
 **Requirements**  
-Some conditions must be met before the method can select the correct preference text. Check the section *Requirments* above for more details.  
+Some conditions must be met before the method can select the correct preference text. Check the section _Requirments_ above for more details.
 
 The following logic is applied for returning the preference texts:
 
