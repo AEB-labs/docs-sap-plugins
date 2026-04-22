@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-## Method /AEB/CL\_WU\_PB\_PREF\_CHK\_INV\_BC - determine\_preference\_texts
+## Method /AEB/CL_WU_PB_PREF_CHK_INV_BC - determine_preference_texts
 
-This is a standalone example of a call to the method combined with the output of the preference texts. 
+This is an example for a call to retrieve the preference texts and how the output of the preference texts can be handled.
 
 ```text Preference text example
 DATA:
@@ -50,6 +50,6 @@ ENDTRY.
 
 # Output
 
-Here you see the output for an invoice with three items. In this example the item 000010 has preference. The other two items have no preference.
+This is the output for an invoice with three items. In this example, the item 000010 has preference. The other two items have no preference.
 
 ![](https://files.readme.io/cc501fd-preference_text_example_output.png "preference_text_example_output.png")
