@@ -12,7 +12,9 @@ next:
 ---
 # Read the label byte stream from the response
 
-## Trigger the carrier labels in a user session
+## Main scenario: Trigger the carrier labels directly from the shipping process 
+
+Scenario: The data transfer is triggered directly from an application (e.g. pack station),  an user exit, customer exit or BAdI.     
 
 By setting the document output mode to 'RETURN', the carrier labels are returned as a byte stream. This byte stream can then be sent to a printer from within your SAP system.
 
