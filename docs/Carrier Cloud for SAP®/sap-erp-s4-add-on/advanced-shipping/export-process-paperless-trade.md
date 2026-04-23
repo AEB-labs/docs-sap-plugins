@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+# Update customs data
+
 Once you're shipping to non domestic destinations, the carrier might require customs related data to handle clearance. You can use the method UPDATE_CUSTOMS_DATA of class /AEB/CL_PA_PB_CARRIER_BF to update customs data for an existing shipping order. Updates can be done on header and item level.
 
 Required data includes certain reference numbers (MRN), item values and others. See [API - Update customs data ](https://transport-freight-management.docs.developers.aeb.com/reference/updatecustomsdata) for a documentation of the available fields for an update. Here is a coding example:
@@ -86,6 +88,8 @@ ENDTRY.
 
 <br />
 
-"Paperless trade" usually also requires the upload of certain documents provided by customs, e.g. an export accompaning document (EAD).
+# Customs document and invoice document
+
+"Paperless trade" usually also requires the upload of certain documents provided by customs, e.g. an export accompaning document (EAD). For exports from Germany , its called ABD. 
 
 In addition, the invoice document from SAP is often required. See <Anchor label="Attach documents" target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/attach-documents-to-a-shipping-order">Attach documents</Anchor>for more infomation how to upload a document to Carrier Connect from SAP.
