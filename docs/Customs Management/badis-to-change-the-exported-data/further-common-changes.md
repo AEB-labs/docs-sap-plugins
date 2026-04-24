@@ -337,9 +337,9 @@ Delete existing goods description for DE, create a new one and set it for the it
 im_value->set_internal_reference( im_value = 'Internal Reference' ).
 ```
 
-## Initialize customs procedures on item level 
+## Initialize customs procedures on item level
 
-Usage example:  You want template the value on header level for Swiss export. 
+Usage example:  You want template the value on header level for Swiss export.
 
 ```
     DATA: lt_customs_procs TYPE /aeb/if_aes_pb_customs_proc_do=>tt_customs_proc_do.
@@ -403,6 +403,7 @@ Usage example:  You want template the value on header level for Swiss export.
 ```
 
 ## Add an additional aggregation key to the item
+
 ```
     LOOP AT im_value->get_deliveries( ) INTO DATA(lo_delivery).
       LOOP AT lo_delivery->get_items( ) INTO DATA(lo_item).
@@ -413,7 +414,9 @@ Usage example:  You want template the value on header level for Swiss export.
 ```
 
 ## Change nature of transaction in an example for Export Germany
+
 If you want to change this field for other countries different extension will have to be used!
+
 ```
     DATA(lt_deliveries) = im_value->get_deliveries( ).
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
@@ -428,6 +431,7 @@ If you want to change this field for other countries different extension will ha
 ```
 
 ## Add container and seal information
+
 ```
     "Delivery loop
     LOOP AT im_value->get_deliveries( ) INTO DATA(lo_delivery).
@@ -451,6 +455,7 @@ If you want to change this field for other countries different extension will ha
 ```
 
 ## Change country ISO code in partner
+
 ```
     LOOP AT im_value->get_deliveries( ) INTO DATA(lo_delivery).
       LOOP AT lo_delivery->get_parties( ) INTO DATA(lo_party).
@@ -462,6 +467,7 @@ If you want to change this field for other countries different extension will ha
 ```
 
 ## Add dangerous goods information on item level
+
 ```
     LOOP AT im_value->get_deliveries( ) INTO DATA(lo_delivery).
       LOOP AT lo_delivery->get_items( ) INTO DATA(lo_item).
@@ -477,6 +483,7 @@ If you want to change this field for other countries different extension will ha
 ```
 
 ## Add EORI number to carrier
+
 ```
     DATA(lt_deliveries) = im_value->get_deliveries( ).
     LOOP AT lt_deliveries INTO DATA(lo_delivery).
@@ -516,6 +523,7 @@ Following examples refer to the invoice badi AEB/AES_CONS_MD_01. Please check if
 ```
 
 # /AEB/AES_CONS_SHP_01
+
 Following examples refer to the invoice badi AEB/AES_CONS_SHP_01. Please check if the examples are also applicable in your use case.
 
 ## Change mode of transport border to Intrastat value
