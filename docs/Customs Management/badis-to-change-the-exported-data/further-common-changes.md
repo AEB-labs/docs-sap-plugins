@@ -450,6 +450,52 @@ If you want to change this field for other countries different extension will ha
     ENDLOOP.
 ```
 
+## Change country ISO code in partner
+```
+    LOOP AT im_value->get_deliveries( ) INTO DATA(lo_delivery).
+      LOOP AT lo_delivery->get_parties( ) INTO DATA(lo_party).
+        IF lo_party->get_country( ) = 'RS'.
+          lo_party->set_country( im_value = 'XS' ).
+        ENDIF.
+      ENDLOOP.
+    ENDLOOP.
+```
+
+## Add dangerous goods information on item level
+```
+    LOOP AT im_value->get_deliveries( ) INTO DATA(lo_delivery).
+      LOOP AT lo_delivery->get_items( ) INTO DATA(lo_item).
+        DATA(lt_cls) = lo_item->get_classifications( ).
+        DATA(lo_undg) = im_cons_data_object_factory->new_aes_pb_cls_do(
+                          im_type  = 'UNDG'                 " Goods classification type
+                          im_value = '1234'                 " Goods classification value
+                        ).
+        APPEND lo_undg TO lt_cls.
+        lo_item->set_classifications( im_value = lt_cls ).
+      ENDLOOP.
+    ENDLOOP.
+```
+
+## Add EORI number to carrier
+```
+    DATA(lt_deliveries) = im_value->get_deliveries( ).
+    LOOP AT lt_deliveries INTO DATA(lo_delivery).
+      DATA(lt_parties) = lo_delivery->get_parties( ).
+      LOOP AT lt_parties INTO DATA(lo_party).
+        IF lo_party->get_party_type( ) = 'CARRIER'.
+          DATA(lt_cust_ids) = lo_party->get_customs_ids( ).
+          DATA(lo_cust_id) = im_cons_data_object_factory->new_aes_pb_cust_ident_do(
+                               im_identification      = '123'
+                               im_identification_type = 'EORI'
+                             ).
+          APPEND lo_cust_id TO lt_cust_ids.
+          lo_party->set_customs_ids( im_value = lt_cust_ids ).
+          EXIT.
+        ENDIF.
+      ENDLOOP.
+    ENDLOOP.
+```
+
 # /AEB/AES_CONS_MD_01
 
 Following examples refer to the invoice badi AEB/AES_CONS_MD_01. Please check if the examples are also applicable in your use case.
