@@ -54,10 +54,21 @@ Purchase documents don't have any blocks. Therefore you might want to establish 
 
 > 🚧 The following suggestions rely on the individual setup and basis configuration of your SAP system.  Therefore, they might not work in each and every scenario and cannot be supported by AEB.
 
-### Output messages
+### React to the processing of output messages
 
-In case of a critical result, you might want to prevent the triggering of output messages, e.g. an order confirmation to the vendor. Assuming the dispatch time of the output is not set to “Send immediately (when saving the application)” one can define conditions in the procedure for application "EF".    There you could amend or define a routine for the field "Requirement" and use the function /AEB/CMP\_PB\_GET\_PD\_MON\_ENTRY to read the Compliance Monitor entry for the purchase order. The routine could check if one of found monitor entries  contains an “X” in the fields "HAS\_SCR\_HIT", "HAS\_SCR\_ERR", "HAS\_EC\_HIT" or "HAS\_EC\_ERR".   Or if the field "STATUS\_ID" is equal to "J" (Prohibited). Define a negative result in the requirement routine so it prevents the output message from being triggered.\
-Once a formerly critical purchase order gets released in the Compliance Monitor, you can automatically trigger actions.   Implement the BAdI /AEB/CMP\_MONITOR\_11 , method PURCHASE\_DOCUMENT\_DEBLOCKED to react to the release in the monitor.
+In case of a critical result, you might want to prevent the processing of output messages, for example an order confirmation to the vendor.
+
+When using classic (NAST‑based) output management, the dispatch time of the output must **not** be set to *“Send immediately (when saving the application)”*.
+This ensures that output message processing takes place after the purchase document has been saved and all relevant data is available in the database.
+
+During output message processing (for example printing, EDI or email dispatch), the compliance status of the purchase document can be evaluated using the function module `/AEB/CMP_PB_GET_PD_MON_ENTRY`.
+The processing logic can check whether one of the retrieved monitor entries contains an “X” in the fields `HAS_SCR_HIT`, `HAS_SCR_ERR`, `HAS_EC_HIT` or `HAS_EC_ERR`, or whether the field `STATUS_ID` is equal to “J” (Prohibited).
+If a critical status is detected, the processing of the output message should be aborted so that no message is sent to the vendor.
+
+Once a previously critical purchase order is released in the Compliance Monitor, follow‑up actions can be triggered automatically. This can be implemented via BAdI `/AEB/CMP_MONITOR_11`, method `PURCHASE_DOCUMENT_DEBLOCKED`, for example to re‑process a previously failed output message.
+
+*This approach applies equally to classic (NAST‑based) and BRF+ output management.*
+
 
 ### Release of a purchase order using ME29N
 
