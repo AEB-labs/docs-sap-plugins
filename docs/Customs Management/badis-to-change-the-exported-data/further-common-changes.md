@@ -503,6 +503,15 @@ If you want to change this field for other countries different extension will ha
     ENDLOOP.
 ```
 
+## Define country of trade terms
+```
+LOOP AT im_value->get_deliveries( ) INTO data(lo_delivery).
+      data(lo_trade_terms) = lo_delivery->get_trade_terms( ).
+      lo_trade_terms->set_country( im_value = 'DE' ).
+ENDLOOP.
+```
+
+
 # /AEB/AES_CONS_MD_01
 
 Following examples refer to the invoice badi AEB/AES_CONS_MD_01. Please check if the examples are also applicable in your use case.
