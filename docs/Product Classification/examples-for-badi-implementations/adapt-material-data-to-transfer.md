@@ -218,8 +218,7 @@ im_value->add_property( im_value = lo_property ).
 
 ```Text Add property
 DATA: lt_values TYPE /aeb/01_strings,
-          lv_value  TYPE /aeb/01_string
-          .
+          lv_value  TYPE /aeb/01_string.
     lv_value = 'ABC'.
     APPEND lv_value to lt_values.
     lo_property = im_data_object_factory->new_ta_pb_mat_prop_do(
