@@ -14,7 +14,7 @@ next:
 
 <br />
 
-When using background tasks to execute functions in parallel, there is a risk to overload the Compliance engine, because the SAP system is sending to many requests in a certain time. To limit the number of parallel requests there are two options:
+When using background tasks to execute functions in parallel, there is a risk to overload the Compliance engine, because the SAP system is sending too many requests in a certain time. To limit the number of parallel requests there are two options:
 
 * Adjust the resources available for logon groups for the affected application servers. AEB does not recommend this approach, as it is a complex setup and has side effects of all related application servers. Keep in mind that future changes to the SAP system, e.g. increasing the available processes will also increase the number of parallel calls.
 * Implement the BAdI /AEB/01_QTSK_CTRL_01 which allows you to specify the exact amount of processes to be used for Compliance checks and even allows you to change it depending on the use case. This is the recommend option, and works specifically for this requirement.
