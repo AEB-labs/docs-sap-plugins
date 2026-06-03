@@ -216,7 +216,7 @@ im_value->add_property( im_value = lo_property ).
 
 ### Classification 4.0.2
 
-```
+```Text Add property
 DATA: lt_values TYPE /aeb/01_strings,
           lv_value  TYPE /aeb/01_string
           .
