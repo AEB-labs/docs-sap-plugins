@@ -35,3 +35,13 @@ TRY .
     error_message = exception->/aeb/if_01_cx_message~get_msg_as_str( ).
 ENDTRY.
 ```
+
+<br />
+
+# Restrict background task usage
+
+To restrict the usage of background tasks, see <Anchor label="Restrict background tasks" target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/restrict-background-task-usage-1">Restrict background tasks</Anchor>
+
+
+
+<br />
