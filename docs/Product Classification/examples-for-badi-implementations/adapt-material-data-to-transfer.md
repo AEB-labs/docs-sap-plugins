@@ -10,21 +10,21 @@ metadata:
 next:
   description: ''
 ---
-The following site will assist you how to adapt the data of a material which is transferred to Product Classification. But before we start, some things that are good to know:
+The following section explains how to adapt material data that is transferred to Product Classification. Before proceeding, there are a few important concepts to understand.
 
 **Access to MAR-tables, org units, etc**
 
-If you want to use contextual data,  e.g. the material tables (MARA, MARC..) or if you like to have the relevant organizational units,  use the parameter "IM\_MATERIAL\_CONTEXT". This parameter has some methods, e.g. get\_marc to read the content of the MARx-tables. This includes the content which is not yet persistent. Example:
-
-DATA (lt\_marcs) = im\_material\_context->get\_marcs( ).
+To access material-related data, for example from tables such as MARA and MARC, or to retrieve relevant organizational unit data, use the parameter `IM_MATERIAL_CONTEXT`. This parameter provides several methods, such as `GET_MARCS`, which retrieves the current content of the MARC structure, including data that has not yet been persisted to the database. Example:  DATA (lt_marcs) = im_material_context->get_marcs( ).
 
 **Empty values vs. null**
 
- Some of our fields with simple data types like char or string are implemented as so called *nullable values*. So we have a class representation of each simple data type.\
-If you change such a field you need to use the correct type. For the material number you have to use the class /AEB/CL\_01\_CHAR\_50\_NV. NV means nullable values. To create this nullable value, the BAdI method offers you the parameter im\_nullable\_value\_factory. Each nullable value has the attribte v for value.\
-Why do we use nullable values? To differentiate between whether or not an empty value will lead  to an update in Product Classification. In case you want an update, create the nullable value without assign a value to v. If there should be no update, set  the field value in the interface to "NULL".
+Some fields with simple data types, such as CHAR or STRING, are implemented as so-called nullable values. For these fields, a dedicated class representation exists for each data type.
 
-Let us start with adapting the alternative material number. The standard just fill the alternative material number with the external represenation of the SAP material no.
+When modifying such fields, you must use the appropriate nullable type. For example, for the material number, use the class `/AEB/CL_01_CHAR_50_NV` (where “NV” stands for nullable value). To create an instance of a nullable value, use the parameter `IM_NULLABLE_VALUE_FACTORY` provided by the BAdI method. Each nullable value contains the attribute `V`, which holds the actual value.
+
+Nullable values are used to distinguish whether an empty value should trigger an update in Product Classification. If an update is required, create the nullable value without assigning a value to attribute `V`. If no update should occur, set the corresponding field in the interface explicitly to `NULL`.
+
+Now, let us look at adapting the alternative material number. In the standard implementation, the alternative material number is filled with the external representation of the SAP material number.
 
 ```text Read and/or change a single field value
 DATA:
@@ -41,8 +41,8 @@ DATA:
   ENDIF.
 ```
 
-Okay, know to a more complex requirement, where you want to adapt the value of a classification. In the following example we will change the value of COCO\_IMPORT\_DE (commodity code for import) to a const value.\
-First you have to loop over the classification values. Then you have to check it the value is the COCO\_IMPORT\_DE. In this case we change it to a fixed value of '01022959310'.  
+Okay, know to a more complex requirement, where you want to adapt the value of a classification. In the following example we will change the value of COCO_IMPORT_DE (commodity code for import) to a const value.  
+First you have to loop over the classification values. Then you have to check it the value is the COCO_IMPORT_DE. In this case we change it to a fixed value of '01022959310'.
 
 ```text Change the value of a classification
 DATA:
@@ -63,7 +63,7 @@ DATA:
   ENDLOOP.
 ```
 
-As you see the whole material is implemented object-oriented. So in order to access the classifications you have to call the method get\_classifications.\
+As you see the whole material is implemented object-oriented. So in order to access the classifications you have to call the method get_classifications.  
 How to add a classification? See the example below.
 
 ```text Add a classification
@@ -84,7 +84,7 @@ DATA:
   im_value->set_classification_values_v1( classification_values ).
 ```
 
-Here you can see that we use the im\_data\_object\_factory to create a new value. Ok let us try another thing. If you like to add a certificate to a material, you have to create a certificate by uinge the parameter im\_data\_object\_factory which is provided by the  BAdI method. Then you fill the needed values and add the certificate to the existing list and set the to the material. The example below shows the needed steps. 
+Here you can see that we use the im_data_object_factory to create a new value. Ok let us try another thing. If you like to add a certificate to a material, you have to create a certificate by uinge the parameter im_data_object_factory which is provided by the  BAdI method. Then you fill the needed values and add the certificate to the existing list and set the to the material. The example below shows the needed steps.
 
 ```text Add an certificate to material
 DATA:
@@ -120,8 +120,8 @@ DATA:
   im_value->set_certificates( certificates ).
 ```
 
-And here another example which shows how to add attachments to your material.\
-Please note that this example uses fronted service. This won't work in productiv implementation, but for testing it will work. 
+And here another example which shows how to add attachments to your material.  
+Please note that this example uses fronted service. This won't work in productiv implementation, but for testing it will work.
 
 ```text Add an attachment to the material (selection only for front end uses)
 DATA:
@@ -191,9 +191,11 @@ DATA:
 ```
 
 ## Material properties
-To add additional goods properties to your material you have to use method add\_property.
+
+To add additional goods properties to your material you have to use method add_property.
 
 ### Classification 4.0.1
+
 ```text Add property
 lv_id = 'PROPERTY_ID'.
 lv_value = 'PROPERTY_VALUE'.
@@ -204,6 +206,7 @@ im_value->add_property( im_value = lo_property ).
 ```
 
 ### Classification 4.0.2
+
 ```
 DATA: lt_values TYPE /aeb/01_strings,
           lv_value  TYPE /aeb/01_string
