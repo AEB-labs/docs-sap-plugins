@@ -24,7 +24,7 @@ When modifying such fields, you must use the appropriate nullable type. For exam
 
 Nullable values are used to distinguish whether an empty value should trigger an update in Product Classification. If an update is required, create the nullable value without assigning a value to attribute `V`. If no update should occur, set the corresponding field in the interface explicitly to `NULL`.
 
-Now, let us look at adapting the alternative material number. In the standard implementation, the alternative material number is filled with the external representation of the SAP material number.
+Now, let us look at adapting the alternative material number. In the standard implementation, the alternative material number is filled with the external representation of the SAP material number. In this example this number is changed to include an additional -TEST at the end:  
 
 ```text Read and/or change a single field value
 DATA:
@@ -41,7 +41,7 @@ DATA:
   ENDIF.
 ```
 
-Okay, know to a more complex requirement, where you want to adapt the value of a classification. In the following example we will change the value of COCO_IMPORT_DE (commodity code for import) to a const value.  
+Okay, now to a more complex requirement, where you want to adapt the value of a classification. In the following example we will change the value of COCO_IMPORT_DE (commodity code for import) to a const value.  
 First you have to loop over the classification values. Then you have to check it the value is the COCO_IMPORT_DE. In this case we change it to a fixed value of '01022959310'.
 
 ```text Change the value of a classification
