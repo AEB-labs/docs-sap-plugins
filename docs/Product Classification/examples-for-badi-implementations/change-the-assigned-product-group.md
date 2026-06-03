@@ -17,8 +17,11 @@ next:
       slug: adapt-material-data-to-transfer
       title: Adapt material data to transfer
 ---
-If you like to exclude a material from transfer you have to assign no product group or you have to assign the product group with the value 'NOT_RELEVANT'.  
-For adapting the assignment of a product group, there is a BAdI /AEB/TA_PROD_GRP_01. The BAdI has one method chg_product_group_for_material.
+The BAdI /AEB/TA_PROD_GRP_01 runs after the standard identification of the product group. This BAdI allows to define a deviating product group. 
+
+Note: The new product group must have been configured first, otherwise materials with this group will not be transmitted to Product Classification.
+
+If you want to exclude a material from the transfer, assign the product group with the value 'NOT_RELEVANT'.  
 
 The following code example shows how to set the product group in case of the material has a deletion indicator.
 
@@ -31,6 +34,16 @@ METHOD /aeb/if_ex_ta_prod_grp_01~chg_product_group_for_material.
   ENDMETHOD.
 ```
 
-You see that we only change it in this case, if the material has the deletion indicator. All other situations will be covered by configuration.
+<br />
 
-If you like to have context data for example of the material (MARA, MARC..) or if you like to have the relevant org. units use the parameter "IM_MATERIAL_CONTEXT". This parameter has some methods for example get_mara with which you can the actual content of the table mara (include the content which is not yet persistent).
+<br />
+
+Here is a clearer and more professional version of your sentence for documentation:
+
+***
+
+To access certain data related to the material, for example from tables such as MARA and MARC, or to read the relevant organizational units, the parameter `IM_MATERIAL_CONTEXT` can be used. This parameter offers several methods, such as `GET_MARA`, which allows you to retrieve the current content of the MARA structure, including data that has not yet been persisted to the database.
+
+***
+
+<br />
