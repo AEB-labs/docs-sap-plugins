@@ -10,7 +10,9 @@ metadata:
 next:
   description: ''
 ---
-The following section explains how to adapt material data that is transferred to Product Classification. Before proceeding, there are a few important concepts to understand.
+## General information
+
+The following section explains how to adapt material data that is transferred to Product Classification. To do this, the add-on provides the BAdI /AEB/TA_MATERIAL_02. Before proceeding, there are a few important concepts to understand:
 
 **Access to MAR-tables, org units, etc**
 
@@ -41,8 +43,9 @@ DATA:
   ENDIF.
 ```
 
-Okay, now to a more complex requirement, where you want to adapt the value of a classification. In the following example we will change the value of COCO_IMPORT_DE (commodity code for import) to a const value.  
-First you have to loop over the classification values. Then you have to check it the value is the COCO_IMPORT_DE. In this case we change it to a fixed value of '01022959310'.
+## Change an existing classification value
+
+The following example demonstrates a more complex scenario in which a classification value is modified. In this case, the value of the characteristic `COCO_IMPORT_DE` (commodity code for import) is set to a constant. To achieve this, iterate over the classification values and identify the relevant characteristic. Once the characteristic `COCO_IMPORT_DE` is found, replace its value with the fixed value '01022959310':
 
 ```text Change the value of a classification
 DATA:
@@ -63,8 +66,11 @@ DATA:
   ENDLOOP.
 ```
 
-As you see the whole material is implemented object-oriented. So in order to access the classifications you have to call the method get_classifications.  
-How to add a classification? See the example below.
+## Add an additional classification
+
+The material data model is implemented in an object-oriented manner. To access classification data, call the method `GET_CLASSIFICATIONS`.
+
+To add a classification, refer to the example below. In this context, the parameter `IM_DATA_OBJECT_FACTORY` is used to create a new classification value object.
 
 ```text Add a classification
 DATA:
