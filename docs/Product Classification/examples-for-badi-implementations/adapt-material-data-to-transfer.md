@@ -14,17 +14,27 @@ next:
 
 The following section explains how to adapt material data that is transferred to Product Classification. To do this, the add-on provides the BAdI /AEB/TA_MATERIAL_02. Before proceeding, there are a few important concepts to understand:
 
-**Access to MAR-tables, org units, etc**
+### Access to MAR-tables, org units, etc
 
 To access material-related data, for example from tables such as MARA and MARC, or to retrieve relevant organizational unit data, use the parameter `IM_MATERIAL_CONTEXT`. This parameter provides several methods, such as `GET_MARCS`, which retrieves the current content of the MARC structure, including data that has not yet been persisted to the database. Example:  DATA (lt_marcs) = im_material_context->get_marcs( ).
 
-**Empty values vs. null**
+### Empty values vs. NULL
 
 Some fields with simple data types, such as CHAR or STRING, are implemented as so-called nullable values. For these fields, a dedicated class representation exists for each data type.
 
 When modifying such fields, you must use the appropriate nullable type. For example, for the material number, use the class `/AEB/CL_01_CHAR_50_NV` (where “NV” stands for nullable value). To create an instance of a nullable value, use the parameter `IM_NULLABLE_VALUE_FACTORY` provided by the BAdI method. Each nullable value contains the attribute `V`, which holds the actual value.
 
 Nullable values are used to distinguish whether an empty value should trigger an update in Product Classification. If an update is required, create the nullable value without assigning a value to attribute `V`. If no update should occur, set the corresponding field in the interface explicitly to `NULL`.
+
+### Properties from custom fields ( Z-fields)
+
+If product properties are defined in custom (Z) tables, any changed data must be transferred during material save using the function module /AEB/TA_PB_ADD_DATA_TO_MEMORY before calling the include /AEB/TA_MATERIAL_SAVE.
+
+The modified data from the Z-table can be passed via the parameter IM_DATA.
+
+<br />
+
+## Change an existing classification value
 
 Now, let us look at adapting the alternative material number. In the standard implementation, the alternative material number is filled with the external representation of the SAP material number. In this example this number is changed to include an additional -TEST at the end:  
 
@@ -42,8 +52,6 @@ DATA:
     im_value->set_alt_material_no( alt_matnr ).  
   ENDIF.
 ```
-
-## Change an existing classification value
 
 The following example demonstrates a more complex scenario in which a classification value is modified. In this case, the value of the characteristic `COCO_IMPORT_DE` (commodity code for import) is set to a constant. To achieve this, iterate over the classification values and identify the relevant characteristic. Once the characteristic `COCO_IMPORT_DE` is found, replace its value with the fixed value '01022959310':
 
@@ -227,3 +235,11 @@ DATA: lt_values TYPE /aeb/01_strings,
                   ).
     im_value->add_property( im_value = lo_property ).
 ```
+
+<br />
+
+## Properties from custom fields ( Z-fields) 
+
+If product properties are defined in custom (Z) tables, any changed data must be transferred during material save using the function module /AEB/TA_PB_ADD_DATA_TO_MEMORY before calling the include /AEB/TA_MATERIAL_SAVE.
+
+The modified data from the Z-table can be passed via the parameter IM_DATA.
