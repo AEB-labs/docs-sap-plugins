@@ -90,7 +90,11 @@ DATA:
   im_value->set_classification_values_v1( classification_values ).
 ```
 
-Here you can see that we use the im_data_object_factory to create a new value. Ok let us try another thing. If you like to add a certificate to a material, you have to create a certificate by uinge the parameter im_data_object_factory which is provided by the  BAdI method. Then you fill the needed values and add the certificate to the existing list and set the to the material. The example below shows the needed steps.
+## Add certificates
+
+A similar approach applies when adding a certificate to a material. First, create a certificate instance using the `IM_DATA_OBJECT_FACTORY` parameter provided by the BAdI method. Then, populate the required attributes and add the certificate to the existing collection. Finally, assign the updated collection back to the material object.
+
+The example below illustrates the required steps.
 
 ```text Add an certificate to material
 DATA:
