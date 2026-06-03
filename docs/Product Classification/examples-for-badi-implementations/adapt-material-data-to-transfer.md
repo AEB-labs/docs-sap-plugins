@@ -92,9 +92,7 @@ DATA:
 
 ## Add certificates
 
-A similar approach applies when adding a certificate to a material. First, create a certificate instance using the `IM_DATA_OBJECT_FACTORY` parameter provided by the BAdI method. Then, populate the required attributes and add the certificate to the existing collection. Finally, assign the updated collection back to the material object.
-
-The example below illustrates the required steps.
+A similar approach applies when adding a certificate to a material. First, create a certificate instance using the `IM_DATA_OBJECT_FACTORY` parameter provided by the BAdI method. Then, populate the required attributes and add the certificate to the existing collection. Finally, assign the updated collection back to the material object. The example below illustrates the required steps:
 
 ```text Add an certificate to material
 DATA:
