@@ -34,15 +34,15 @@ METHOD /aeb/if_ex_ta_prod_grp_01~chg_product_group_for_material.
   ENDMETHOD.
 ```
 
-<br />
+To access certain data related to the material, for example from tables such as MARA and MARC, or to read the relevant organizational units, the parameter `IM_MATERIAL_CONTEXT` can be used. This parameter offers several methods, such as `GET_MARA`, which allows you to retrieve the current content of the MARA structure, including data that has not yet been persisted to the database.
 
 <br />
 
-Here is a clearer and more professional version of your sentence for documentation:
+<br />
 
 ***
 
-To access certain data related to the material, for example from tables such as MARA and MARC, or to read the relevant organizational units, the parameter `IM_MATERIAL_CONTEXT` can be used. This parameter offers several methods, such as `GET_MARA`, which allows you to retrieve the current content of the MARA structure, including data that has not yet been persisted to the database.
+<br />
 
 ***
 
