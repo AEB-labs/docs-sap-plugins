@@ -128,8 +128,9 @@ DATA:
   im_value->set_certificates( certificates ).
 ```
 
-And here another example which shows how to add attachments to your material.  
-Please note that this example uses fronted service. This won't work in productiv implementation, but for testing it will work.
+## Add attachments
+
+The following example demonstrates how to add attachments to a material. Please note that this example uses frontend services; therefore, it is not suitable for productive use but can be used for testing purposes. But there is also a second example that adds a web link as attachment.  
 
 ```text Add an attachment to the material (selection only for front end uses)
 DATA:
@@ -198,9 +199,9 @@ DATA:
   im_value->set_link_attachments( link_attachments ).
 ```
 
-## Material properties
+## Material features
 
-To add additional goods properties to your material you have to use method add_property.
+To add a feature (property) to a material, use the method ADD_PROPERTY. The handling of this method may differ depending on the version of the add-on.
 
 ### Classification 4.0.1
 
