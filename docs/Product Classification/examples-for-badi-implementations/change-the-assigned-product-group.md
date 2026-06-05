@@ -38,7 +38,7 @@ METHOD /aeb/if_ex_ta_prod_grp_01~chg_product_group_for_material.
 
 ```Text Exclude certain materials
 METHOD /aeb/if_ex_ta_prod_grp_01~chg_product_group_for_material.
- IF im_material_no CP 'XYZ01*'.
+ IF im_material_no CP 'XYZ01*'  OR im_material_no CP '123*'.
      ch_product_group = 'NOT_RELEVANT'.
  ENDIF.
 ENDMETHOD. 
