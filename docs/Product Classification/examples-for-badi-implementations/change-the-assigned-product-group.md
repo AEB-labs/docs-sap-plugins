@@ -34,11 +34,19 @@ METHOD /aeb/if_ex_ta_prod_grp_01~chg_product_group_for_material.
   ENDMETHOD.
 ```
 
+<br />
+
+```Text Exclude certain materials
+METHOD /aeb/if_ex_ta_prod_grp_01~chg_product_group_for_material.
+ IF im_material_no CP 'XYZ01*'.
+     ch_product_group = 'NOT_RELEVANT'.
+ ENDIF.
+ENDMETHOD. 
+```
+
+<br />
+
 To access material-related data, for example from tables such as MARA and MARC, or to retrieve relevant organizational unit data, use the parameter `IM_MATERIAL_CONTEXT`. This parameter provides several methods, such as `GET_MARA`, which retrieves the current content of the MARA structure, including data that has not yet been persisted to the database.
-
-<br />
-
-<br />
 
 ***
 
