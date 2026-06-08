@@ -26,13 +26,16 @@ Your SAP system is affected by this change in the following cases:
 * You have authorization objects in the system starting with ZAEB*.    (check via transaction SU21)
 * You are upgrading from ERP ECC to S/4HANA or upgrading your S/4HANA system to a new release
 
-You have the following options to prevent unwanted changes to your authorization roles:
+You have the following options to proceed:
+
+* Keep the existing authorization objects from AEB and prevent any changes t existing roles.  (option A and B) 
+* Switch to the new authorization objects and change the existing roles (opion C) 
 
 <Anchor label="Option A" target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/use-a-report-for-the-migration">Option A</Anchor>  Execute a report to analyze which of your roles are concerned. Contact the AEB support with that information to transfer the concerned Z-authorization objects to a new package. No changes to the existing roles are required.
 
 or
 
- <Anchor label="Option B" target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/perform-a-manual-migration">Option B</Anchor>  Perform a manual transfer of the authorization objects. No changes to the existing roles are required.
+<Anchor label="Option B" target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/perform-a-manual-migration">Option B</Anchor>  Perform a manual transfer of the authorization objects. No changes to the existing roles are required.
 
 or
 
