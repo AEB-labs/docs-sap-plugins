@@ -39,7 +39,7 @@ or
 
 or
 
-<Anchor label="Option C" target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/switch-to-new-authorization-objects">Option C</Anchor>   Switch to new authorization objects and change the existing roles.
+<Anchor label="Option C" target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/switch-to-new-authorization-objects">Option C</Anchor>   Switch to new authorization objects and change the existing roles. Delete the old authorization objects.
 
 Select your next step accordingly in the following "What's next" - section:
 
