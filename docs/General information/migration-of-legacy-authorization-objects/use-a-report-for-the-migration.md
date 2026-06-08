@@ -5,10 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-Option A:  You want to keep the ZAEB authorization objects. No changes to the roles are required. 
+Option A:  You want to keep the ZAEB authorization objects. No changes to the roles are required. You want AEB to help you identifying and tranfer the concerned objects. 
 
-The report below checks the authorization objects related to AEB functions which are used in your SAP system. As a result, it generates a detailed output informing you about the next steps.
-In case the report suggests that the transfer of authorization objects is needed, please send the detailed output to the AEB support in order to get the required transport requests. Importing these transport requests will move the concerned authorization objects into the package ZAEB_DEPRECATED_OBJECTS.
+The report below checks the authorization objects related to AEB functions which are used in your SAP system. As a result, it generates a detailed output informing you about the next steps. In case the report suggests that the transfer of authorization objects is needed, please send the detailed output to the AEB support in order to get the required transport requests. Importing these transport requests will move the concerned authorization objects into the package ZAEB_DEPRECATED_OBJECTS.
 
 Copy the following code block into a report and execute it in your quality assurance system. The output of the report will inform you how to proceed.
 
