@@ -21,10 +21,7 @@ next:
 
 In the past, AEB provided authorization objects in the Z namespace, as there was no possibility for using other namespaces. Depending on when and how you first installed AEB components in your SAP systems, you're using these Z-objects in your authorization roles. In November 2025, AEB was informed about difficulties in SAP S/4HANA migrations related to these authorization objects which could result in their deletion. This is critical, because the maintained authorization roles will become invalid.
 
-Your SAP system is affected by this change in the following cases:
-
-* You have authorization objects in the system starting with ZAEB*.    (check via transaction SU21)
-* You are upgrading from ERP ECC to S/4HANA or upgrading your S/4HANA system to a new release
+Your SAP system is affected by this change if you have authorization objects in the system starting with ZAEB*.  (Check via transaction SU21).  And when you are upgrading from ERP ECC to S/4HANA or upgrading your S/4HANA system to a new release. 
 
 You have the following options to proceed:
 
