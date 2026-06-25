@@ -12,16 +12,16 @@ next:
 ---
 These BAdIs are called every time a declaration is received from the International Customs Integration service. A declaration is synchronized every time it has been changed.
 
-| Document type                                  | BAdI                |
-| :--------------------------------------------- | :------------------ |
-| Delivery                                       | /AEB/AES_ET_SYNC_04 |
-| Shipment                                       | /AEB/AES_ET_SYNC_05 |
-| Invoice                                        | /AEB/AES_ET_SYNC_06 |
-| Purchase document                              | /AEB/AES_ET_SYNC_07 |
-| Incoming Invoice                               | /AEB/AES_ET_SYNC_08 |
-| Freight order                                  | /AE1/AES_ET_SYNC_09 |
-| Other collectors (manual created consignments) | /AEB/AES_ET_SYNC_09 |
-| Material document                              | /AEB/AES_ET_SYNC_10 |
+| Document type                                      | BAdI                |
+| :------------------------------------------------- | :------------------ |
+| Delivery                                           | /AEB/AES_ET_SYNC_04 |
+| Shipment                                           | /AEB/AES_ET_SYNC_05 |
+| Invoice                                            | /AEB/AES_ET_SYNC_06 |
+| Purchase document                                  | /AEB/AES_ET_SYNC_07 |
+| Incoming Invoice                                   | /AEB/AES_ET_SYNC_08 |
+| Freight order                                      | /AE1/AES_ET_SYNC_09 |
+| Other collectors (for manual created consignments) | /AEB/AES_ET_SYNC_09 |
+| Material document                                  | /AEB/AES_ET_SYNC_10 |
 
 A typical usecase for this BAdI is to write the customs registration number in further database fields in your SAP System. In the following example you can see how the value is saved into the external ID2  of a the shipment (German: Transport).
 
@@ -43,7 +43,7 @@ A typical usecase for this BAdI is to write the customs registration number in f
   ENDIF.
 ```
 
-If you have manual created consignments the link to the SAP document will be on item level. For that you have the possibility to access the client system ids on item level in the synchronization BADIs.  
+If you have manual created consignments the link to the SAP document will be on item level (exception: German Import Filing ATLAS). Therefore, the client system IDs can be accessed on item level in the synchronization BADIs.  
 In addition you have the public class /aeb/cl_01_pb_tid_def_bc or /ae1/cl_01_pb_tid_def_bc (S4 HANA specific objects like freight order). With this class you can convert the client system id to the SAP document number to access the SAP Document.
 
 ```text Use item client system ids from Sync BADIs
