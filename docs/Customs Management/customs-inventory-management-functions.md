@@ -12,27 +12,29 @@ next:
 ---
 # BAdIs to change booking request data
 
-When the booking request is triggered by the standard includes of the add-on, you can change the data by using the according BAdI for the SAP document:    
+When the booking request is triggered by the standard includes of the add-on, you can change the data by using the according BAdI for the SAP document:
 
 | SAP business object /  document | BAdI                     |
 | :------------------------------ | :----------------------- |
 | Transfer order (WM)             | /AEB/AES\_CIM\_BR\_TO\_1 |
 | Warehouse task (EWM)            | /AE1/AES\_CIM\_BR\_WT\_1 |
+| Material document               | /AEB/AES\_CIM\_BR\_MD\_1 |
 
 <br />
 
 # BAdIs to change whether a sap document should be transferred as booking request
 
-When the standard customizing settings are not suficiant to to determine whether a sap document is relevant for Customs Inventory Management and should be transferred you can override the standard determination (positive and negative) with the following BAdIs. 
+When the standard customizing settings are not suficiant to to determine whether a sap document is relevant for Customs Inventory Management and should be transferred you can override the standard determination (positive and negative) with the following BAdIs.
 
 | SAP business object /  document | BAdI                     |
 | :------------------------------ | :----------------------- |
 | Transfer order (WM)             | /AEB/AES\_CIM\_BR\_TO\_2 |
 | Warehouse task (EWM)            | /AE1/AES\_CIM\_BR\_WT\_2 |
+| Material document               | /AEB/AES\_CIM\_BR\_MD\_2 |
 
 # Call APIs of Customs Inventory Management
 
-Using public class **/AEB/CL\_AES\_PB\_CIM\_BF** you can call the APIs of CIM directly from within your SAP system. The class is a direct representation of the CIM interfaces.  See below for some coding examples for the usage.  
+Using public class **/AEB/CL\_AES\_PB\_CIM\_BF** you can call the APIs of CIM directly from within your SAP system. The class is a direct representation of the CIM interfaces.  See below for some coding examples for the usage.
 
 ## Creating a booking request from scratch
 
@@ -121,3 +123,5 @@ TRY.
     WRITE exception->/aeb/if_01_cx_message~get_msg_as_str( ).
 ENDTRY.
 ```
+
+<br />
