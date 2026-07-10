@@ -5,9 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-Option A:  You want to keep the ZAEB authorization objects. No changes to the roles are required. You want AEB to help you identifying and tranfer the concerned objects. 
+Option A:  You want to keep the ZAEB authorization objects. No changes to the roles are required. You want AEB to help you identifying and tranfer the concerned objects.
 
-The report below checks the authorization objects related to AEB functions which are used in your SAP system. As a result, it generates a detailed output informing you about the next steps. In case the report suggests that the transfer of authorization objects is needed, please send the detailed output to the AEB support in order to get the required transport requests. Importing these transport requests will move the concerned authorization objects into the package ZAEB_DEPRECATED_OBJECTS.
+The report below checks the authorization objects related to AEB functions which are used in your SAP system. As a result, it generates a detailed output informing you about the next steps.In case the report suggests that the transfer of authorization objects is needed, please send the detailed output to the AEB support in order to get the required transport requests. Importing these transport requests will move the concerned authorization objects into the package ZAEB\_DEPRECATED\_OBJECTS.
 
 Copy the following code block into a report and execute it in your quality assurance system. The output of the report will inform you how to proceed.
 
@@ -19,7 +19,7 @@ CONSTANTS:
   c_emcs_logentries TYPE xuobject VALUE 'ZAEB_ELE01',
   c_ma_desktop      TYPE xuobject VALUE 'ZAEB_MAC01',
   c_pa_desktop      TYPE xuobject VALUE 'ZAEB_PA001',
-  c_ta_desktop      TYPE xuobject VALUE 'ZAEB_TA072',
+  c_ta_wipi         TYPE xuobject VALUE 'ZAEB_TA032',
   c_wu_mat_monitor  TYPE xuobject VALUE 'ZAEB_WUM01',
 
   c_basis_package   TYPE devclass VALUE 'ZAEB_01_NAMESPACELESS_OBJECTS',
@@ -49,7 +49,7 @@ PERFORM query_auth_object USING c_aes_monitor c_aes_package CHANGING auth_object
 PERFORM query_auth_object USING c_emcs_logentries c_emcs_package CHANGING auth_objects_found-emcs.
 PERFORM query_auth_object USING c_ma_desktop c_ma_package CHANGING auth_objects_found-ma.
 PERFORM query_auth_object USING c_pa_desktop c_pa_package CHANGING auth_objects_found-pa.
-PERFORM query_auth_object USING c_ta_desktop c_ta_package CHANGING auth_objects_found-ta.
+PERFORM query_auth_object USING c_ta_wipi c_ta_package CHANGING auth_objects_found-ta.
 PERFORM query_auth_object USING c_wu_mat_monitor c_wu_package CHANGING auth_objects_found-wu.
 
 PERFORM output_result.
