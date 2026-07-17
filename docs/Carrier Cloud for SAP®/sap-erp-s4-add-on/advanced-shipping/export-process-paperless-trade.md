@@ -31,11 +31,12 @@ DATA: lo_update_customs_data_request TYPE REF TO /aeb/cl_pa_pb_upd_cust_req_do,
       lt_langs                       TYPE /aeb/01_char2s,
       lv_lang                        TYPE /aeb/01_char2 VALUE 'DE'
       .
-
+      
+"Select the delievery data - adjust the criteria accordingly for your process
 SELECT SINGLE * FROM likp WHERE vbeln = '0080000000' INTO @ls_likp.
 SELECT * FROM lips WHERE vbeln = '0080000000' INTO TABLE @lt_lips.
 
-"Gather connection parameters
+"Gather parameters for the connection to Carrier Connect 
 DATA(lo_org_unit_bc) = /aeb/cl_pa_pb_dlv_ou_rule_bc=>new_for(
                          im_likp  = ls_likp
                          im_lipss = lt_lips
@@ -49,7 +50,7 @@ DATA(lo_carrier_bf) = /aeb/cl_pa_pb_carrier_bf=>new_for(
                         im_engn_prm = lo_engn_prm
                         im_org_unit = lv_org_unit
                       ).
-
+"Reference of the shipping order 
 DATA(lo_reference_bc) = /aeb/cl_pa_pb_dlv_shp_ref_bc=>new_for( im_likp = ls_likp ).
 DATA(lv_shp_ref) = lo_reference_bc->get_shp_ref_do( ).
 APPEND lv_lang TO lt_langs.
@@ -57,7 +58,8 @@ APPEND lv_lang TO lt_langs.
 CREATE OBJECT lo_update_customs_data_request.
 lo_update_customs_data_request->set_client_identcode( im_value = lo_engn_prm->get_engine_client( ) ).
 lo_update_customs_data_request->set_client_system_id( im_value = sy-sysid && '_' && sy-mandt ).
-"Necessary for carrier individuel values
+
+"Additional fields might be required to sent carrier specific values
 *    lo_add_fields_record = lo_data_object_factory->new_01_gen_data_rec_do( ).
 *    lo_add_field = lo_data_object_factory->new_01_gen_data_field_do(
 *                     im_name  =
@@ -66,6 +68,7 @@ lo_update_customs_data_request->set_client_system_id( im_value = sy-sysid && '_'
 *                   ).
 *    lo_add_fields_record->set_fields( im_value = lt_add_fields ).
 *    lo_update_customs_data_request->set_additional_values( im_value = lo_add_fields_record ).
+
 CREATE OBJECT lo_reference_text.
 lo_reference_text->set_type( im_value = 'CUSTOMS_REGISTRATION_NUMBER' ).
 lv_mrn = '1234567890'.
@@ -90,6 +93,6 @@ ENDTRY.
 
 # Customs document and invoice document
 
-"Paperless trade" usually also requires the upload of certain documents provided by customs, e.g. an export accompaning document (EAD). For exports from Germany , its called ABD. 
+"Paperless trade" usually also requires the upload of certain documents provided by customs, e.g. an export accompaning document (EAD). For exports from Germany , its called ABD.
 
-In addition, the invoice document from SAP is often required. See <Anchor label="Attach documents" target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/attach-documents-to-a-shipping-order">Attach documents</Anchor>for more infomation how to upload a document to Carrier Connect from SAP.
+In addition, the invoice document from SAP is often required. See <Anchor target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/attach-documents-to-a-shipping-order">Attach documents</Anchor>for more infomation how to upload a document to Carrier Connect from SAP.
