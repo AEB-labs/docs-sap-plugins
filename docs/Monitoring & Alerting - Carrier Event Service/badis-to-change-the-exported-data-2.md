@@ -12,17 +12,16 @@ next:
 ---
 If you would like to change the data of the shipment, use the following BAdIs to change the data.
 
-| Document type   | BAdI                                                                                                                                                                                               |
-| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Delivery        | /AEB/MA_DLV_CR_01                                                                                                                                                                                  |
-| Delivery events | /AEB/MA_DLV_EV_01                                                                                                                                                                                  |
-| Shipment        | /AEB/MA_CWT_SHP_01  - BEFORE_STANDARD_FILLING                                                                                                          /AEB/MA_CWT_SHP_02 - AFTER_STANDARD_FILLING |
-| Freight order   | /AE1/MA_CWT_FRO_01                                                                                                                                                                                 |
-| Sales order     | /AEB/MA_SDOC_CR_01                                                                                                                                                                                 |
+| Document      | BAdI                                                                                                                                                                                               |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Delivery      | /AEB/MA_DLV_CR_01                                                                                                                                                                                  |
+| Shipment      | /AEB/MA_CWT_SHP_01  - BEFORE_STANDARD_FILLING                                                                                                          /AEB/MA_CWT_SHP_02 - AFTER_STANDARD_FILLING |
+| Freight order | /AE1/MA_CWT_FRO_01                                                                                                                                                                                 |
+| Sales order   | /AEB/MA_SDOC_CR_01                                                                                                                                                                                 |
 
-<br />
+## Change shipment data
 
-This coding example sets the email address of the consignee:   &#x20;
+This coding example sets the email address of the consignee in the shipment:   &#x20;
 
 ```
 LOOP AT im_vbpas INTO ls_vbpa.
@@ -52,3 +51,22 @@ LOOP AT im_vbpas INTO ls_vbpa.
   ENDIF.
 ENDLOOP.
 ```
+
+<br />
+
+## Change and create event data
+
+To send event data from the SAP system , use the according BAdI
+
+| Event             | BAdI               |
+| :---------------- | :----------------- |
+| Delivery event    | /AEB/MA_DLV_EV_01  |
+| Sales order event | /AEB/MA_SDOC_EV_01 |
+
+This BAdI runs whenever the delivery is saved, regardless of whether an update of the delivery is triggered.
+
+<br />
+
+The “change_event” method is not approved for use.&#x20;
+
+<br />
