@@ -1,5 +1,5 @@
 ---
-title: Tracking event overview
+title: Display tracking event overview
 excerpt: ''
 deprecated: false
 hidden: false
@@ -12,11 +12,11 @@ next:
 ---
 To open the list of tracking events in Carrier Connect for a certain document, use one of the following classes.
 
-| SAP document  | Class                         |
-| :------------ | :---------------------------- |
-| Delivery      | /AEB/CL\_PA\_PB\_DLV\_DLS\_AC |
-| Shipment      | /AEB/CL\_PA\_PB\_SHP\_DLS\_AC |
-| Freight order | /AE1/CL\_PA\_PB\_FRO\_DLS\_AC |
+| SAP document  | Class                    |
+| :------------ | :----------------------- |
+| Delivery      | /AEB/CL_PA_PB_DLV_DLS_AC |
+| Shipment      | /AEB/CL_PA_PB_SHP_DLS_AC |
+| Freight order | /AE1/CL_PA_PB_FRO_DLS_AC |
 
 Code example:
 
