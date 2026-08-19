@@ -84,17 +84,18 @@ Afterwards, you're sending the event "PACKED" using the value 80000111 as refere
 
 ## Transmission of the goods issue event&#x20;
 
-If activated, the add-on automatically transmits an event about the goods issue for a delivery or sales order to Monitoring & Alerting. Use the according BAdI to prevent the transmission (method is_to_transfer ).
+If activated, the add-on automatically transmits an event about the goods issue for an outbound delivery to Monitoring & Alerting. Use the according BAdI /AEB/MA_DLV_EV_01 to prevent the transmission (method is_to_transfer ).
 
-| Event             | BAdI               |
-| :---------------- | :----------------- |
-| Delivery event    | /AEB/MA_DLV_EV_01  |
-| Sales order event | /AEB/MA_SDOC_EV_01 |
-
-These BAdIs run whenever a relevant business object (delivery or sales order) is saved, regardless of whether the transmission of the business object to Monitoring & Alerting is triggered.
+This BAdI runs whenever a relevant delivery is saved, regardless of whether the transmission of the business object to Monitoring & Alerting is triggered.
 
 <Callout icon="📘" theme="info">
   ### Deprecated methods
 
   The following methods are deprecated and not approved for use: change_event and change_or&#x67;_\__&#x75;nit
 </Callout>
+
+<br />
+
+<br />
+
+<br />
