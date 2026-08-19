@@ -1,5 +1,5 @@
 ---
-title: Export custom events
+title: Send custom events
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,9 +10,25 @@ metadata:
 next:
   description: ''
 ---
-You can send your own custom events from SAP to Monitoring & Alerting using the function module '/AEB/MA\_PB\_TF\_TE\_CUS'.  Make sure the shipment has been created in Monitoring & Alerting already, otherwise the event cannot be matched there.
+## Transmission of customer specific events
 
-The example below is sending an event with the event code "/AEB/SAP\_GOODS\_ISSUE".  It's using the shipment number in Monitoring & Alerting as a reference to the shipment object. Any other data of the event can be custom, just fill 'te\_do' with relevant information you want to transfer.
+You can send your own custom events from SAP to Monitoring & Alerting using the function module '/AEB/MA_PB_TF_TE_CUS'. &#x20;
+
+<Accordion title="Parameters " icon="fa-info-circle">
+  The function module has the following import parameters:
+
+  IM_TRACKING_EVENT_DO (Event to be transmitted)<br />IM_ORG_UNIT (Organizational unit for Monitoring & Alerting)<br />IM_REF_NO_FOR_LOGGING (Reference number for logging)
+
+  The function module has the following export parameters:
+
+  EX_RESULT (Report of data transmission)
+  EX_HAS_ERROR (Transmission errors occurred)
+  EX_IS_TRANSFERRED (Object was transmitted)
+</Accordion>
+
+Make sure the shipment has been created in Monitoring & Alerting already, otherwise the event cannot be matched there.
+
+The example below is sending an event with the event code "/AEB/SAP_GOODS_ISSUE".  It's using the shipment number in Monitoring & Alerting as a reference to the shipment object. Any other data of the event can be custom, just fill 'te_do' with relevant information you want to transfer.
 
 ```Text /AEB/MA_PB_TF_TE_CUS example coding
 DATA:
@@ -60,6 +76,25 @@ ENDIF.
 
 Example process:
 
-Outbound delivery #80000111 is sent from SAP to  Monitoring & Alerting, creating a new shipment with number  80000111 there.
+Outbound delivery #80000111 is sent from SAP to  Monitoring & Alerting, creating a new shipment with number 80000111 there.
 
-Afterwards, you're sending the event "PACKED" using the value 80000111 as reference value for reference type "CONS\_NO"  (shipment number).
+Afterwards, you're sending the event "PACKED" using the value 80000111 as reference value for reference type "CONS_NO"  (shipment number).
+
+<br />
+
+## Transmission of the goods issue event&#x20;
+
+If activated, the add-on automatically transmits an event about the goods issue for a delivery or sales order to Monitoring & Alerting. Use the according BAdI to prevent the transmission (method is_to_transfer ).
+
+| Event             | BAdI               |
+| :---------------- | :----------------- |
+| Delivery event    | /AEB/MA_DLV_EV_01  |
+| Sales order event | /AEB/MA_SDOC_EV_01 |
+
+These BAdIs run whenever a relevant business object (delivery or sales order) is saved, regardless of whether the transmission of the business object to Monitoring & Alerting is triggered.
+
+<Callout icon="📘" theme="info">
+  ### Deprecated methods
+
+  The following methods are deprecated and not approved for use: change_event and change_or&#x67;_\__&#x75;nit
+</Callout>
