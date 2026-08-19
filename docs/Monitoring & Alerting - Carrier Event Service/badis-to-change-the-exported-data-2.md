@@ -54,9 +54,30 @@ ENDLOOP.
 
 <br />
 
-## Change and create event data
+## Create or change events&#x20;
 
-To transmit a customer-specific event to Monitoring & Alerting, use the function module /AEB/MA_PB_TF_TE_CUS.&#x20;
+The add-on can trigger the event for a goods issue. a delivery or sales order to Monitoring & Alerting, you can use the according BAdI:
+
+| Event             | BAdI               |
+| :---------------- | :----------------- |
+| Delivery event    | /AEB/MA_DLV_EV_01  |
+| Sales order event | /AEB/MA_SDOC_EV_01 |
+
+These BAdIs run whenever the delivery or sales order is saved, regardless of whether the transmission of the delivery or sales order to Monitoring & Alerting is triggered.
+
+<Callout icon="📘" theme="info">
+  ### Deprecated methods
+
+  &#x20;methods are deprecated&#x20;
+</Callout>
+
+<br />
+
+<br />
+
+<br />
+
+To transmit a customer-specific event to Monitoring & Alerting, you can use the function module /AEB/MA_PB_TF_TE_CUS.&#x20;
 
 <Accordion title="Parameters " icon="fa-info-circle">
   The function module has the following import parameters:
@@ -74,23 +95,8 @@ To transmit a customer-specific event to Monitoring & Alerting, use the function
 
 <br />
 
+To&#x20;
+
 <br />
-
-the according BAdI:
-
-| Event             | BAdI               |
-| :---------------- | :----------------- |
-| Delivery event    | /AEB/MA_DLV_EV_01  |
-| Sales order event | /AEB/MA_SDOC_EV_01 |
-
-These BAdIs run whenever the delivery or sales order is saved, regardless of whether the transmission of the delivery or sales order to Monitoring & Alerting is triggered.
-
-<Callout icon="📘" theme="info">
-  ### Deprecated methods
-
-  The methods are deprecated&#x20;
-</Callout>
-
-T
 
 <br />
