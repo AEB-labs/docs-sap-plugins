@@ -1,5 +1,5 @@
 ---
-title: Send custom events
+title: Custom events
 excerpt: ''
 deprecated: false
 hidden: false
