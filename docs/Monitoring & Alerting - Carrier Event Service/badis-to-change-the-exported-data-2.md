@@ -54,46 +54,7 @@ ENDLOOP.
 
 <br />
 
-## Create or change events&#x20;
-
-To transmit a customer-specific event to Monitoring & Alerting, you can use the function module /AEB/MA_PB_TF_TE_CUS.&#x20;
-
-<Accordion title="Parameters " icon="fa-info-circle">
-  The function module has the following import parameters:
-
-  IM_TRACKING_EVENT_DO (Event to be transmitted)<br />IM_ORG_UNIT (Organizational unit for Monitoring & Alerting)<br />IM_REF_NO_FOR_LOGGING (Reference number for logging)
-
-  The function module has the following export parameters:
-
-  EX_RESULT (Report of data transmission)
-  EX_HAS_ERROR (Transmission errors occurred)
-  EX_IS_TRANSFERRED (Object was transmitted)
-</Accordion>
-
-<br />
-
-If activated, the add-on automatically transmits an event about the goods issue for a delivery or sales order to Monitoring & Alerting. Use the according BAdI to prevent the transmission (method is_to_transfer ).
-
-| Event             | BAdI               |
-| :---------------- | :----------------- |
-| Delivery event    | /AEB/MA_DLV_EV_01  |
-| Sales order event | /AEB/MA_SDOC_EV_01 |
-
-These BAdIs run whenever a relevant business object (delivery or sales order) is saved, regardless of whether the transmission of the business object to Monitoring & Alerting is triggered.
-
-<Callout icon="📘" theme="info">
-  ### Deprecated methods
-
-  The following methods are deprecated and not approved for use: change_event and change_or&#x67;_\__&#x75;nit
-</Callout>
-
-<br />
-
-<br />
-
-<br />
-
-To&#x20;
+&#x20;
 
 <br />
 
