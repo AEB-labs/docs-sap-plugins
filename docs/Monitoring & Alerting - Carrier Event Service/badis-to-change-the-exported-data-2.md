@@ -56,7 +56,23 @@ ENDLOOP.
 
 ## Create or change events&#x20;
 
-If activated, the add-on transmits an event about the goods issue for a delivery or sales order to Monitoring & Alerting. Use the according BAdI to prevent it &#x20;
+To transmit a customer-specific event to Monitoring & Alerting, you can use the function module /AEB/MA_PB_TF_TE_CUS.&#x20;
+
+<Accordion title="Parameters " icon="fa-info-circle">
+  The function module has the following import parameters:
+
+  IM_TRACKING_EVENT_DO (Event to be transmitted)<br />IM_ORG_UNIT (Organizational unit for Monitoring & Alerting)<br />IM_REF_NO_FOR_LOGGING (Reference number for logging)
+
+  The function module has the following export parameters:
+
+  EX_RESULT (Report of data transmission)
+  EX_HAS_ERROR (Transmission errors occurred)
+  EX_IS_TRANSFERRED (Object was transmitted)
+</Accordion>
+
+<br />
+
+If activated, the add-on automatically transmits an event about the goods issue for a delivery or sales order to Monitoring & Alerting. Use the according BAdI to prevent it &#x20;
 
 | Event             | BAdI               |
 | :---------------- | :----------------- |
@@ -73,21 +89,7 @@ These BAdIs run whenever a relevant business object (delivery or sales order) is
 
 <br />
 
-To transmit a customer-specific event to Monitoring & Alerting, you can use the function module /AEB/MA_PB_TF_TE_CUS.&#x20;
-
-<Accordion title="Parameters " icon="fa-info-circle">
-  The function module has the following import parameters:
-
-  IM_TRACKING_EVENT_DO (Event to be transmitted)<br />IM_ORG_UNIT (Organizational unit for Monitoring & Alerting)<br />IM_REF_NO_FOR_LOGGING (Reference number for logging)
-
-  The function module has the following export parameters:
-
-  EX_RESULT (Report of data transmission)
-  EX_HAS_ERROR (Transmission errors occurred)
-  EX_IS_TRANSFERRED (Object was transmitted)
-
-
-</Accordion>
+<br />
 
 <br />
 
