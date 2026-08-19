@@ -94,6 +94,12 @@ This BAdI runs whenever a relevant delivery is saved, regardless of whether the 
 
 <br />
 
+## Transmission of events for a sales order&#x20;
+
+Use BAdI /AEB/MA_SDOC_EV_01 for creating an event related to a sales order.&#x20;
+
+&#x20;
+
 <br />
 
 <br />
