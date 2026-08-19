@@ -56,14 +56,14 @@ ENDLOOP.
 
 ## Change and create event data
 
-To send event data from the SAP system , use the according BAdI
+To send event data from the SAP system , use the according BAdI:
 
 | Event             | BAdI               |
 | :---------------- | :----------------- |
 | Delivery event    | /AEB/MA_DLV_EV_01  |
 | Sales order event | /AEB/MA_SDOC_EV_01 |
 
-This BAdI runs whenever the delivery is saved, regardless of whether an update of the delivery is triggered.
+This BAdI runs whenever the delivery or sales order is saved, regardless of whether the transmission of the delivery or sales order to Monitoring & Alerting is triggered.
 
 <br />
 
