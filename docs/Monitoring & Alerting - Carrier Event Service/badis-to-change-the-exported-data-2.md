@@ -10,15 +10,15 @@ metadata:
 next:
   description: ''
 ---
-If you would like to change the data of the shipment, use the following BAdIs to change the data. 
+If you would like to change the data of the shipment, use the following BAdIs to change the data.
 
-| Document type                 | BAdI                                                                                                                                                                                                                |
-| :---------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Delivery                      | /AEB/MA\_DLV\_CR\_01                                                                                                                                                                                                |
-| Events created for a delivery | /AEB/MA\_DLV\_EV\_01                                                                                                                                                                                                |
-| Shipment                      | /AEB/MA\_CWT\_SHP\_01  - BEFORE\_STANDARD\_FILLING  <br />                                                                                                         /AEB/MA\_CWT\_SHP\_02 - AFTER\_STANDARD\_FILLING |
-| Freight order                 | /AE1/MA\_CWT\_FRO\_01                                                                                                                                                                                               |
-| Sales order                   | /AEB/MA\_SDOC\_CR\_01                                                                                                                                                                                               |
+| Document type   | BAdI                                                                                                                                                                                               |
+| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Delivery        | /AEB/MA_DLV_CR_01                                                                                                                                                                                  |
+| Delivery events | /AEB/MA_DLV_EV_01                                                                                                                                                                                  |
+| Shipment        | /AEB/MA_CWT_SHP_01  - BEFORE_STANDARD_FILLING                                                                                                          /AEB/MA_CWT_SHP_02 - AFTER_STANDARD_FILLING |
+| Freight order   | /AE1/MA_CWT_FRO_01                                                                                                                                                                                 |
+| Sales order     | /AEB/MA_SDOC_CR_01                                                                                                                                                                                 |
 
 ```
 LOOP AT im_vbpas INTO ls_vbpa.
