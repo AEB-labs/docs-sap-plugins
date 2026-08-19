@@ -1,5 +1,5 @@
 ---
-title: 'Sending event data '
+title: Sending event data from SAP
 excerpt: ''
 deprecated: false
 hidden: false
