@@ -56,7 +56,7 @@ ENDLOOP.
 
 ## Create or change events&#x20;
 
-The add-on can trigger the event for a goods issue. a delivery or sales order to Monitoring & Alerting, you can use the according BAdI:
+The add-on can trigger the event for a goods issue for a delivery or sales order to Monitoring & Alerting. Use the according BAdI to prevent it &#x20;
 
 | Event             | BAdI               |
 | :---------------- | :----------------- |
@@ -68,7 +68,11 @@ These BAdIs run whenever the delivery or sales order is saved, regardless of whe
 <Callout icon="📘" theme="info">
   ### Deprecated methods
 
-  &#x20;methods are deprecated&#x20;
+  &#x20;The following methods are deprecated and not approved for use:
+
+  change_event&#x20;
+
+  change_or&#x67;_\__&#x75;nit
 </Callout>
 
 <br />
