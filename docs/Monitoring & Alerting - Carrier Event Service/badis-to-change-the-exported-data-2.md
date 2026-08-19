@@ -72,7 +72,7 @@ To transmit a customer-specific event to Monitoring & Alerting, you can use the 
 
 <br />
 
-If activated, the add-on automatically transmits an event about the goods issue for a delivery or sales order to Monitoring & Alerting. Use the according BAdI to prevent it &#x20;
+If activated, the add-on automatically transmits an event about the goods issue for a delivery or sales order to Monitoring & Alerting. Use the according BAdI to prevent the transmission (method is_to_transfer ).
 
 | Event             | BAdI               |
 | :---------------- | :----------------- |
