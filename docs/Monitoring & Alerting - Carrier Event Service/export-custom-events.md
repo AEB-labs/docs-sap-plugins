@@ -76,9 +76,7 @@ ENDIF.
 
 Example process:
 
-Outbound delivery #80000111 is sent from SAP to  Monitoring & Alerting, creating a new shipment with number 80000111 there.
-
-Afterwards, you're sending the event "PACKED" using the value 80000111 as reference value for reference type "CONS_NO"  (shipment number).
+The outbound delivery #80000111 is sent from SAP to  Monitoring & Alerting, creating a new shipment with number 80000111 there.  Afterwards, the event "PACKED" is send, using '80000111Ä as reference value for reference type "CONS_NO" (the shipment number).
 
 <br />
 
