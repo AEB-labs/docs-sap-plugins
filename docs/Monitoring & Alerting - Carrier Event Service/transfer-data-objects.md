@@ -10,71 +10,15 @@ metadata:
 next:
   description: ''
 ---
-The AEB Plug-in checks each delivery to determine whether it should be transmitted to Monitoring & Alerting. This decision can be modified using the following BAdIs.
+The AEB add-on checks for changes to an business object to decide whether it should be transmitted to Monitoring & Alerting. This decision can be modified using the following BAdIs.
 
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th style={{ textAlign: "left" }}>
-        Data object
-      </th>
+| Data object | BAdI name          | BAdI method    |
+| :---------- | :----------------- | :------------- |
+| Sales order | /AEB/MA_SDOC_CR_01 | IS_TO_TRANSFER |
+| Delivery    | /AEB/MA_DLV_CR_01  | IS_TO_TRANSFER |
+| Shipment    | /AEB/MA_CWT_SHP_03 | IS_TO_TRANSFER |
 
-      <th style={{ textAlign: "left" }}>
-        BAdI name
-      </th>
-
-      <th style={{ textAlign: "left" }}>
-        BAdI method
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td style={{ textAlign: "left" }}>
-        Sales order
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        /AEB/MA\_SDOC\_CR\_01
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        IS\_TO\_TRANSFER
-      </td>
-    </tr>
-
-    <tr>
-      <td style={{ textAlign: "left" }}>
-        Delivery
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        /AEB/MA\_DLV\_CR\_01
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        IS\_TO\_TRANSFER
-      </td>
-    </tr>
-
-    <tr>
-      <td style={{ textAlign: "left" }}>
-        Shipment
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        /AEB/MA\_CWT\_SHP\_03
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        IS\_TO\_TRANSFER
-      </td>
-    </tr>
-  </tbody>
-</Table>
-
-Let's provide an example coding that shows how you can only transfer deliveries that are shipped to recievers inside the European Union.  
+Let's provide an example coding that shows how you can only transfer deliveries that are shipped to recievers inside the European Union.
 
 ```text Check ship-to eq EU 
 METHOD /aeb/if_ex_ma_dlv_cr_01~is_to_transfer.
