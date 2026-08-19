@@ -56,28 +56,20 @@ ENDLOOP.
 
 ## Create or change events&#x20;
 
-The add-on can trigger the event for a goods issue for a delivery or sales order to Monitoring & Alerting. Use the according BAdI to prevent it &#x20;
+If activated, the add-on transmits an event about the goods issue for a delivery or sales order to Monitoring & Alerting. Use the according BAdI to prevent it &#x20;
 
 | Event             | BAdI               |
 | :---------------- | :----------------- |
 | Delivery event    | /AEB/MA_DLV_EV_01  |
 | Sales order event | /AEB/MA_SDOC_EV_01 |
 
-These BAdIs run whenever the delivery or sales order is saved, regardless of whether the transmission of the delivery or sales order to Monitoring & Alerting is triggered.
+These BAdIs run whenever a relevant business object (delivery or sales order) is saved, regardless of whether the transmission of the business object to Monitoring & Alerting is triggered.
 
 <Callout icon="📘" theme="info">
   ### Deprecated methods
 
-  &#x20;The following methods are deprecated and not approved for use:
-
-  change_event&#x20;
-
-  change_or&#x67;_\__&#x75;nit
+  The following methods are deprecated and not approved for use: change_event and change_or&#x67;_\__&#x75;nit
 </Callout>
-
-<br />
-
-<br />
 
 <br />
 
