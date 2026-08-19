@@ -12,7 +12,7 @@ next:
 ---
 ## Transmission of customer specific events
 
-You can send your own custom events from SAP to Monitoring & Alerting using the function module '/AEB/MA_PB_TF_TE_CUS'. &#x20;
+You can send your own custom events from the SAP system to Monitoring & Alerting using the function module '/AEB/MA_PB_TF_TE_CUS'. &#x20;
 
 <Accordion title="Parameters " icon="fa-info-circle">
   The function module has the following import parameters:
