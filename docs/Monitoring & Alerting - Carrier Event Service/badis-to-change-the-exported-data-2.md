@@ -20,6 +20,10 @@ If you would like to change the data of the shipment, use the following BAdIs to
 | Freight order   | /AE1/MA_CWT_FRO_01                                                                                                                                                                                 |
 | Sales order     | /AEB/MA_SDOC_CR_01                                                                                                                                                                                 |
 
+<br />
+
+This coding example sets the email address of the consignee:   &#x20;
+
 ```
 LOOP AT im_vbpas INTO ls_vbpa.
   IF ls_vbpa-parvw = 'WE'.
