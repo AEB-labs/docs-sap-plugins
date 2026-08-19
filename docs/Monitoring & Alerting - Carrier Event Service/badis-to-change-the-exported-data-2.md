@@ -56,17 +56,41 @@ ENDLOOP.
 
 ## Change and create event data
 
-To send event data from the SAP system , use the according BAdI:
+To transmit a customer-specific event to Monitoring & Alerting, use the function module /AEB/MA_PB_TF_TE_CUS.&#x20;
+
+<Accordion title="Parameters " icon="fa-info-circle">
+  The function module has the following import parameters:
+
+  IM_TRACKING_EVENT_DO (Event to be transmitted)<br />IM_ORG_UNIT (Organizational unit for Monitoring & Alerting)<br />IM_REF_NO_FOR_LOGGING (Reference number for logging)
+
+  The function module has the following export parameters:
+
+  EX_RESULT (Report of data transmission)
+  EX_HAS_ERROR (Transmission errors occurred)
+  EX_IS_TRANSFERRED (Object was transmitted)
+
+
+</Accordion>
+
+<br />
+
+<br />
+
+the according BAdI:
 
 | Event             | BAdI               |
 | :---------------- | :----------------- |
 | Delivery event    | /AEB/MA_DLV_EV_01  |
 | Sales order event | /AEB/MA_SDOC_EV_01 |
 
-This BAdI runs whenever the delivery or sales order is saved, regardless of whether the transmission of the delivery or sales order to Monitoring & Alerting is triggered.
+These BAdIs run whenever the delivery or sales order is saved, regardless of whether the transmission of the delivery or sales order to Monitoring & Alerting is triggered.
 
-<br />
+<Callout icon="📘" theme="info">
+  ### Deprecated methods
 
-The “change_event” method is not approved for use.&#x20;
+  The methods are deprecated&#x20;
+</Callout>
+
+T
 
 <br />
