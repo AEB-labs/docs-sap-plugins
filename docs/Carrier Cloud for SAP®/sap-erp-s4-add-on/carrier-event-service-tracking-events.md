@@ -44,7 +44,7 @@ LOOP AT _im_consignment-events INTO _event.
     ENDLOOP.
 ```
 
-## Mapping of fields (Carrier Event Service)
+## Mapping of fields&#x20;
 
 If the tracking data is provided from Carrier Event Service, you can see the mapping of fields in the consignment of  Business Service Management (BSM).  Start the application "Consignments" in BSM, open of the consignments and use F1 key to open the help information:
 
