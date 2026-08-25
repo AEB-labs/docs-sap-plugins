@@ -12,7 +12,7 @@ next:
 <Callout icon="📘" theme="info">
   ### Carrier Event Service
 
-  Different funtcions are provided in the context of Carrier Event Service. See the according section in the API guide fro "Carrier Cloud For SAP" for more details.&#x20;
+  For Carrier Event Service, different functions are provided for this purpose. See the according section in the API guide for "Carrier Cloud For SAP" for more details.&#x20;
 </Callout>
 
 <br />
