@@ -19,7 +19,7 @@ next:
 
 # Open overviews for an SAP delivery&#x20;
 
-Use the class /AEB/CL_MA_PB_DLV_AF_AC and the according methods to show different kind of overviews:
+Use the class /AEB/CL_MA_PB_DLV_AF_AC and the according methods to open different kind of overviews:
 
 - SHOW_CONSIGNMENT_EVENT_LIST - shows the events of an Monitoring & Alerting shipment
 - SHOW_HANDLING_UNIT_EVENT_LIST - shows the events of a handling unit
@@ -32,7 +32,7 @@ Note: Referencing packages does not work if the same package is transferred to M
 
 Sample coding:
 
-```text
+```text Open overview
 Data:
 dlv_af_ac type ref to /aeb/cl_ma_pb_dlv_af_ac.
 
@@ -44,7 +44,7 @@ dlv_af_ac->show_consignment_overview( ).
 
 <br />
 
-# Open event overview for an SAP delivery
+# Open the event overview for an SAP delivery
 
 Use the function module /AEB/MA_PB_OPEN_EV_LIST_DLV  to display the events of an SAP delivery in a web view. The function module includes an authorization check that depends on the organizational unit. To start the function, a user must have the authorization ZAEB_MAE01 for the corresponding organizational unit.
 
@@ -57,7 +57,34 @@ The function module has the following import parameters:&#x20;
 
 <br />
 
-# Open event overview for an SAP shipment
+# Open overviews for an SAP shipment
+
+Use the class /AEB/CL_MA_PB_SHP_AF_AC and the according methods to open different kind of overviews:
+
+- SHOW_CONSIGNMENT_EVENT_LIST - shows the events of an Monitoring & Alerting shipment
+- SHOW_HANDLING_UNIT_EVENT_LIST - shows the events of a handling unit
+- SHOW_ORDER_EVENT_LIST - shows the events of an Monitoring & Alerting order
+- SHOW_CONSIGNMENT_OVERVIEW -shows an overview of an Monitoring & Alerting shipment
+- SHOW_HANDLING_UNIT_OVERVIEW - shows an overview of a handling unit
+- SHOW_ORDER_OVERVIEW - shows an overview of an Monitoring & Alerting order
+
+<br />
+
+Sample coding:
+
+```text Open overview
+Data:
+shp_af_ac type ref to /aeb/cl_ma_pb_shp_af_ac.
+
+shp_af_ac = /aeb/cl_ma_pb_shp_af_ac=>new_for(
+im_tknum = <shipment number> ).
+
+shp_af_ac->show_consignment_overview( ).
+```
+
+<br />
+
+# Open the event overview for an SAP shipment
 
 Use the function module /AEB/MA_PB_OPEN_EV_LIST_SHP to display the events of an SAP shipment in a web view. The function module includes an authorization check that depends on the organizational unit. To start the function, a user must have the authorization ZAEB_MA06 for the corresponding organizational unit.
 
