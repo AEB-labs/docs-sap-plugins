@@ -1,5 +1,5 @@
 ---
-title: Display tracking event overview
+title: 'Display tracking events '
 deprecated: false
 hidden: false
 metadata:
