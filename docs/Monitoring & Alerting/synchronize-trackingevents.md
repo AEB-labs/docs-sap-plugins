@@ -26,7 +26,7 @@ The data is synchronized back to SAP in these tables:
 
 ## BAdI to handle tracking events
 
-To handle the tracking data according to your requirements,  you can implement the BAdI /AEB/MA_EXP_CONS_01. The data structure provided in the BAdI is representing a consignment (shipment) with packages and events.
+To handle the tracking data according to your requirements,  you can implement the BAdI /AEB/MA_EXP_CONS_01. The data structure provided in the BAdI is representing a shipment (consignment) from Monitoring & Alerting with packages and events.
 
 <Callout icon="📘" theme="info">
   ### Tracking events can be found at different levels
