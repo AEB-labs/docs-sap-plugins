@@ -26,12 +26,14 @@ The function module has the following import parameters:&#x20;
 - IM_LIKP_VBELN - document number of delivery
 - IM_VKORG - sales organization of delivery
 - IM_BUKRS (Optional) - company code of the delivery. If left empty, the company code is determined through the sales organization
-- IM_IS_TO_SHOW_AS_FULLSCREEN - indicates whether the events should be displayed in full-screen mode or window mode (“X” = full screen, “-” = window))
+- IM_IS_TO_SHOW_AS_FULLSCREEN - indicates whether the events should be displayed in full-screen mode or window mode (“X” = full screen, “-” = window)
 
 <br />
 
-# Open&#x20;
+# Open event list for an SAP shipment
 
-<br />
+Use the function module /AEB/MA_PB_OPEN_EV_LIST_SHP to display the events of an SAP shipment in a web view. The function module includes an authorization check that depends on the organizational unit. To start the function, a user must have the authorization ZAEB_MA06 for the corresponding organizational unit.
 
-<br />
+The function module has the following import parameters:
+
+- IM_VTTK_TKNUM - document number of the shipment<br />IM_BUKRS - company code of delivery<br />IM_IS_TO_SHOW_AS_FULLSCREEN - indicates whether the events should be displayed in full-screen mode or window mode (“X” = full screen, “-” = window)
