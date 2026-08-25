@@ -53,7 +53,7 @@ Use the function module /AEB/MA_PB_OPEN_EV_LIST_CUS  to display the events of a 
 The function module has the following import parameters:
 
 - IM_BUSINESS_OBJECT_NO  - ID number of the business object
-- IM_ORG_UNIT  - organizational unit
+- IM_ORG_UNIT  - organizational unit. If not specified, the value is determined by BAdI /AEB/MA_CUS_01
 - IM_IS_TO_SHOW_AS_FULLSCREEN - indicates whether the events should be displayed in full-screen mode or window mode (“X” = full screen, “-” = window)
 
 ## Repeat function calls for a custom object
