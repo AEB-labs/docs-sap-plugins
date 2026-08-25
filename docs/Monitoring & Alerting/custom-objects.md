@@ -46,7 +46,17 @@ Parameters:
 
 You can send your own custom events from the SAP system to Monitoring & Alerting using the function module '/AEB/MA_PB_TF_TE_CUS'. &#x20;
 
-## Repeat function call for a custom object
+## Open event list for a custom object
+
+Use the function module /AEB/MA_PB_OPEN_EV_LIST_CUS  to display the events of a customm object in a web view. The function module includes an authorization check that depends on the organizational unit. To start the function, a user must have the authorization ZAEB_MA02 for the corresponding organizational unit.
+
+The function module has the following import parameters:
+
+- IM_BUSINESS_OBJECT_NO  - ID number of the business object
+- IM_ORG_UNIT  - organizational unit
+- IM_IS_TO_SHOW_AS_FULLSCREEN - indicates whether the events should be displayed in full-screen mode or window mode (“X” = full screen, “-” = window)
+
+## Repeat function calls for a custom object
 
 BadI /AEB/MA_CUS_02 - create_cwt_do
 
@@ -57,3 +67,7 @@ Parameters:
 - IM_DATA_SRC_ID_HOST (Unique ID of the business object)
 - IM_DOCUMENT_NUMBER (Document number of the business object)
 - RE_CWT_DO (Delivery with transports
+
+<br />
+
+#
