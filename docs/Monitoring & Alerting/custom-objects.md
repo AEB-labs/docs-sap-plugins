@@ -31,8 +31,6 @@ The function module has the following exception parameters:
 
 - PARAMETER_EMPTY (Triggered if one of the import parameters is empty)
 
-<br />
-
 ## Organizational unit for a custom object
 
 BAdI /AEB/MA_CUS_01  - method get_org_unit&#x20;
@@ -44,7 +42,9 @@ Parameters:
 - IM_BUSINESS_OBJECT_NUMBER (Number of business object)
 - RE_ORG_UNIT (Organizational unit of target system)
 
-<br />
+## Transmission of customer specific events
+
+You can send your own custom events from the SAP system to Monitoring & Alerting using the function module '/AEB/MA_PB_TF_TE_CUS'. &#x20;
 
 ## Repeat function call for a custom object
 
