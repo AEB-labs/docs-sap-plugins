@@ -79,8 +79,6 @@ Use the class /AEB/CL_MA_PB_SHP_AF_AC and the according methods to open differen
 - SHOW_HANDLING_UNIT_OVERVIEW - shows an overview of a handling unit
 - SHOW_ORDER_OVERVIEW - shows an overview of an Monitoring & Alerting order
 
-<br />
-
 Sample coding:
 
 ```text Open overview
@@ -102,3 +100,27 @@ Use the function module /AEB/MA_PB_OPEN_EV_LIST_SHP to display the events of an 
 The function module has the following import parameters:
 
 - IM_VTTK_TKNUM - document number of the shipment<br />IM_BUKRS - company code of delivery<br />IM_IS_TO_SHOW_AS_FULLSCREEN - indicates whether the events should be displayed in full-screen mode or window mode (“X” = full screen, “-” = window)
+
+# Open overviews for an SAP sales document
+
+Use the class /AEB/CL_MA_PB_SDOC_AF_AC and the according methods to open different kind of overviews:
+
+- SHOW_CONSIGNMENT_EVENT_LIST - shows the events of an Monitoring & Alerting shipment
+- SHOW_HANDLING_UNIT_EVENT_LIST - shows the events of a handling unit
+- SHOW_ORDER_EVENT_LIST - shows the events of an Monitoring & Alerting order
+- SHOW_CONSIGNMENT_OVERVIEW -shows an overview of an Monitoring & Alerting shipment
+- SHOW_HANDLING_UNIT_OVERVIEW - shows an overview of a handling unit
+- SHOW_ORDER_OVERVIEW - shows an overview of an Monitoring & Alerting order
+
+Sample coding:
+
+```text Open overview
+Data:
+sdoc_af_ac type ref to /aeb/cl_ma_pb_sdoc_af_ac.
+
+sdoc_af_ac = /aeb/cl_ma_pb_sdoc_af_ac=>new_for(
+im_vbak_vbeln = <sales document number> ).
+
+sdoc_af_ac->show_order_overview( ).
+
+```
