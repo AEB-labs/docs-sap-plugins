@@ -34,8 +34,6 @@ To handle the tracking data according to your requirements,  you can implement t
   The tracking events can be received for the whole shipment header and also for each handling unit. This depends on the carrier. So make sure you read the data from IM_CONSIGNMENT- EVENTS and also for IM_CONSIGNMENT-HANDLINGUNITS-EVENTS.
 </Callout>
 
-<br />
-
 Example coding of handling events in the BAdI:
 
 ```Text Handle synchronized events
