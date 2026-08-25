@@ -15,7 +15,7 @@ next:
   For Carrier Event Service, different functions are provided for this purpose. See the according section in the API guide for "Carrier Cloud For SAP" for more details.&#x20;
 </Callout>
 
-<br />
+You can use various functions of the add-on to open web views showing overviews provided by Monitoring & Alerting.
 
 # Open overviews for an SAP delivery&#x20;
 
