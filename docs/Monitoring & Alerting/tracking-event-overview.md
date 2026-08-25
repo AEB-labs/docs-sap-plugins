@@ -57,6 +57,17 @@ The function module has the following import parameters:&#x20;
 
 <br />
 
+# Open overviews for an SAP freight order&#x20;
+
+Use the class /AE1/CL_MA_PB_FRO_AF_AC and the according methods to open different kind of overviews:
+
+- SHOW_CONSIGNMENT_EVENT_LIST - shows the events of an Monitoring & Alerting shipment
+- SHOW_CONSIGNMENT_OVERVIEW -shows an overview of an Monitoring & Alerting shipment
+- SHOW_HANDLING_UNIT_EVENT_LIST - shows the events of a handling unit
+- SHOW_HANDLING_UNIT_OVERVIEW - shows an overview of a handling unit
+
+# &#x20;
+
 # Open overviews for an SAP shipment
 
 Use the class /AEB/CL_MA_PB_SHP_AF_AC and the according methods to open different kind of overviews:
