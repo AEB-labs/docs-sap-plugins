@@ -17,7 +17,13 @@ next:
 
 <br />
 
-# Open event list for an SAP delivery
+# Open event overview for an SAP delivery
+
+### Via class methods
+
+Use the class AEB/CL_MA_PB_DLV_AF_AC and the according methods:
+
+<br />
 
 Use the function module /AEB/MA_PB_OPEN_EV_LIST_DLV  to display the events of an SAP delivery in a web view. The function module includes an authorization check that depends on the organizational unit. To start the function, a user must have the authorization ZAEB_MAE01 for the corresponding organizational unit.
 
@@ -30,7 +36,17 @@ The function module has the following import parameters:&#x20;
 
 <br />
 
-# Open event list for an SAP shipment
+# Open event overview for an SAP shipment
+
+<br />
+
+###
+
+<br />
+
+<br />
+
+### Via function module
 
 Use the function module /AEB/MA_PB_OPEN_EV_LIST_SHP to display the events of an SAP shipment in a web view. The function module includes an authorization check that depends on the organizational unit. To start the function, a user must have the authorization ZAEB_MA06 for the corresponding organizational unit.
 
