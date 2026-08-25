@@ -32,4 +32,8 @@ The runtime context is used to define the number of processes to be used per use
 
 <br />
 
+# Activation of shared memory for texts
+
+Use BAdI /AEB/01_SHM_01 for the activation of shared memory for texts.&#x20;
+
 <br />
