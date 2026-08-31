@@ -53,11 +53,15 @@ These BAdIs will be run through at the end of the data determination process . A
 
 ## Implementation examples
 
-### Change the content
+### Assign the content
+
+```text Content
+ch_shp_req_do-contents = 'Plant seeds'.
+```
 
 <br />
 
-Assign contact details of the consignee
+### Assign contact details of the consignee
 
 ```text Contact details
 ch_shp_req_do-consigneecontact-name = 'ACME Receiving '.
