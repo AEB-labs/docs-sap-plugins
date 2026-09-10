@@ -23,7 +23,7 @@ These BAdIs are called every time a declaration is received from the Internation
 | Other collectors (for manual created consignments) | /AEB/AES_ET_SYNC_09 |
 | Material document                                  | /AEB/AES_ET_SYNC_10 |
 
-A typical usecase for this BAdI is to write the customs registration number in further database fields in your SAP System. In the following example you can see how the value is saved into the external ID2  of a the shipment (German: Transport).
+A typical use case for this BAdI is to populate additional database fields in your SAP system with the customs registration number. The example below illustrates how to store this value in the "External ID 2"-field of a shipment (German: Transport).
 
 ```text Write MRN into a field of a shipment
   DATA:
@@ -43,7 +43,9 @@ A typical usecase for this BAdI is to write the customs registration number in f
   ENDIF.
 ```
 
-If you have manual created consignments the link to the SAP document will be on item level (exception: German Import Filing ATLAS). Therefore, the client system IDs can be accessed on item level in the synchronization BADIs.<br />In addition you have the public class /aeb/cl_01_pb_tid_def_bc or /ae1/cl_01_pb_tid_def_bc (S4 HANA specific objects like freight order). With this class you can convert the client system id to the SAP document number to access the SAP Document.
+### ID numbers of the SAP documents
+
+If you have created consignments in ICI manually the link to the SAP document will be on item level. Therefore, the client system IDs can be accessed on item level in the synchronization BADIs.<br />In addition you have the public class /aeb/cl_01_pb_tid_def_bc or /ae1/cl_01_pb_tid_def_bc ( for SAP S/4HANA specific objects like freight order). With this class you can convert the client system id to the SAP document number to access the SAP document.
 
 ```text Use item client system ids from Sync BADIs
 METHOD /aeb/if_ex_aes_et_sync_09~hdl_declaration_synchronized.
