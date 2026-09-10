@@ -43,8 +43,7 @@ A typical usecase for this BAdI is to write the customs registration number in f
   ENDIF.
 ```
 
-If you have manual created consignments the link to the SAP document will be on item level (exception: German Import Filing ATLAS). Therefore, the client system IDs can be accessed on item level in the synchronization BADIs.  
-In addition you have the public class /aeb/cl_01_pb_tid_def_bc or /ae1/cl_01_pb_tid_def_bc (S4 HANA specific objects like freight order). With this class you can convert the client system id to the SAP document number to access the SAP Document.
+If you have manual created consignments the link to the SAP document will be on item level (exception: German Import Filing ATLAS). Therefore, the client system IDs can be accessed on item level in the synchronization BADIs.<br />In addition you have the public class /aeb/cl_01_pb_tid_def_bc or /ae1/cl_01_pb_tid_def_bc (S4 HANA specific objects like freight order). With this class you can convert the client system id to the SAP document number to access the SAP Document.
 
 ```text Use item client system ids from Sync BADIs
 METHOD /aeb/if_ex_aes_et_sync_09~hdl_declaration_synchronized.
@@ -73,4 +72,6 @@ METHOD /aeb/if_ex_aes_et_sync_09~hdl_declaration_synchronized.
   ENDMETHOD.
 ```
 
-All of these BAdIs support the raising of the exception /aeb/cx_aes_pb_et_sync_sc as it is described under [https://sap-plugins.docs.developers.aeb.com/docs/exceptions](https://sap-plugins.docs.developers.aeb.com/docs/exceptions). When the exception is raised, then the complete handling (also the standard handling) of the customs declaration is considered as failed, which means there will be an entry created in the function call monitor which can be automatically repeated with the report /AEB/01_FCC_RETRY if the customizing is done. When this repeat happens (either automatically by the report or manually by a user in the function call monitor) then the whole customs declaration is transferred from the engine and processed and also this BAdI will be called again.
+All listed BAdIs support raising the exception `/AEB/CX_AES_PB_ET_SYNC_SC` as documented at <Anchor target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/exceptions](https://sap-plugins.docs.developers.aeb.com/docs/exceptions">Handle exceptions.</Anchor> When this exception is raised, the entire handling of the customs declaration—including standard processing—is treated as failed, resulting in an entry in the Function Call Monitor (FCC).  Provided the relevant configuration is in place, this entry can be reprocessed automatically using the report `/AEB/01_FCC_RETRY`.  Upon reprocessing (whether triggered automatically by the report or manually via the Function Call Monitor), the complete customs declaration is retransferred from the engine and processed again, and the BAdI is invoked once more.
+
+<br />
