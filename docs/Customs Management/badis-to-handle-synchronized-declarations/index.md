@@ -45,7 +45,9 @@ A typical use case for this BAdI is to populate additional database fields in yo
 
 ### ID numbers of the SAP documents
 
-If you have created consignments in ICI manually the link to the SAP document will be on item level. Therefore, the client system IDs can be accessed on item level in the synchronization BADIs.<br />In addition you have the public class /aeb/cl_01_pb_tid_def_bc or /ae1/cl_01_pb_tid_def_bc ( for SAP S/4HANA specific objects like freight order). With this class you can convert the client system id to the SAP document number to access the SAP document.
+If consignments are created manually in ICI, the link to the SAP document is established at item level. Consequently, the client system IDs can be accessed at item level within the synchronization BAdIs.
+
+In addition, the public class `/AEB/CL_01_PB_TID_DEF_BC` (or `/AE1/CL_01_PB_TID_DEF_BC` for SAP S/4HANA–specific objects such as freight orders) is available. This class enables conversion of the client system ID into the corresponding SAP document number, thereby allowing access to the SAP document.
 
 ```text Use item client system ids from Sync BADIs
 METHOD /aeb/if_ex_aes_et_sync_09~hdl_declaration_synchronized.
