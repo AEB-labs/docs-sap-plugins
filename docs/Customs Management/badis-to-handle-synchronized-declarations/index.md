@@ -80,7 +80,7 @@ All listed BAdIs support raising the exception `/AEB/CX_AES_PB_ET_SYNC_SC` as do
 
 ### List of fields
 
-The folllowing fields are returned in the synchronization per declaration on header level:&#x20;
+The folllowing fields are returned in the synchronization per declaration:&#x20;
 
 | Technical field name       | Description                                            |
 | -------------------------- | ------------------------------------------------------ |
@@ -111,7 +111,7 @@ The folllowing fields are returned in the synchronization per declaration on hea
 | ITEMS                      | List of items                                          |
 | LOCAL_REFERENCE            | Local reference number (LRN)                           |
 | ORG_UNIT                   | Organizational unit                                    |
-| PARTIES                    | Partners                                               |
+| PARTIES                    | List of parties                                        |
 | PERSON_IN_CHARGE           | Contact                                                |
 | STATUS                     | Status                                                 |
 | TOTAL_GROSSMASS            | Gross weight                                           |
@@ -120,9 +120,20 @@ The folllowing fields are returned in the synchronization per declaration on hea
 | TRANSPORT_MEANS            | Modes of transport                                     |
 | INTERNAL_REFERENCE_V1      | Internal reference                                     |
 
-The folllowing fields are returned in the synchronization on item  level:
+The folllowing fields are returned in the synchronization per declaration item:
 
-|   |   |
-| - | - |
-|   |   |
-|   |   |
+| Technical field name       | Description                    |
+| -------------------------- | ------------------------------ |
+| CUSTOMS_SPECIAL_PROCEDURES | Customs special procedures     |
+| CUSTOMS_PROCEDURES         | Customs procedures             |
+| CLIENT_SPECIFIC_FIELDS     | List of client specific fields |
+| AMOUNTS_OF_MONEY           | Amounts of money               |
+| CLASSIFICATIONS            | List of classifications        |
+| GOODS_DESCRIPTION          | Goods description              |
+| GROSSMASS                  | Gross weight                   |
+| NETMASS                    | Net weight                     |
+| PARTIES                    | List of parties                |
+| QUANTITIES                 | quantities                     |
+| SEQUENCE_NUMBER            | Declaration item number        |
+| STATUS                     | Status                         |
+| CLIENT_SYSTEM_IDS_V1       | Host system IDs                |
