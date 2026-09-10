@@ -82,38 +82,38 @@ All listed BAdIs support raising the exception `/AEB/CX_AES_PB_ET_SYNC_SC` as do
 
 | Technical field name       | Description                                            |
 | -------------------------- | ------------------------------------------------------ |
-| DECL_PROCEDURE_TYPE_CODE   | declaration procedure type                             |
-| CLIENT_SPECIFIC_FIELDS     | customer-specific fields                               |
-| ADDITIONAL_REFERENCE1      | additional reference                                   |
-| AMOUNTS_OF_MONEY           | amounts of money                                       |
-| ATTACHMENTS                | documents                                              |
-| BUSINESS_OBJECT_ID         | business object ID                                     |
-| CLIENT_SYSTEM_ID           | installation ID                                        |
-| COMMERCIAL_REFERENCE_NUMBE | commercial reference number                            |
-| CONSIGNMENT_ID_CLIENT_SYST | host system ID                                         |
-| CONSIGNMENT_NUMBER         | consignment number                                     |
-| CUSTOMS_OFFICES            | customs offices                                        |
-| CUSTOMS_PROCESS_CODE       | e-customs system                                       |
-| CUSTOMS_REGISTRATION_NUMBE | customs registration number                            |
-| DATES                      | dates                                                  |
-| DECISIVE_DATE              | decisive date                                          |
-| DECLARATION_TYPECODE       | type of customs declaration                            |
-| DECLARATION_VERSION        | customs declaration version                            |
-| DELIVERY_NUMBER            | delivery number                                        |
-| DELIVERY_REFERENCES        | reference numbers of the deliveries in the declaration |
-| DESTINATION_COUNTRY_CODE   | destination country code                               |
-| DISPATCH_COUNTRY_CODE      | country of dispatch code                               |
-| INVOICE_NUMBER             | invoice number                                         |
-| IS_DELETED                 | deleted flag                                           |
-| IS_VALID                   | validity flag                                          |
-| ITEMS                      | items                                                  |
-| LOCAL_REFERENCE            | LRN                                                    |
-| ORG_UNIT                   | organizational unit                                    |
-| PARTIES                    | partners                                               |
-| PERSON_IN_CHARGE           | contact                                                |
-| STATUS                     | status                                                 |
-| TOTAL_GROSSMASS            | gross weight                                           |
-| TOTAL_INVOICE_PRICE        | invoice total                                          |
-| TOTAL_NETMASS              | net weight                                             |
-| TRANSPORT_MEANS            | modes of transport                                     |
-| INTERNAL_REFERENCE_V1      | internal reference                                     |
+| DECL_PROCEDURE_TYPE_CODE   | Declaration procedure type                             |
+| CLIENT_SPECIFIC_FIELDS     | Customer-specific fields                               |
+| ADDITIONAL_REFERENCE1      | Additional reference                                   |
+| AMOUNTS_OF_MONEY           | Amounts of money                                       |
+| ATTACHMENTS                | Documents                                              |
+| BUSINESS_OBJECT_ID         | Business object ID                                     |
+| CLIENT_SYSTEM_ID           | Installation ID                                        |
+| COMMERCIAL_REFERENCE_NUMBE | Commercial reference number                            |
+| CONSIGNMENT_ID_CLIENT_SYST | Host system ID                                         |
+| CONSIGNMENT_NUMBER         | Consignment number                                     |
+| CUSTOMS_OFFICES            | Customs offices                                        |
+| CUSTOMS_PROCESS_CODE       | E-customs system                                       |
+| CUSTOMS_REGISTRATION_NUMBE | Customs registration number                            |
+| DATES                      | Dates                                                  |
+| DECISIVE_DATE              | Decisive date                                          |
+| DECLARATION_TYPECODE       | Type of customs declaration                            |
+| DECLARATION_VERSION        | Customs declaration version                            |
+| DELIVERY_NUMBER            | Delivery number                                        |
+| DELIVERY_REFERENCES        | Reference numbers of the deliveries in the declaration |
+| DESTINATION_COUNTRY_CODE   | Destination country code                               |
+| DISPATCH_COUNTRY_CODE      | Country of dispatch code                               |
+| INVOICE_NUMBER             | Invoice number                                         |
+| IS_DELETED                 | Deleted flag                                           |
+| IS_VALID                   | Validity flag                                          |
+| ITEMS                      | List of items                                          |
+| LOCAL_REFERENCE            | Local reference number (LRN)                           |
+| ORG_UNIT                   | Organizational unit                                    |
+| PARTIES                    | Partners                                               |
+| PERSON_IN_CHARGE           | Contact                                                |
+| STATUS                     | Status                                                 |
+| TOTAL_GROSSMASS            | Gross weight                                           |
+| TOTAL_INVOICE_PRICE        | Invoice total amnount                                  |
+| TOTAL_NETMASS              | Net weight                                             |
+| TRANSPORT_MEANS            | Modes of transport                                     |
+| INTERNAL_REFERENCE_V1      | Internal reference                                     |
