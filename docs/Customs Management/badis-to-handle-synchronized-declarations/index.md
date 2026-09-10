@@ -43,7 +43,7 @@ A typical use case for this BAdI is to populate additional database fields in yo
   ENDIF.
 ```
 
-### ID numbers of the SAP documents
+### ID numbers of the SAP documents and items
 
 If consignments are created manually in ICI, the link to the SAP document is established at item level. Consequently, the client system IDs can be accessed at item level within the synchronization BAdIs.
 
