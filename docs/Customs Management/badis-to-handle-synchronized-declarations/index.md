@@ -72,6 +72,33 @@ METHOD /aeb/if_ex_aes_et_sync_09~hdl_declaration_synchronized.
   ENDMETHOD.
 ```
 
+<br />
+
+### Exceptions&#x20;
+
 All listed BAdIs support raising the exception `/AEB/CX_AES_PB_ET_SYNC_SC` as documented at <Anchor target="_blank" href="https://sap-plugins.docs.developers.aeb.com/docs/exceptions](https://sap-plugins.docs.developers.aeb.com/docs/exceptions">Handle exceptions.</Anchor> When this exception is raised, the entire handling of the customs declaration—including standard processing—is treated as failed, resulting in an entry in the Function Call Monitor (FCC).  Provided the relevant configuration is in place, this entry can be reprocessed automatically using the report `/AEB/01_FCC_RETRY`.  Upon reprocessing (whether triggered automatically by the report or manually via the Function Call Monitor), the complete customs declaration is retransferred from the engine and processed again, and the BAdI is invoked once more.
 
-<br />
+### List of fields
+
+| Technical field name | Description |
+| -------------------- | ----------- |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
+|                      |             |
