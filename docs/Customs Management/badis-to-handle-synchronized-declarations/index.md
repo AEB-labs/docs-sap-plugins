@@ -133,7 +133,7 @@ The folllowing fields are returned in the synchronization per declaration item:
 | GROSSMASS                  | Gross weight                   |
 | NETMASS                    | Net weight                     |
 | PARTIES                    | List of parties                |
-| QUANTITIES                 | quantities                     |
+| QUANTITIES                 | Quantities                     |
 | SEQUENCE_NUMBER            | Declaration item number        |
 | STATUS                     | Status                         |
 | CLIENT_SYSTEM_IDS_V1       | Host system IDs                |
