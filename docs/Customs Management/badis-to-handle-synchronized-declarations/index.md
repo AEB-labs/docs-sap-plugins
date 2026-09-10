@@ -126,18 +126,18 @@ The folllowing fields are returned in the synchronization per declaration:&#x20;
 
 The folllowing fields are returned in the synchronization per declaration item:
 
-| Technical field name       | Description                    |
-| -------------------------- | ------------------------------ |
-| CUSTOMS_SPECIAL_PROCEDURES | Customs special procedures     |
-| CUSTOMS_PROCEDURES         | Customs procedures             |
-| CLIENT_SPECIFIC_FIELDS     | List of client specific fields |
-| AMOUNTS_OF_MONEY           | Amounts of money               |
-| CLASSIFICATIONS            | List of classifications        |
-| GOODS_DESCRIPTION          | Goods description              |
-| GROSSMASS                  | Gross weight                   |
-| NETMASS                    | Net weight                     |
-| PARTIES                    | List of parties                |
-| QUANTITIES                 | Quantities                     |
-| SEQUENCE_NUMBER            | Declaration item number        |
-| STATUS                     | Status                         |
-| CLIENT_SYSTEM_IDS_V1       | Host system IDs                |
+| Technical field name       | Description                        |
+| -------------------------- | ---------------------------------- |
+| CUSTOMS_SPECIAL_PROCEDURES | Customs special procedures         |
+| CUSTOMS_PROCEDURES         | Customs procedures                 |
+| CLIENT_SPECIFIC_FIELDS     | List of client specific fields     |
+| AMOUNTS_OF_MONEY           | Amounts of money                   |
+| CLASSIFICATIONS            | List of classifications            |
+| GOODS_DESCRIPTION          | Goods description                  |
+| GROSSMASS                  | Gross weight                       |
+| NETMASS                    | Net weight                         |
+| PARTIES                    | List of parties                    |
+| QUANTITIES                 | Quantities                         |
+| SEQUENCE_NUMBER            | Declaration item number            |
+| STATUS                     | Status                             |
+| CLIENT_SYSTEM_IDS_V1       | Client system IDs of items in SAP  |
