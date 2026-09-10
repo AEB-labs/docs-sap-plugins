@@ -80,40 +80,40 @@ All listed BAdIs support raising the exception `/AEB/CX_AES_PB_ET_SYNC_SC` as do
 
 ### List of fields
 
-| Technical field name       | Description |
-| -------------------------- | ----------- |
-| DECL_PROCEDURE_TYPE_CODE   |             |
-| CLIENT_SPECIFIC_FIELDS     |             |
-| ADDITIONAL_REFERENCE1      |             |
-| AMOUNTS_OF_MONEY           |             |
-| ATTACHMENTS                |             |
-| BUSINESS_OBJECT_ID         |             |
-| CLIENT_SYSTEM_ID           |             |
-| COMMERCIAL_REFERENCE_NUMBE |             |
-| CONSIGNMENT_ID_CLIENT_SYST |             |
-| CONSIGNMENT_NUMBER         |             |
-| CUSTOMS_OFFICES            |             |
-| CUSTOMS_PROCESS_CODE       |             |
-| CUSTOMS_REGISTRATION_NUMBE |             |
-| DATES                      |             |
-| DECISIVE_DATE              |             |
-| DECLARATION_TYPECODE       |             |
-| DECLARATION_VERSION        |             |
-| DELIVERY_NUMBER            |             |
-| DELIVERY_REFERENCES        |             |
-| DESTINATION_COUNTRY_CODE   |             |
-| DISPATCH_COUNTRY_CODE      |             |
-| INVOICE_NUMBER             |             |
-| IS_DELETED                 |             |
-| IS_VALID                   |             |
-| ITEMS                      |             |
-| LOCAL_REFERENCE            |             |
-| ORG_UNIT                   |             |
-| PARTIES                    |             |
-| PERSON_IN_CHARGE           |             |
-| STATUS                     |             |
-| TOTAL_GROSSMASS            |             |
-| TOTAL_INVOICE_PRICE        |             |
-| TOTAL_NETMASS              |             |
-| TRANSPORT_MEANS            |             |
-| INTERNAL_REFERENCE_V1      |             |
+| Technical field name       | Description                                            |
+| -------------------------- | ------------------------------------------------------ |
+| DECL_PROCEDURE_TYPE_CODE   | declaration procedure type                             |
+| CLIENT_SPECIFIC_FIELDS     | customer-specific fields                               |
+| ADDITIONAL_REFERENCE1      | additional reference                                   |
+| AMOUNTS_OF_MONEY           | amounts of money                                       |
+| ATTACHMENTS                | documents                                              |
+| BUSINESS_OBJECT_ID         | business object ID                                     |
+| CLIENT_SYSTEM_ID           | installation ID                                        |
+| COMMERCIAL_REFERENCE_NUMBE | commercial reference number                            |
+| CONSIGNMENT_ID_CLIENT_SYST | host system ID                                         |
+| CONSIGNMENT_NUMBER         | consignment number                                     |
+| CUSTOMS_OFFICES            | customs offices                                        |
+| CUSTOMS_PROCESS_CODE       | e-customs system                                       |
+| CUSTOMS_REGISTRATION_NUMBE | customs registration number                            |
+| DATES                      | dates                                                  |
+| DECISIVE_DATE              | decisive date                                          |
+| DECLARATION_TYPECODE       | type of customs declaration                            |
+| DECLARATION_VERSION        | customs declaration version                            |
+| DELIVERY_NUMBER            | delivery number                                        |
+| DELIVERY_REFERENCES        | reference numbers of the deliveries in the declaration |
+| DESTINATION_COUNTRY_CODE   | destination country code                               |
+| DISPATCH_COUNTRY_CODE      | country of dispatch code                               |
+| INVOICE_NUMBER             | invoice number                                         |
+| IS_DELETED                 | deleted flag                                           |
+| IS_VALID                   | validity flag                                          |
+| ITEMS                      | items                                                  |
+| LOCAL_REFERENCE            | LRN                                                    |
+| ORG_UNIT                   | organizational unit                                    |
+| PARTIES                    | partners                                               |
+| PERSON_IN_CHARGE           | contact                                                |
+| STATUS                     | status                                                 |
+| TOTAL_GROSSMASS            | gross weight                                           |
+| TOTAL_INVOICE_PRICE        | invoice total                                          |
+| TOTAL_NETMASS              | net weight                                             |
+| TRANSPORT_MEANS            | modes of transport                                     |
+| INTERNAL_REFERENCE_V1      | internal reference                                     |
