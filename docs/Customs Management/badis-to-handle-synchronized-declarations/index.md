@@ -80,6 +80,8 @@ All listed BAdIs support raising the exception `/AEB/CX_AES_PB_ET_SYNC_SC` as do
 
 ### List of fields
 
+The folllowing fields are returned in the synchronization per declaration on header level:&#x20;
+
 | Technical field name       | Description                                            |
 | -------------------------- | ------------------------------------------------------ |
 | DECL_PROCEDURE_TYPE_CODE   | Declaration procedure type                             |
@@ -117,3 +119,7 @@ All listed BAdIs support raising the exception `/AEB/CX_AES_PB_ET_SYNC_SC` as do
 | TOTAL_NETMASS              | Net weight                                             |
 | TRANSPORT_MEANS            | Modes of transport                                     |
 | INTERNAL_REFERENCE_V1      | Internal reference                                     |
+
+he folllowing fields are returned in the synchronization on item  level:
+
+<br />
