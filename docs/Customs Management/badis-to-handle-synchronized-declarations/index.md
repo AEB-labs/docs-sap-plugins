@@ -80,25 +80,40 @@ All listed BAdIs support raising the exception `/AEB/CX_AES_PB_ET_SYNC_SC` as do
 
 ### List of fields
 
-| Technical field name | Description |
-| -------------------- | ----------- |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
-|                      |             |
+| Technical field name       | Description |
+| -------------------------- | ----------- |
+| DECL_PROCEDURE_TYPE_CODE   |             |
+| CLIENT_SPECIFIC_FIELDS     |             |
+| ADDITIONAL_REFERENCE1      |             |
+| AMOUNTS_OF_MONEY           |             |
+| ATTACHMENTS                |             |
+| BUSINESS_OBJECT_ID         |             |
+| CLIENT_SYSTEM_ID           |             |
+| COMMERCIAL_REFERENCE_NUMBE |             |
+| CONSIGNMENT_ID_CLIENT_SYST |             |
+| CONSIGNMENT_NUMBER         |             |
+| CUSTOMS_OFFICES            |             |
+| CUSTOMS_PROCESS_CODE       |             |
+| CUSTOMS_REGISTRATION_NUMBE |             |
+| DATES                      |             |
+| DECISIVE_DATE              |             |
+| DECLARATION_TYPECODE       |             |
+| DECLARATION_VERSION        |             |
+| DELIVERY_NUMBER            |             |
+| DELIVERY_REFERENCES        |             |
+| DESTINATION_COUNTRY_CODE   |             |
+| DISPATCH_COUNTRY_CODE      |             |
+| INVOICE_NUMBER             |             |
+| IS_DELETED                 |             |
+| IS_VALID                   |             |
+| ITEMS                      |             |
+| LOCAL_REFERENCE            |             |
+| ORG_UNIT                   |             |
+| PARTIES                    |             |
+| PERSON_IN_CHARGE           |             |
+| STATUS                     |             |
+| TOTAL_GROSSMASS            |             |
+| TOTAL_INVOICE_PRICE        |             |
+| TOTAL_NETMASS              |             |
+| TRANSPORT_MEANS            |             |
+| INTERNAL_REFERENCE_V1      |             |
