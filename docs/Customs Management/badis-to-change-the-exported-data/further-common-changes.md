@@ -511,6 +511,31 @@ LOOP AT im_value->get_deliveries( ) INTO data(lo_delivery).
 ENDLOOP.
 ```
 
+## Change customs procedure code
+This example is for the export procedure code. For further reference please contact your AEB implementation consultant.
+```
+    DATA(lt_deliveries) = im_value->get_deliveries( ).
+    LOOP AT lt_deliveries INTO DATA(lo_delivery).
+      DATA(lt_items) = lo_delivery->get_items( ).
+      LOOP AT lt_items INTO DATA(lo_item).
+        DATA(lt_customs_procedures) = lo_item->get_customs_procedures( ).
+        LOOP AT lt_customs_procedures INTO DATA(lo_customs_procedure).
+          IF lo_customs_procedure->get_customs_procedure_type( )->v = 'EXPORTPROC'.
+            DELETE lt_customs_procedures.
+          ENDIF.
+        ENDLOOP.
+        DATA(lo_procedure_type) = im_nullable_value_factory->char_35( im_value = 'EXPORTPROC' ).
+        DATA(lo_procedure_code) = im_nullable_value_factory->char_20( im_value = '1040' ).
+        lo_customs_procedure = im_cons_data_object_factory->new_aes_pb_customs_proc_do(
+                                 im_customs_procedure_code = lo_procedure_code                 " Customs procedure code
+                                 im_customs_procedure_type = lo_procedure_type                 " Customs procedure type
+                               ).
+        APPEND lo_customs_procedure TO lt_customs_procedures.
+        lo_item->set_customs_procedures( im_value = lt_customs_procedures ).
+      ENDLOOP.
+    ENDLOOP.
+```
+
 
 # /AEB/AES_CONS_MD_01
 
