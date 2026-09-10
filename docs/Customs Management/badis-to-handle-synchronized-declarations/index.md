@@ -120,6 +120,9 @@ The folllowing fields are returned in the synchronization per declaration on hea
 | TRANSPORT_MEANS            | Modes of transport                                     |
 | INTERNAL_REFERENCE_V1      | Internal reference                                     |
 
-he folllowing fields are returned in the synchronization on item  level:
+The folllowing fields are returned in the synchronization on item  level:
 
-<br />
+|   |   |
+| - | - |
+|   |   |
+|   |   |
