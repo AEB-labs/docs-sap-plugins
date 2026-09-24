@@ -124,8 +124,6 @@ To handle the update event of a questionnaire you can use the following BAdIs:
 
 <br />
 
-<br />
-
 <Callout icon="❗️" theme="error">
   ### Using the result of a questionnaire in Export Ccontrols
 
@@ -133,6 +131,8 @@ To handle the update event of a questionnaire you can use the following BAdIs:
 
   As the result is returned to SAP asynchronously via the journal framework, it is otherwise possible that the result of a completed questionnaire has not yet been processed at the time of the export controls check.
 </Callout>
+
+Let's implement a simple scenario were we update a Z-field of VBAK with the status of the questionnaire which is linked to the sales order:
 
 ```text Update vbak when questionnaire update event occurs
 DATA:
