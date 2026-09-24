@@ -40,11 +40,9 @@ If you want to read data of the export controls checks for subsequent processes,
 
     <tr>
       <td>
-        Read the approval and clearing data for the items of a document.  
-        The parameters IM_ORG_UNIT and IM_ENGN_CALL_PARAMS are optional. Both parameters will be determined by the functions itself if left empty.  
-        The fields VBELN and POSNR of parameter IM_REQUESTS are deprecated. Use instead the fields DOC_NO and ITEM_REF_ID of the same structure. <br />  
+        Read the approval and clearing data for the items of a document.<br />The parameters IM_ORG_UNIT and IM_ENGN_CALL_PARAMS are optional. Both parameters will be determined by the functions itself if left empty.<br />The fields VBELN and POSNR of parameter IM_REQUESTS are deprecated. Use instead the fields DOC_NO and ITEM_REF_ID of the same structure. <br />
 
-        * This function calls a web service when executed.
+        * Note: This function module is calling a web service when executed.
       </td>
 
       <td>
@@ -76,7 +74,7 @@ If you want to read data of the export controls checks for subsequent processes,
       <td>
         Read further informations about the license.
 
-        * This function works only for licenses from license management (LM). But it cannot  be used for the general licenses from export controls. (meaning the licenses from the data service).  
+        * This function works only for licenses from license management (LM). But it cannot  be used for the general licenses from export controls. (meaning the licenses from the data service).
         * This function calls a web service when executed.
       </td>
 
@@ -127,7 +125,7 @@ To handle the update event of a questionnaire you can use the following BAdIs:
 Let's implement a simple scenario were we update a Z-field of VBAK with the status of the questionnaire which is linked to the sales order.
 
 <Callout icon="❗️" theme="error">
-   If you want to use the result of an questionnaire in the export control check, e.g.  for the end usage or other manual restrictions,  do not use the “Handle Update” BAdI. You'll need to determine this data at runtime. For further information, see [Change data for Export Control checks](https://sap-plugins.docs.developers.aeb.com/docs/change-data-of-export-controls-check)  and the class /AEB/CL_CMP_PB_QUEST_BC on top of this page. 
+  If you want to use the result of an questionnaire in the export control check, e.g.  for the end usage or other manual restrictions,  do not use the “Handle Update” BAdI. You'll need to determine this data at runtime. For further information, see [Change data for Export Control checks](https://sap-plugins.docs.developers.aeb.com/docs/change-data-of-export-controls-check)  and the class /AEB/CL_CMP_PB_QUEST_BC on top of this page.
 
   As the result is returned to SAP asynchronously via  journal, it is otherwise possible that the result of a questionnaire that has just been completed has not yet been processed at the time of the check.
 </Callout>
@@ -166,9 +164,7 @@ DATA:
     UPDATE vbak SET zz_quest_res = total_result_type WHERE vbeln = im_vbeln.
 ```
 
-Just use the passed parameter im_questionnaire_bc to get the questionnaire. Get the total result type and update the VBAK table. In this context the table is locked so no other process can change it.  
-If you don't want to use a direct SQL update Statement to update your SAP document, you can use one of the released BAPIs, e.g. BAPI_SALESORDER_CHANGE that are provided by SAP. But then you have to consider certain things: Calling a BAPI will also run through the user exits or BAdIs for saving the document.  Usually the AEB includes for the online check are implemented there, which means an additional Compliance check is triggered when calling the SAP BAPI. In most cases, this check is not needed, as the AEB standard also does a re-check of the SAP document after the HDL_QUESTIONNAIRE_UPDATED BAdI is called.  
-To prevent that the BAPI triggers the online check, use the public helper class /AEB/CL_CMP_PB_CHK_HP. This one is also an importing parameter of the BAdI method. The class has the method SUPPRESS_CHECK which has to be called before every BAPI call and the method RESET_SUPPRESS_CHECK which enables the check again for the next BAPI call. A recommended use of the BAPI in this BAdI implementation would therefore look like as follows:
+Just use the passed parameter im_questionnaire_bc to get the questionnaire. Get the total result type and update the VBAK table. In this context the table is locked so no other process can change it.<br />If you don't want to use a direct SQL update Statement to update your SAP document, you can use one of the released BAPIs, e.g. BAPI_SALESORDER_CHANGE that are provided by SAP. But then you have to consider certain things: Calling a BAPI will also run through the user exits or BAdIs for saving the document.  Usually the AEB includes for the online check are implemented there, which means an additional Compliance check is triggered when calling the SAP BAPI. In most cases, this check is not needed, as the AEB standard also does a re-check of the SAP document after the HDL_QUESTIONNAIRE_UPDATED BAdI is called.<br />To prevent that the BAPI triggers the online check, use the public helper class /AEB/CL_CMP_PB_CHK_HP. This one is also an importing parameter of the BAdI method. The class has the method SUPPRESS_CHECK which has to be called before every BAPI call and the method RESET_SUPPRESS_CHECK which enables the check again for the next BAPI call. A recommended use of the BAPI in this BAdI implementation would therefore look like as follows:
 
 ```text Update with use of a BAPI
 DATA:
@@ -197,7 +193,9 @@ DATA:
   im_public_check_helper->reset_suppress_check( ).
 ```
 
-> 🚧 Call the BAPI_TRANSACTION_COMMIT to ensure that the changed data can be used by the following Compliance check. Otherwise the check is not executed with the current data.
+<Callout icon="🚧" theme="warn">
+  ### Call the BAPI_TRANSACTION_COMMIT to ensure that the changed data can be used by the following Compliance check. Otherwise the check is not executed with the current data.
+</Callout>
 
 ## Raise execptions during questionnaire updates
 
