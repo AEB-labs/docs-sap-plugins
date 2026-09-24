@@ -75,7 +75,7 @@ If you want to read data of the export controls checks for subsequent processes,
         Read further informations about the license.
 
         * This function works only for licenses from license management (LM). But it cannot  be used for the general licenses from export controls. (meaning the licenses from the data service).
-        * This function calls a web service when executed.
+        * Note: This function module is calling a web service when executed.
       </td>
 
       <td>
