@@ -56,7 +56,7 @@ ENDLOOP.
 
 This example sets the details for the contact person at the consignee.  Note: The consignee is handled by Monitoring & Alerting on item level.&#x20;
 
-```text
+```text Consignee contact
 DATA:
   contact TYPE REF TO /aeb/if_01_pb_contact_do.
 FIELD-SYMBOLS:
