@@ -54,25 +54,22 @@ ENDLOOP.
 
 <br />
 
-This example sets the details for the contact person at the consignee.  This data needs to be&#x20;
+This example sets the details for the contact person at the consignee.  Note: The consignee is handled by Monitoring & Alerting on item level.&#x20;
 
 ```text
-METHOD /aeb/if_ex_ma_cwt_shp_02~after_standard_filling.
-  
-  DATA:
-      contact TYPE REF TO /aeb/if_01_pb_contact_do.
-  FIELD-SYMBOLS:
+DATA:
+  contact TYPE REF TO /aeb/if_01_pb_contact_do.
+FIELD-SYMBOLS:
     <curr_item>      TYPE /aeb/ma_pb_cwt20_cons_itm_do.
 
-   contact = im_data_object_factory->new_01_contact_do( ).
+  contact = im_data_object_factory->new_01_contact_do( ).
   contact->set_name( 'Henry Smith' ).
   contact->set_email( 'henry.smith@no-reply.com' ).
   contact->set_phone( '0011194053' ).
 
-
-
+"Loop over items
  LOOP AT ch_cons_w_trans_do-items ASSIGNING <curr_item>.
-    <curr_item>-consignee-contact = contact.    “needs to be sent on item level
+    <curr_item>-consignee-contact = contact.    “needs to be assigned on item level
   ENDLOOP.
 
 ENDMETHOD.   
