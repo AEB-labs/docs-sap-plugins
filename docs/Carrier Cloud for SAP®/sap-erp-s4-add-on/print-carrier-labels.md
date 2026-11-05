@@ -113,7 +113,7 @@ This code snippet outlines the printing of a PDF label:
 
 ### Print ZPL label  &#x20;
 
-This example outlines the printing of an ZPL label when executing an output type for an outbound delivery:
+This example outlines the printing of a ZPL label when executing an output type for an outbound delivery:
 
 ```Text Print ZPL labels executing an output type
 FORM print_single_label USING iv_vbeln TYPE vbeln_vl
