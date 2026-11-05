@@ -56,9 +56,66 @@ When you trigger the data transfer to Carrier Connect with an output message or 
 >
 > AEB just provides the label stream in the appropriate format for the printer. Examples provided here just describe one possible approach, technical availabilities may vary dependend on the infrastructure of your SAP system.
 
-This example outlines the printing when executing an output type for an outbound delivery:
+<br />
 
-```Text Print labels executing an output type
+### Print PDF label&#x20;
+
+This example outlines the printing of a PDF label:
+
+```text Print PDF label
+  DATA handle   TYPE sy-tabix.
+  DATA partname TYPE adspart.
+
+  " Open ADS spool request (doc type ADSP = PDF)
+  CALL FUNCTION 'ADS_SR_OPEN'
+    EXPORTING
+      dest            = output_device
+      name            = Carrier'
+      suffix2         = CONV rspo2name( delivery )
+      titleline       = CONV rspotitle( |Carrier-Label { delivery ALPHA = OUT }| )
+      immediate_print = abap_true
+      doctype         = 'ADSP'
+    IMPORTING
+      handle          = handle
+      spoolid         = result
+      partname        = partname
+    EXCEPTIONS
+      OTHERS          = 1.
+
+  " Write PDF into the spool part file
+  CALL FUNCTION 'ADS_WRITE_TO_FILE'
+    EXPORTING
+      filename = CONV fileextern( |{ partname }.pdf| )
+      buffer   = document-content
+    EXCEPTIONS
+      OTHERS   = 1.
+
+  CALL FUNCTION 'ADS_SR_CONFIRM'
+    EXPORTING
+      handle   = handle
+      partname = partname
+      size     = xstrlen( document-content )
+      pages    = 1
+    EXCEPTIONS
+      OTHERS   = 1.
+
+  CALL FUNCTION 'ADS_SR_CLOSE'
+    EXPORTING
+      handle = handle
+      final  = abap_true
+    EXCEPTIONS
+      OTHERS = 1.
+
+
+```
+
+&#x20;
+
+### Print ZPL label  &#x20;
+
+This example outlines the printing of an ZPL label when executing an output type for an outbound delivery:
+
+```Text Print ZPL labels executing an output type
 FORM print_single_label USING iv_vbeln TYPE vbeln_vl
                             is_doc   TYPE /aeb/pa_pb_dl_doc_do.
 
@@ -147,3 +204,9 @@ FORM print_single_label USING iv_vbeln TYPE vbeln_vl
 
 ENDFORM.
 ```
+
+<br />
+
+<br />
+
+<br />
