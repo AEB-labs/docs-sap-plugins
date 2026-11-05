@@ -60,7 +60,7 @@ When you trigger the data transfer to Carrier Connect with an output message or 
 
 ### Print PDF label&#x20;
 
-This example outlines the printing of a PDF label:
+This code snippet outlines the printing of a PDF label:
 
 ```text Print PDF label
   DATA handle   TYPE sy-tabix.
