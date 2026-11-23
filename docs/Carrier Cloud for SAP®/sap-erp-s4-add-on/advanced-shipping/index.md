@@ -16,9 +16,27 @@ The class **/AEB/CL_PA_PB_CARRIER_BF**  offers the complete API functionality of
 
 The class offers different methods: 
 
-<br />
+## Öffentliche Methoden von `/AEB/CL_PA_PB_CARRIER_BF`
 
-<Image align="center" alt="The API class provided by the add-on for SAP" border={false} width="75% " src="https://files.readme.io/f8bbe8d86094fde2efeff1a377740e3a454cd6e3a100a7a92a316980de71d3a2-image.png" />
+| Methodenname               | Beschreibung                                                                                                |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `ADD_SHIPMENT_ATTACHMENTS` | Fügt einer Sendung Anhänge hinzu.                                                                           |
+| `CANCEL_SHIPMENT`          | Storniert eine Sendung.                                                                                     |
+| `CREATE_PICKUP`            | Erstellt eine neue Abholung für die angegebenen Sendungen.                                                  |
+| `CREATE_SHIPMENT`          | Erstellt eine Sendung mit den übergebenen Daten.                                                            |
+| `DELETE_ITEM`              | Löscht eine vorhandene Position.                                                                            |
+| `DELETE_PACKAGE`           | Löscht ein vorhandenes Packstück.                                                                           |
+| `DELETE_PICKUP`            | Storniert eine vorhandene Abholung.                                                                         |
+| `GET_PICKUPS`              | Liefert Detailinformationen zu Abholungen.                                                                  |
+| `GET_SHIPMENT_ATTACHMENTS` | Ruft die Metadaten der Sendungsanhänge und optional die Dateiinhalte ab.                                    |
+| `GET_SHIPMENTS`            | Liefert Detailinformationen zu Sendungen.                                                                   |
+| `NEW_FOR`                  | Erzeugt eine Instanz der Fassade für die angegebene Organisationseinheit und Carrier-Connect-Konfiguration. |
+| `PROCESS_ITEM`             | Führt Operationen auf einer Position aus.                                                                   |
+| `PROCESS_PACKAGE`          | Führt Operationen auf einem Packstück aus.                                                                  |
+| `PROCESS_PICKUP`           | Druckt die Manifestdokumente einer Abholung.                                                                |
+| `PROCESS_SHIPMENT`         | Bearbeitet eine vorhandene Sendung.                                                                         |
+| `UPDATE_CUSTOMS_DATA`      | Aktualisiert die Zolldaten einer vorhandenen Sendung.                                                       |
+| `VALIDATE_SHIPMENT`        | Validiert eine Sendung anhand der übergebenen Daten.                                                        |
 
 For a detailed functional documentation of the API see: [API Documentation Carrier Cloud](https://transport-freight-management.docs.developers.aeb.com/docs/about-carrier-connect).
 
