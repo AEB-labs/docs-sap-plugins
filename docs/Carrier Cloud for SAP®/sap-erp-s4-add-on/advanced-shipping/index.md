@@ -16,27 +16,27 @@ The class **/AEB/CL_PA_PB_CARRIER_BF**  offers the complete API functionality of
 
 The class offers different methods: 
 
-## Öffentliche Methoden von `/AEB/CL_PA_PB_CARRIER_BF`
+## Public Methods of `/AEB/CL_PA_PB_CARRIER_BF`
 
-| Methodenname               | Beschreibung                                                                                                |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `ADD_SHIPMENT_ATTACHMENTS` | Fügt einer Sendung Anhänge hinzu.                                                                           |
-| `CANCEL_SHIPMENT`          | Storniert eine Sendung.                                                                                     |
-| `CREATE_PICKUP`            | Erstellt eine neue Abholung für die angegebenen Sendungen.                                                  |
-| `CREATE_SHIPMENT`          | Erstellt eine Sendung mit den übergebenen Daten.                                                            |
-| `DELETE_ITEM`              | Löscht eine vorhandene Position.                                                                            |
-| `DELETE_PACKAGE`           | Löscht ein vorhandenes Packstück.                                                                           |
-| `DELETE_PICKUP`            | Storniert eine vorhandene Abholung.                                                                         |
-| `GET_PICKUPS`              | Liefert Detailinformationen zu Abholungen.                                                                  |
-| `GET_SHIPMENT_ATTACHMENTS` | Ruft die Metadaten der Sendungsanhänge und optional die Dateiinhalte ab.                                    |
-| `GET_SHIPMENTS`            | Liefert Detailinformationen zu Sendungen.                                                                   |
-| `NEW_FOR`                  | Erzeugt eine Instanz der Fassade für die angegebene Organisationseinheit und Carrier-Connect-Konfiguration. |
-| `PROCESS_ITEM`             | Führt Operationen auf einer Position aus.                                                                   |
-| `PROCESS_PACKAGE`          | Führt Operationen auf einem Packstück aus.                                                                  |
-| `PROCESS_PICKUP`           | Druckt die Manifestdokumente einer Abholung.                                                                |
-| `PROCESS_SHIPMENT`         | Bearbeitet eine vorhandene Sendung.                                                                         |
-| `UPDATE_CUSTOMS_DATA`      | Aktualisiert die Zolldaten einer vorhandenen Sendung.                                                       |
-| `VALIDATE_SHIPMENT`        | Validiert eine Sendung anhand der übergebenen Daten.                                                        |
+| Method Name                | Description                                                                                        |
+| -------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ADD_SHIPMENT_ATTACHMENTS` | Adds attachments to a shipment.                                                                    |
+| `CANCEL_SHIPMENT`          | Cancels a shipment.                                                                                |
+| `CREATE_PICKUP`            | Creates a pickup for the specified shipments.                                                      |
+| `CREATE_SHIPMENT`          | Creates a shipment using the supplied data.                                                        |
+| `DELETE_ITEM`              | Deletes an existing shipment item.                                                                 |
+| `DELETE_PACKAGE`           | Deletes an existing package.                                                                       |
+| `DELETE_PICKUP`            | Cancels an existing pickup.                                                                        |
+| `GET_PICKUPS`              | Retrieves pickup details.                                                                          |
+| `GET_SHIPMENT_ATTACHMENTS` | Retrieves shipment attachment metadata and, optionally, file contents.                             |
+| `GET_SHIPMENTS`            | Retrieves shipment details.                                                                        |
+| `NEW_FOR`                  | Creates a facade instance for the specified organizational unit and Carrier Connect configuration. |
+| `PROCESS_ITEM`             | Performs the requested operations on a shipment item.                                              |
+| `PROCESS_PACKAGE`          | Performs the requested operations on a package.                                                    |
+| `PROCESS_PICKUP`           | Prints the manifest documents for a pickup.                                                        |
+| `PROCESS_SHIPMENT`         | Processes an existing shipment.                                                                    |
+| `UPDATE_CUSTOMS_DATA`      | Updates customs data for an existing shipment.                                                     |
+| `VALIDATE_SHIPMENT`        | Validates a shipment using the supplied data.                                                      |
 
 For a detailed functional documentation of the API see: [API Documentation Carrier Cloud](https://transport-freight-management.docs.developers.aeb.com/docs/about-carrier-connect).
 
