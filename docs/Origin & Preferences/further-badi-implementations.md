@@ -10,97 +10,16 @@ metadata:
 next:
   description: ''
 ---
-<Table align={["left","left"]}>
-  <thead>
-    <tr>
-      <th style={{ textAlign: "left" }}>
-        BAdI name
-      </th>
-
-      <th style={{ textAlign: "left" }}>
-        Description
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td style={{ textAlign: "left" }}>
-        /AEB/WU\_MMDS\_01
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        Synchronization material data\
-        This BAdI handles additional events during the synchronization of the material data. This BAdI runs per material and destination country during the journal synchronization (report: /AEB/01\_JE\_WORKER or /AEB/WU\_JE\_WORKER).
-      </td>
-    </tr>
-
-    <tr>
-      <td style={{ textAlign: "left" }}>
-        /AEB/WU\_DOC\_CUS\_01
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        Data change any object\
-        This BAdI makes it possible to change data after is has been populated by default to determine the declaration of origin.
-      </td>
-    </tr>
-
-    <tr>
-      <td style={{ textAlign: "left" }}>
-        /AEB/WU\_DOC\_INV\_01
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        Data change invoice\
-        This BAdI makes it possible to change data after is has been populated by default to determine the declaration of origin.
-      </td>
-    </tr>
-
-    <tr>
-      <td style={{ textAlign: "left" }}>
-        /AEB/WU\_DOC\_SD\_01
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        Data change order\
-        This BAdI makes it possible to change data after is has been populated by default to determine the declaration of origin.
-      </td>
-    </tr>
-
-    <tr>
-      <td style={{ textAlign: "left" }}>
-        /AEB/WU\_DOC\_DLV\_01
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        Data change delivery\
-        This BAdI makes it possible to change data after is has been populated by default to determine the declaration of origin.
-      </td>
-    </tr>
-
-    <tr>
-      <td style={{ textAlign: "left" }}>
-        /AEB/01\_QTSK\_CTRL\_01
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        Limiting the processes to be used by QCTSK\
-        This BAdI offers the possibility to limit the used processes from server groups for QCTSK.
-      </td>
-    </tr>
-
-    <tr>
-      <td style={{ textAlign: "left" }}>
-        /AEB/01\_SHM\_01
-      </td>
-
-      <td style={{ textAlign: "left" }}>
-        Activation of shared memory for texts
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| BAdI name            | Description                                                                                                                                                                                                                                                      |
+| :------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| /AEB/WU_MMDS_01      | Synchronization material data<br />This BAdI handles additional events during the synchronization of the material data. This BAdI runs per material and destination country during the journal synchronization (report: /AEB/01_JE_WORKER or /AEB/WU_JE_WORKER). |
+| /AEB/WU_PRFS_01      | Synchronize Proof data<br />This BAdI runs during the journal synchronization (report: /AEB/01_JE_WORKER or /AEB/WU_JE_WORKER).                                                                                                                                  |
+| /AEB/WU_DOC_CUS_01   | Data change any object<br />This BAdI makes it possible to change data after is has been populated by default to determine the declaration of origin.                                                                                                            |
+| /AEB/WU_DOC_INV_01   | Data change invoice<br />This BAdI makes it possible to change data after is has been populated by default to determine the declaration of origin.                                                                                                               |
+| /AEB/WU_DOC_SD_01    | Data change order<br />This BAdI makes it possible to change data after is has been populated by default to determine the declaration of origin.                                                                                                                 |
+| /AEB/WU_DOC_DLV_01   | Data change delivery<br />This BAdI makes it possible to change data after is has been populated by default to determine the declaration of origin.                                                                                                              |
+| /AEB/01_QTSK_CTRL_01 | Limiting the processes to be used by QCTSK<br />This BAdI offers the possibility to limit the used processes from server groups for QCTSK.                                                                                                                       |
+| /AEB/01_SHM_01       | Activation of shared memory for texts                                                                                                                                                                                                                            |
 
 ## BAdI /AEB/01\_QTSK\_CTRL\_01
 
