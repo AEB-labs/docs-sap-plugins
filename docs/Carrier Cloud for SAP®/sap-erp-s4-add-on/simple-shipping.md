@@ -245,9 +245,9 @@ In some cases, it might be necessary to cancel the shipping order in Carrier Clo
   </tbody>
 </Table>
 
-Here is a code snippet that shows how to cancel a shiping order that was created based on a delivery from SAP:
+This code snippet demonstrates how to cancel a shiping order that was created based on a delivery:
 
-```text
+```text Cancel a shipping order
 REPORT zaeb_cancel_shipment.
 
 PARAMETERS: vbeln TYPE likp-vbeln.
